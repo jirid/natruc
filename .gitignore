@@ -1,0 +1,5 @@
+.DS_Store
+*.pbxuser
+xcuserdata
+*.xccheckout
+*.xcuserstate
