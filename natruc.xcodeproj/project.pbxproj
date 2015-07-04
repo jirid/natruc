@@ -14,6 +14,7 @@
 		4836AFED1B47DFB70012914B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4836AFEB1B47DFB70012914B /* LaunchScreen.xib */; };
 		4836AFF91B47DFB70012914B /* natrucTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836AFF81B47DFB70012914B /* natrucTests.swift */; };
 		4836B0061B47E0AF0012914B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4836B0041B47E0AF0012914B /* Localizable.strings */; };
+		4836B0081B47E3FC0012914B /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 4836B0071B47E3FC0012914B /* iTunesArtwork@2x */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		4836B0021B47E00E0012914B /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Main.strings; sourceTree = "<group>"; };
 		4836B0031B47E00E0012914B /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4836B0051B47E0AF0012914B /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4836B0071B47E3FC0012914B /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		4836AFE01B47DFB70012914B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4836B0071B47E3FC0012914B /* iTunesArtwork@2x */,
 				4836AFE11B47DFB70012914B /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -197,6 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4836B0081B47E3FC0012914B /* iTunesArtwork@2x in Resources */,
 				4836AFE81B47DFB70012914B /* Main.storyboard in Resources */,
 				4836B0061B47E0AF0012914B /* Localizable.strings in Resources */,
 				4836AFED1B47DFB70012914B /* LaunchScreen.xib in Resources */,
