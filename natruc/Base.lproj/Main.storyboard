@@ -7,7 +7,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="jwW-gH-fMU">
             <objects>
-                <tabBarController id="woP-gO-Pd7" sceneMemberID="viewController">
+                <tabBarController id="woP-gO-Pd7" customClass="TabBarController" customModule="natruc" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="xES-L7-yrS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -37,7 +37,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Header" translatesAutoresizingMaskIntoConstraints="NO" id="EmH-nv-aTy">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header" translatesAutoresizingMaskIntoConstraints="NO" id="EmH-nv-aTy">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="166"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="166" id="Vxs-gs-O9l"/>
@@ -51,7 +51,7 @@
                             <constraint firstItem="EmH-nv-aTy" firstAttribute="top" secondItem="fn8-kZ-Yaa" secondAttribute="top" id="raQ-nt-t7T"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Now" id="HO3-PB-fym"/>
+                    <tabBarItem key="tabBarItem" title="Now" image="now" id="HO3-PB-fym"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mNr-0p-J7q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -61,7 +61,7 @@
         <scene sceneID="wxc-t8-SnZ">
             <objects>
                 <navigationController title="Program Container" navigationBarHidden="YES" id="wZR-mg-qH9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Program" id="VAD-RA-gXR"/>
+                    <tabBarItem key="tabBarItem" title="Program" image="program" id="VAD-RA-gXR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6tq-Ty-1RK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -86,7 +86,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Header" translatesAutoresizingMaskIntoConstraints="NO" id="SLj-8O-VqK">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header" translatesAutoresizingMaskIntoConstraints="NO" id="SLj-8O-VqK">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="166"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="166" id="wWB-va-oIQ"/>
@@ -140,7 +140,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="adN-Vs-lLn"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" id="adN-Vs-lLn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RsM-6N-ro0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -158,7 +158,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Header" translatesAutoresizingMaskIntoConstraints="NO" id="Z1r-VZ-bne">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header" translatesAutoresizingMaskIntoConstraints="NO" id="Z1r-VZ-bne">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="166"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="166" id="Ygb-jt-PVI"/>
@@ -172,7 +172,7 @@
                             <constraint firstItem="Z1r-VZ-bne" firstAttribute="leading" secondItem="PMt-Us-CyJ" secondAttribute="leading" id="u0G-jt-YOy"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Info" id="0HM-pz-aO9"/>
+                    <tabBarItem key="tabBarItem" title="Info" image="info" id="0HM-pz-aO9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="buq-DA-gdm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -180,6 +180,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Header" width="414" height="166"/>
+        <image name="header" width="414" height="166"/>
+        <image name="info" width="25" height="25"/>
+        <image name="map" width="25" height="25"/>
+        <image name="now" width="25" height="25"/>
+        <image name="program" width="25" height="25"/>
     </resources>
 </document>

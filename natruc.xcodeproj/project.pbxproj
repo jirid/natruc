@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4835FA211B4955DA003FCE7F /* Natruc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4835FA201B4955DA003FCE7F /* Natruc.swift */; };
+		4835FA231B49576C003FCE7F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4835FA221B49576C003FCE7F /* TabBarController.swift */; };
 		4836AFE31B47DFB70012914B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836AFE21B47DFB70012914B /* AppDelegate.swift */; };
 		4836AFE81B47DFB70012914B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4836AFE61B47DFB70012914B /* Main.storyboard */; };
 		4836AFEA1B47DFB70012914B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4836AFE91B47DFB70012914B /* Images.xcassets */; };
@@ -32,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4835FA201B4955DA003FCE7F /* Natruc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Natruc.swift; sourceTree = "<group>"; };
+		4835FA221B49576C003FCE7F /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		4836AFDD1B47DFB70012914B /* natruc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = natruc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4836AFE11B47DFB70012914B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4836AFE21B47DFB70012914B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,11 +97,13 @@
 			isa = PBXGroup;
 			children = (
 				4836AFE21B47DFB70012914B /* AppDelegate.swift */,
+				4835FA221B49576C003FCE7F /* TabBarController.swift */,
 				4836B03A1B47ED6E0012914B /* NowViewController.swift */,
 				4836B03C1B47ED7F0012914B /* ProgramViewController.swift */,
 				4836B03E1B47ED8E0012914B /* DetailViewController.swift */,
 				4836B0401B47ED9A0012914B /* MapViewController.swift */,
 				4836B0421B47EDA70012914B /* InfoViewController.swift */,
+				4835FA201B4955DA003FCE7F /* Natruc.swift */,
 				4836AFE61B47DFB70012914B /* Main.storyboard */,
 				4836AFEB1B47DFB70012914B /* LaunchScreen.xib */,
 				4836B0041B47E0AF0012914B /* Localizable.strings */,
@@ -237,6 +243,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4836AFE31B47DFB70012914B /* AppDelegate.swift in Sources */,
+				4835FA231B49576C003FCE7F /* TabBarController.swift in Sources */,
+				4835FA211B4955DA003FCE7F /* Natruc.swift in Sources */,
 				4836B03B1B47ED6E0012914B /* NowViewController.swift in Sources */,
 				4836B03D1B47ED7F0012914B /* ProgramViewController.swift in Sources */,
 				4836B0411B47ED9A0012914B /* MapViewController.swift in Sources */,
