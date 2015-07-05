@@ -36,7 +36,20 @@
                     <view key="view" contentMode="scaleToFill" id="fn8-kZ-Yaa">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Header" translatesAutoresizingMaskIntoConstraints="NO" id="EmH-nv-aTy">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="166"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="166" id="Vxs-gs-O9l"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EmH-nv-aTy" firstAttribute="leading" secondItem="fn8-kZ-Yaa" secondAttribute="leading" id="0uO-07-Kb1"/>
+                            <constraint firstAttribute="trailing" secondItem="EmH-nv-aTy" secondAttribute="trailing" id="ds1-4E-5i4"/>
+                            <constraint firstItem="EmH-nv-aTy" firstAttribute="top" secondItem="fn8-kZ-Yaa" secondAttribute="top" id="raQ-nt-t7T"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Now" id="HO3-PB-fym"/>
                 </viewController>
@@ -47,7 +60,7 @@
         <!--Program Container-->
         <scene sceneID="wxc-t8-SnZ">
             <objects>
-                <navigationController title="Program Container" id="wZR-mg-qH9" sceneMemberID="viewController">
+                <navigationController title="Program Container" navigationBarHidden="YES" id="wZR-mg-qH9" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Program" id="VAD-RA-gXR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6tq-Ty-1RK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -72,7 +85,20 @@
                     <view key="view" contentMode="scaleToFill" id="cvS-So-KsJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Header" translatesAutoresizingMaskIntoConstraints="NO" id="SLj-8O-VqK">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="166"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="166" id="wWB-va-oIQ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SLj-8O-VqK" firstAttribute="leading" secondItem="cvS-So-KsJ" secondAttribute="leading" id="Ydk-V0-oPQ"/>
+                            <constraint firstItem="SLj-8O-VqK" firstAttribute="top" secondItem="cvS-So-KsJ" secondAttribute="top" id="lwh-HO-m4d"/>
+                            <constraint firstAttribute="trailing" secondItem="SLj-8O-VqK" secondAttribute="trailing" id="o7L-LC-Wdo"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5xg-94-X6O"/>
                     <connections>
@@ -131,7 +157,20 @@
                     <view key="view" contentMode="scaleToFill" id="PMt-Us-CyJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Header" translatesAutoresizingMaskIntoConstraints="NO" id="Z1r-VZ-bne">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="166"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="166" id="Ygb-jt-PVI"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Z1r-VZ-bne" secondAttribute="trailing" id="Ngk-Jm-xMO"/>
+                            <constraint firstItem="Z1r-VZ-bne" firstAttribute="top" secondItem="PMt-Us-CyJ" secondAttribute="top" id="gFd-eE-F2o"/>
+                            <constraint firstItem="Z1r-VZ-bne" firstAttribute="leading" secondItem="PMt-Us-CyJ" secondAttribute="leading" id="u0G-jt-YOy"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Info" id="0HM-pz-aO9"/>
                 </viewController>
@@ -140,4 +179,7 @@
             <point key="canvasLocation" x="328" y="1736"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Header" width="414" height="166"/>
+    </resources>
 </document>
