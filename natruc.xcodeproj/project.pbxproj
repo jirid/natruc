@@ -21,6 +21,14 @@
 		4836B03F1B47ED8E0012914B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836B03E1B47ED8E0012914B /* DetailViewController.swift */; };
 		4836B0411B47ED9A0012914B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836B0401B47ED9A0012914B /* MapViewController.swift */; };
 		4836B0431B47EDA70012914B /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836B0421B47EDA70012914B /* InfoViewController.swift */; };
+		489458CE1B517B3100105A6B /* bands.json in Resources */ = {isa = PBXBuildFile; fileRef = 489458C51B517B3100105A6B /* bands.json */; };
+		489458CF1B517B3100105A6B /* info-mapka-autem.png in Resources */ = {isa = PBXBuildFile; fileRef = 489458C71B517B3100105A6B /* info-mapka-autem.png */; };
+		489458D01B517B3100105A6B /* info-mapka-pesi.png in Resources */ = {isa = PBXBuildFile; fileRef = 489458C81B517B3100105A6B /* info-mapka-pesi.png */; };
+		489458D11B517B3100105A6B /* liwid.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 489458C91B517B3100105A6B /* liwid.jpg */; };
+		489458D21B517B3100105A6B /* nebe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 489458CA1B517B3100105A6B /* nebe.jpg */; };
+		489458D31B517B3100105A6B /* info.json in Resources */ = {isa = PBXBuildFile; fileRef = 489458CB1B517B3100105A6B /* info.json */; };
+		489458D41B517B3100105A6B /* map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 489458CC1B517B3100105A6B /* map.jpg */; };
+		489458D51B517B3100105A6B /* versions.json in Resources */ = {isa = PBXBuildFile; fileRef = 489458CD1B517B3100105A6B /* versions.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +63,14 @@
 		4836B03E1B47ED8E0012914B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4836B0401B47ED9A0012914B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		4836B0421B47EDA70012914B /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		489458C51B517B3100105A6B /* bands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bands.json; sourceTree = "<group>"; };
+		489458C71B517B3100105A6B /* info-mapka-autem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info-mapka-autem.png"; sourceTree = "<group>"; };
+		489458C81B517B3100105A6B /* info-mapka-pesi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info-mapka-pesi.png"; sourceTree = "<group>"; };
+		489458C91B517B3100105A6B /* liwid.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = liwid.jpg; sourceTree = "<group>"; };
+		489458CA1B517B3100105A6B /* nebe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nebe.jpg; sourceTree = "<group>"; };
+		489458CB1B517B3100105A6B /* info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = info.json; sourceTree = "<group>"; };
+		489458CC1B517B3100105A6B /* map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = map.jpg; sourceTree = "<group>"; };
+		489458CD1B517B3100105A6B /* versions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = versions.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +112,7 @@
 		4836AFDF1B47DFB70012914B /* natruc */ = {
 			isa = PBXGroup;
 			children = (
+				489458C41B517B3100105A6B /* data */,
 				4836AFE21B47DFB70012914B /* AppDelegate.swift */,
 				4835FA221B49576C003FCE7F /* TabBarController.swift */,
 				4836B03A1B47ED6E0012914B /* NowViewController.swift */,
@@ -137,6 +154,29 @@
 				4836AFF71B47DFB70012914B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		489458C41B517B3100105A6B /* data */ = {
+			isa = PBXGroup;
+			children = (
+				489458C51B517B3100105A6B /* bands.json */,
+				489458C61B517B3100105A6B /* images */,
+				489458CB1B517B3100105A6B /* info.json */,
+				489458CC1B517B3100105A6B /* map.jpg */,
+				489458CD1B517B3100105A6B /* versions.json */,
+			);
+			path = data;
+			sourceTree = SOURCE_ROOT;
+		};
+		489458C61B517B3100105A6B /* images */ = {
+			isa = PBXGroup;
+			children = (
+				489458C71B517B3100105A6B /* info-mapka-autem.png */,
+				489458C81B517B3100105A6B /* info-mapka-pesi.png */,
+				489458C91B517B3100105A6B /* liwid.jpg */,
+				489458CA1B517B3100105A6B /* nebe.jpg */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,11 +260,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				489458D41B517B3100105A6B /* map.jpg in Resources */,
+				489458CF1B517B3100105A6B /* info-mapka-autem.png in Resources */,
+				489458D21B517B3100105A6B /* nebe.jpg in Resources */,
 				4836B0081B47E3FC0012914B /* iTunesArtwork@2x in Resources */,
+				489458D31B517B3100105A6B /* info.json in Resources */,
+				489458D11B517B3100105A6B /* liwid.jpg in Resources */,
 				4836AFE81B47DFB70012914B /* Main.storyboard in Resources */,
 				4836B0061B47E0AF0012914B /* Localizable.strings in Resources */,
+				489458D51B517B3100105A6B /* versions.json in Resources */,
 				4836AFED1B47DFB70012914B /* LaunchScreen.xib in Resources */,
+				489458CE1B517B3100105A6B /* bands.json in Resources */,
 				4836AFEA1B47DFB70012914B /* Images.xcassets in Resources */,
+				489458D01B517B3100105A6B /* info-mapka-pesi.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
