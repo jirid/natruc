@@ -8,10 +8,10 @@
 
 import UIKit
 
-class MapViewController: UIViewController, UIScrollViewDelegate {
+internal final class MapViewController: UIViewController, UIScrollViewDelegate {
 
-    var chromeVisible = true
-    var initializing = true
+    private var chromeVisible = true
+    private var initializing = true
 
     @IBOutlet weak var scrollView: UIScrollView!
 
@@ -46,15 +46,15 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         scrollView.flashScrollIndicators()
     }
 
-    func minScale() -> CGFloat {
+    private func minScale() -> CGFloat {
         return min(scrollView.bounds.width / imageView.image!.size.width, scrollView.bounds.height / imageView.image!.size.height)
     }
 
-    func midScale() -> CGFloat {
+    private func midScale() -> CGFloat {
         return max(scrollView.bounds.width / imageView.image!.size.width, scrollView.bounds.height / imageView.image!.size.height)
     }
 
-    func maxScale() -> CGFloat {
+    private func maxScale() -> CGFloat {
         return 0.5
     }
 
@@ -93,7 +93,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         }
     }
 
-    func hideChrome() {
+    private func hideChrome() {
 
         if (chromeVisible) {
             chromeVisible = false
@@ -101,13 +101,13 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         }
     }
 
-    func toggleChrome() {
+    private func toggleChrome() {
 
         chromeVisible = !chromeVisible
         updateChrome()
     }
 
-    func updateChrome() {
+    private func updateChrome() {
 
         tabBarController?.tabBar.hidden = !chromeVisible
         setNeedsStatusBarAppearanceUpdate()
