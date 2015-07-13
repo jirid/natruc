@@ -10,7 +10,7 @@ import UIKit
 
 internal class InfoCell: UITableViewCell {
 
-    internal func setContent(content:InfoItem) {
+    internal func setContent(content: InfoItem) {
 
     }
 

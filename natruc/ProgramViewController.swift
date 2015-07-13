@@ -8,28 +8,59 @@
 
 import UIKit
 
-class ProgramViewController: UIViewController {
+internal final class ProgramViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    private let viewModel = ProgramViewModel()
+    private let detailSegue = "ShowDetail"
+
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tableView.backgroundColor = Natruc.backgroundBlue
+        //tableView.rowHeight = UITableViewAutomaticDimension
+        //tableView.estimatedRowHeight = 44.0
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
+        if let detail = segue.destinationViewController as? DetailViewController {
+
+            detail.item = viewModel.itemForIndexPath(tableView.indexPathForSelectedRow()!)
+        }
     }
-    */
+
+    @IBAction func prepareForUnwindSegue(segue: UIStoryboardSegue) {
+
+    }
+
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+
+        return viewModel.numberOfSections()
+    }
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        return viewModel.numberOfRows(section)
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if (indexPath.row == 0) {
+            return tableView.dequeueReusableCellWithIdentifier("stage") as! UITableViewCell
+        } else {
+            return tableView.dequeueReusableCellWithIdentifier("band") as! UITableViewCell
+        }
+    }
+
+    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+
+        return indexPath.row == 0 ? .None : .Some(indexPath)
+    }
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
+        performSegueWithIdentifier(detailSegue, sender: .None)
+    }
 
 }
