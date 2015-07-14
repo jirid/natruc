@@ -1,27 +1,80 @@
 {
-	"items": [
-		{"type": "title1", "content": "Internet v areálu"},
-		{"type": "text", "content": "Celý festivalový areál bude pokrytý wifi připojením k internetu, které bude pro všechny návštěvníky dostupné zdarma. Tuto službu provozuje společnost JON.CZ."},
-
-		{"type": "title1", "content": "Dobíjení telefonů"},
-		{"type": "text", "content": "U stánku společnosti JON.CZ budete mít možnost dobít svá mobilní zařízení."},
-
-		{"type": "title1", "content": "Důležitá upozornění"},
-		{"type": "text", "content": "Z bezpečnostních důvodů není dovoleno do areálu festivalu vnášet jakékoli skleněné nádoby včetně lahví, plechovky, hořlaviny, zbraně jakéhokoli druhu, drogy a  omamné látky, předměty ohrožující bezpečnost, pyrotechnické předměty, otevřený oheň, deštníky, laserová ukazovátka, magnetofony a profesionální fotoaparáty a kamery. Rovněž není dovoleno vnášet do areálu festivalu vlastní jídlo a nápoje. V areálu je dostatek stánků s občerstvením a mycích nádob s vodou. Do areálu platí zákaz vstupu psů i jiných zvířat. V areálu festivalu je zakázáno rozdělávat oheň. Do areálu platí zákaz vjezdu jakýchkoli vozidel včetně motocyklů a jízdních kol bez povolení."},
-
-		{"type": "title1", "content": "Jak se k nám dostanete"},
-		{"type": "text", "content": "Areál festivalu má velmi dobrou dopravní obstužnost. Nachází se v těsné blízkosti od vlakové zastávky a nedaleko vlakového i autobusového nádraží."},
-		{"type": "title2", "content": "Vlakem"},
-		{"type": "text", "content": "Pokud jedete od Prahy a máte možnost jet osobním vlakem, je pro vás nejlepší vystoupit na vlakové zastávce Kolín – zastávka. Jestli jedete z jiného směru nebo od Prahy rychlíkem vystupte ve stanici Kolín – hlavní nádraží. Pozice vlakového nádraží i zastávky je naznačena níže na mapce společně s cestou na Kmochův ostrov."},
-		{"type": "text", "content": "Veškeré jízdní řády vlaků lze dohledat na stránkách www.idos.cz."},
-		{"type": "title2", "content": "Autobusem"},
-		{"type": "text", "content": "Ať jedete z jakéhokoli směru je výhodné vystoupit na autobusovém nádraží a dále pokračovat pěšky po trase vyznačené na mapce. Pozice autobusového nádraží je naznačena níže na mapce společně s cestou na Kmochův ostrov."},
-		{"type": "image", "content": "http://natruc.korejtko.cz/app/ios/images/info-mapka-pesi.png"},
-		{"type": "title2", "content": "Autem"},
-		{"type": "text", "content": "Pro cestu autem je nejlepší využít možností plánování tras některé ze služeb jako mapy.cz nebo mapy.google.cz pro navedení do Kolína. K lepší orientaci v Kolíně přikládáme níže mapku s vyznačenými trasami z hlavních příjezdových cest. Na mapce jsou také vyznačena veřejná parkoviště v okolí festivalového areálu. Na Kmochův ostrov je povolen vjezd pouze vozidlům s povolením. Proto prosíme využijte některé z parkovišť v Kolíně a dorazte do areálu pěšky."},
-		{"type": "image", "content": "http://natruc.korejtko.cz/app/ios/images/info-mapka-autem.png"},
-
-		{"type": "title1", "content": "Stanování"},
-		{"type": "text", "content": "Stanování na ostrově je možné mimo festivalový areál. Místo bude vyznačeno cedulemi Stanové městečko. Stanování je zdarma. Za stany ani věci v nich uložené neručíme. Kapacita stanového městečka je omezena."}
-	]
+  "items": [
+    {
+      "type": "title1",
+      "content": "Internet v areálu"
+    },
+    {
+      "type": "text",
+      "content": "Celý festivalový areál bude pokrytý wifi připojením k internetu, které bude pro všechny návštěvníky dostupné zdarma. Tuto službu provozuje společnost JON.CZ."
+    },
+    {
+      "type": "title1",
+      "content": "Dobíjení telefonů"
+    },
+    {
+      "type": "text",
+      "content": "U stánku společnosti JON.CZ budete mít možnost dobít svá mobilní zařízení."
+    },
+    {
+      "type": "title1",
+      "content": "Důležitá upozornění"
+    },
+    {
+      "type": "text",
+      "content": "Z bezpečnostních důvodů není dovoleno do areálu festivalu vnášet jakékoli skleněné nádoby včetně lahví, plechovky, hořlaviny, zbraně jakéhokoli druhu, drogy a  omamné látky, předměty ohrožující bezpečnost, pyrotechnické předměty, otevřený oheň, deštníky, laserová ukazovátka, magnetofony a profesionální fotoaparáty a kamery. Rovněž není dovoleno vnášet do areálu festivalu vlastní jídlo a nápoje. V areálu je dostatek stánků s občerstvením a mycích nádob s vodou. Do areálu platí zákaz vstupu psů i jiných zvířat. V areálu festivalu je zakázáno rozdělávat oheň. Do areálu platí zákaz vjezdu jakýchkoli vozidel včetně motocyklů a jízdních kol bez povolení."
+    },
+    {
+      "type": "title1",
+      "content": "Jak se k nám dostanete"
+    },
+    {
+      "type": "text",
+      "content": "Areál festivalu má velmi dobrou dopravní obstužnost. Nachází se v těsné blízkosti od vlakové zastávky a nedaleko vlakového i autobusového nádraží."
+    },
+    {
+      "type": "title2",
+      "content": "Vlakem"
+    },
+    {
+      "type": "text",
+      "content": "Pokud jedete od Prahy a máte možnost jet osobním vlakem, je pro vás nejlepší vystoupit na vlakové zastávce Kolín – zastávka. Jestli jedete z jiného směru nebo od Prahy rychlíkem vystupte ve stanici Kolín – hlavní nádraží. Pozice vlakového nádraží i zastávky je naznačena níže na mapce společně s cestou na Kmochův ostrov."
+    },
+    {
+      "type": "text",
+      "content": "Veškeré jízdní řády vlaků lze dohledat na stránkách www.idos.cz."
+    },
+    {
+      "type": "title2",
+      "content": "Autobusem"
+    },
+    {
+      "type": "text",
+      "content": "Ať jedete z jakéhokoli směru je výhodné vystoupit na autobusovém nádraží a dále pokračovat pěšky po trase vyznačené na mapce. Pozice autobusového nádraží je naznačena níže na mapce společně s cestou na Kmochův ostrov."
+    },
+    {
+      "type": "image",
+      "content": "http://natruc.korejtko.cz/app/ios/images/info-mapka-pesi.png"
+    },
+    {
+      "type": "title2",
+      "content": "Autem"
+    },
+    {
+      "type": "text",
+      "content": "Pro cestu autem je nejlepší využít možností plánování tras některé ze služeb jako mapy.cz nebo mapy.google.cz pro navedení do Kolína. K lepší orientaci v Kolíně přikládáme níže mapku s vyznačenými trasami z hlavních příjezdových cest. Na mapce jsou také vyznačena veřejná parkoviště v okolí festivalového areálu. Na Kmochův ostrov je povolen vjezd pouze vozidlům s povolením. Proto prosíme využijte některé z parkovišť v Kolíně a dorazte do areálu pěšky."
+    },
+    {
+      "type": "image",
+      "content": "http://natruc.korejtko.cz/app/ios/images/info-mapka-autem.png"
+    },
+    {
+      "type": "title1",
+      "content": "Stanování"
+    },
+    {
+      "type": "text",
+      "content": "Stanování na ostrově je možné mimo festivalový areál. Místo bude vyznačeno cedulemi Stanové městečko. Stanování je zdarma. Za stany ani věci v nich uložené neručíme. Kapacita stanového městečka je omezena."
+    }
+  ]
 }
