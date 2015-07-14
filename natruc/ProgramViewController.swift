@@ -12,6 +12,8 @@ internal final class ProgramViewController: UIViewController, UITableViewDataSou
 
     private let viewModel = ProgramViewModel()
     private let detailSegue = "ShowDetail"
+    private let stageCell = "stage"
+    private let bandCell = "band"
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -19,8 +21,8 @@ internal final class ProgramViewController: UIViewController, UITableViewDataSou
         super.viewDidLoad()
 
         tableView.backgroundColor = Natruc.backgroundBlue
-        //tableView.rowHeight = UITableViewAutomaticDimension
-        //tableView.estimatedRowHeight = 44.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 44.0
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -46,11 +48,25 @@ internal final class ProgramViewController: UIViewController, UITableViewDataSou
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+        var cell: ProgramCell!
+
         if (indexPath.row == 0) {
-            return tableView.dequeueReusableCellWithIdentifier("stage") as! UITableViewCell
+
+            let c = tableView.dequeueReusableCellWithIdentifier(stageCell) as! ProgramStageCell
+            c.setTitle(viewModel.stages[indexPath.section])
+            cell = c
+
         } else {
-            return tableView.dequeueReusableCellWithIdentifier("band") as! UITableViewCell
+
+            let c = tableView.dequeueReusableCellWithIdentifier(bandCell) as! ProgramBandCell
+            c.setItem(viewModel.itemForIndexPath(indexPath))
+            cell = c
         }
+
+        cell.setColor(viewModel.colorForSection(indexPath.section))
+
+        return cell
     }
 
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {

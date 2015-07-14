@@ -7,7 +7,15 @@
 //
 
 import Foundation
+import UIKit
 
 internal class ProgramStageCell: ProgramCell {
-    
+
+    @IBOutlet weak var label: UILabel!
+
+    internal func setTitle(title: String) {
+
+        label.text = title
+        label.textColor = Natruc.yellow
+    }
 }
