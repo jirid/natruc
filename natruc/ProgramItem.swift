@@ -27,4 +27,31 @@ internal struct ProgramItem {
     let end: NSDate
     let color: Color
     let stage: String
+
+    func progress() -> Double {
+
+        let s = start.timeIntervalSince1970
+        let n = NSDate().timeIntervalSince1970
+        let e = end.timeIntervalSince1970
+        if (s >= n) {
+
+            return 0
+
+        } else if (e <= n) {
+
+            return 1
+
+        } else {
+
+            return (n - s) / (e - s)
+        }
+    }
+
+    func time() -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "HH':'mm"
+        let s = formatter.stringFromDate(start)
+        let e = formatter.stringFromDate(end)
+        return "\(s) - \(e)"
+    }
 }

@@ -21,12 +21,7 @@ internal class ProgramBandCell: ProgramCell {
         titleLabel.textColor = Natruc.white
         briefLabel.text = item.brief
         briefLabel.textColor = Natruc.white
-
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "HH':'mm"
-        let start = formatter.stringFromDate(item.start)
-        let end = formatter.stringFromDate(item.end)
-        timeLabel.text = "\(start) - \(end)"
+        timeLabel.text = item.time()
         timeLabel.textColor = Natruc.white
     }
 }

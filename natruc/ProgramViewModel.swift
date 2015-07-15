@@ -48,9 +48,9 @@ internal final class ProgramViewModel {
 
                         let resource = NSURL(string: imagePath)?.lastPathComponent
                         let image = resource == .None ? .None : NSBundle.mainBundle().URLForResource(resource!, withExtension: .None)
-                        let web = NSURL(string: webPath)
-                        let facebook = NSURL(string: facebookPath)
-                        let youtube = NSURL(string: youtubePath)
+                        let web = webPath == "" ? nil : NSURL(string: webPath)
+                        let facebook = facebookPath == "" ? nil : NSURL(string: facebookPath)
+                        let youtube = youtubePath == "" ? nil : NSURL(string: youtubePath)
                         let idx = stage.toInt()! - 1
 
                         let formatter = NSDateFormatter()
