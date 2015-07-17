@@ -8,14 +8,17 @@
 
 import UIKit
 
-internal final class MapViewController: UIViewController, UIScrollViewDelegate {
+internal final class MapViewController: UIViewController {
+
+    //MARK: Properties
 
     private var chromeVisible = true
     private var initializing = true
 
     @IBOutlet weak var scrollView: UIScrollView!
-
     @IBOutlet weak var imageView: UIImageView!
+
+    //MARK: View lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +30,8 @@ internal final class MapViewController: UIViewController, UIScrollViewDelegate {
         let map = UIImage(contentsOfFile: path)!
 
         imageView.image = map
-        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: map.size.width))
-        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: map.size.height))
+        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Width, relatedBy: .Equal, toItem: .None, attribute: .NotAnAttribute, multiplier: 1.0, constant: map.size.width))
+        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Height, relatedBy: .Equal, toItem: .None, attribute: .NotAnAttribute, multiplier: 1.0, constant: map.size.height))
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -46,6 +49,26 @@ internal final class MapViewController: UIViewController, UIScrollViewDelegate {
         scrollView.flashScrollIndicators()
     }
 
+    override func prefersStatusBarHidden() -> Bool {
+
+        return !chromeVisible
+    }
+
+    //MARK: Actions
+
+    @IBAction func tapped(sender: UITapGestureRecognizer) {
+
+        toggleChrome()
+    }
+
+    @IBAction func doubleTapped(sender: UITapGestureRecognizer) {
+
+        scrollView.setZoomScale(midScale(), animated: true)
+        hideChrome()
+    }
+
+    //MARK: Private
+
     private func minScale() -> CGFloat {
         return min(scrollView.bounds.width / imageView.image!.size.width, scrollView.bounds.height / imageView.image!.size.height)
     }
@@ -56,41 +79,6 @@ internal final class MapViewController: UIViewController, UIScrollViewDelegate {
 
     private func maxScale() -> CGFloat {
         return 0.5
-    }
-
-    @IBAction func tapped(sender: UITapGestureRecognizer) {
-
-        toggleChrome()
-    }
-    
-    @IBAction func doubleTapped(sender: UITapGestureRecognizer) {
-
-        scrollView.setZoomScale(midScale(), animated: true)
-        hideChrome()
-    }
-
-    override func prefersStatusBarHidden() -> Bool {
-
-        return !chromeVisible
-    }
-
-    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
-
-        return imageView
-    }
-
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-
-        if (!initializing) {
-            hideChrome()
-        }
-    }
-
-    func scrollViewDidZoom(scrollView: UIScrollView) {
-
-        if (!initializing) {
-            hideChrome()
-        }
     }
 
     private func hideChrome() {
@@ -113,4 +101,28 @@ internal final class MapViewController: UIViewController, UIScrollViewDelegate {
         setNeedsStatusBarAppearanceUpdate()
     }
 
+}
+
+extension MapViewController : UIScrollViewDelegate {
+
+    //MARK: Scroll View Delegate
+
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+
+        return imageView
+    }
+
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+
+        if (!initializing) {
+            hideChrome()
+        }
+    }
+
+    func scrollViewDidZoom(scrollView: UIScrollView) {
+
+        if (!initializing) {
+            hideChrome()
+        }
+    }
 }

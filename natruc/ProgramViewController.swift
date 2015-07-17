@@ -8,7 +8,9 @@
 
 import UIKit
 
-internal final class ProgramViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+internal final class ProgramViewController: UIViewController {
+
+    //MARK: Properties
 
     private let viewModel = ProgramViewModel()
     private let detailSegue = "ShowDetail"
@@ -17,6 +19,8 @@ internal final class ProgramViewController: UIViewController, UITableViewDataSou
 
     @IBOutlet weak var tableView: UITableView!
 
+    //MARK: View Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,6 +28,8 @@ internal final class ProgramViewController: UIViewController, UITableViewDataSou
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44.0
     }
+
+    //MARK: Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
@@ -36,6 +42,11 @@ internal final class ProgramViewController: UIViewController, UITableViewDataSou
     @IBAction func prepareForUnwindSegue(segue: UIStoryboardSegue) {
 
     }
+}
+
+extension ProgramViewController: UITableViewDataSource {
+
+    //MARK: Table View Data Source
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 
@@ -65,9 +76,14 @@ internal final class ProgramViewController: UIViewController, UITableViewDataSou
         }
 
         cell.setColor(viewModel.colorForSection(indexPath.section))
-
+        
         return cell
     }
+}
+
+extension ProgramViewController: UITableViewDelegate {
+
+    //MARK: Table View Delegate
 
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
 
@@ -78,5 +94,4 @@ internal final class ProgramViewController: UIViewController, UITableViewDataSou
 
         performSegueWithIdentifier(detailSegue, sender: .None)
     }
-
 }

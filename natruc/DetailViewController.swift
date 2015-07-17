@@ -10,25 +10,22 @@ import UIKit
 
 internal final class DetailViewController: UIViewController {
 
+    //MARK: Properties
+
     internal var item: ProgramItem!
 
     private var dark = false
 
     @IBOutlet weak var backButton: UIButton!
-
     @IBOutlet weak var imageView: UIImageView!
-
     @IBOutlet weak var progressView: ProgressView!
-
     @IBOutlet weak var textView: UITextView!
-
     @IBOutlet weak var buttonContainer: UIView!
-
     @IBOutlet weak var webButton: UIButton!
-
     @IBOutlet weak var facebookButton: UIButton!
-
     @IBOutlet weak var youtubeButton: UIButton!
+
+    //MARK: View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,18 +78,9 @@ internal final class DetailViewController: UIViewController {
 
         view.setNeedsLayout()
 
-        webButton.setTitleColor(Natruc.white, forState: .Normal)
-        webButton.setTitleColor(Natruc.yellow, forState: .Highlighted)
-        webButton.enabled = item.web != nil
-        webButton.setTitleColor(Natruc.foregroundGray, forState: .Disabled)
-        facebookButton.setTitleColor(Natruc.white, forState: .Normal)
-        facebookButton.setTitleColor(Natruc.yellow, forState: .Highlighted)
-        facebookButton.enabled = item.facebook != nil
-        facebookButton.setTitleColor(Natruc.foregroundGray, forState: .Disabled)
-        youtubeButton.setTitleColor(Natruc.white, forState: .Normal)
-        youtubeButton.setTitleColor(Natruc.yellow, forState: .Highlighted)
-        youtubeButton.enabled = item.youtube != nil
-        youtubeButton.setTitleColor(Natruc.foregroundGray, forState: .Disabled)
+        configureLinkButton(webButton, enabled: item.web != .None)
+        configureLinkButton(facebookButton, enabled: item.facebook != .None)
+        configureLinkButton(youtubeButton, enabled: item.youtube != .None)
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -107,17 +95,34 @@ internal final class DetailViewController: UIViewController {
         }
     }
 
+    //MARK: Actions
+
     @IBAction func webButtonTapped(sender: UIButton) {
-        UIApplication.sharedApplication().openURL(item.web!)
+        if let url = item.web {
+            UIApplication.sharedApplication().openURL(url)
+        }
     }
 
     @IBAction func facebookButtonTapped(sender: UIButton) {
-        UIApplication.sharedApplication().openURL(item.facebook!)
+        if let url = item.facebook {
+            UIApplication.sharedApplication().openURL(url)
+        }
     }
 
     @IBAction func youtubeButtonTapped(sender: UIButton) {
-        UIApplication.sharedApplication().openURL(item.youtube!)
+        if let url = item.youtube {
+            UIApplication.sharedApplication().openURL(url)
+        }
     }
 
+    //MARK: Private
+
+    private func configureLinkButton(button: UIButton, enabled: Bool) {
+
+        button.setTitleColor(Natruc.white, forState: .Normal)
+        button.setTitleColor(Natruc.yellow, forState: .Highlighted)
+        button.enabled = enabled
+        button.setTitleColor(Natruc.foregroundGray, forState: .Disabled)
+    }
 
 }

@@ -8,7 +8,9 @@
 
 import UIKit
 
-internal final class InfoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+internal final class InfoViewController: UIViewController {
+
+    //MARK: Properties
 
     private let viewModel = InfoViewModel()
 
@@ -24,15 +26,7 @@ internal final class InfoViewController: UIViewController, UITableViewDataSource
     @IBOutlet weak var webLabel: UILabel!
     @IBOutlet weak var webContent: UILabel!
 
-    @IBAction func facebookTapped(sender: UITapGestureRecognizer) {
-
-        UIApplication.sharedApplication().openURL(NSURL(string: "https://www.facebook.com/112926885403019")!)
-    }
-
-    @IBAction func webTapped(sender: UITapGestureRecognizer) {
-
-        UIApplication.sharedApplication().openURL(NSURL(string: "http://www.natruc.eu/")!)
-    }
+    //MARK: View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,22 +52,44 @@ internal final class InfoViewController: UIViewController, UITableViewDataSource
         versionContent.text = "\(version) (\(build))"
     }
 
+    //MARK: Actions
+
+    @IBAction func facebookTapped(sender: UITapGestureRecognizer) {
+
+        UIApplication.sharedApplication().openURL(NSURL(string: "https://www.facebook.com/112926885403019")!)
+    }
+
+    @IBAction func webTapped(sender: UITapGestureRecognizer) {
+
+        UIApplication.sharedApplication().openURL(NSURL(string: "http://www.natruc.eu/")!)
+    }
+
+}
+
+extension InfoViewController: UITableViewDataSource {
+
+    //MARK: Table View Data Source
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return viewModel.items.count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
+
         let item = viewModel.items[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier(item.type.rawValue) as! InfoCell
         cell.setContent(item)
         return cell
     }
+}
+
+extension InfoViewController: UITableViewDelegate {
+
+    //MARK: Table View Delegate
 
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
 
         return .None
     }
-
 }
