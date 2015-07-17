@@ -21,7 +21,6 @@ internal final class ProgressView : UIView {
 
         darkView = UIView(frame: bounds)
         addSubview(darkView)
-        addConstraint(NSLayoutConstraint(item: self, attribute: .Height, relatedBy: .Equal, toItem: darkView, attribute: .Height, multiplier: 1, constant: 0))
 
         stageLabel = UILabel()
         stageLabel.textColor = Natruc.yellow
@@ -35,11 +34,13 @@ internal final class ProgressView : UIView {
         nameLabel.textColor = Natruc.white
         addSubview(nameLabel)
 
-        let views = ["view": self, "stage": stageLabel, "time": timeLabel, "name": nameLabel]
+        let views = ["view": self, "stage": stageLabel, "time": timeLabel, "name": nameLabel, "dark": darkView]
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-15-[stage]", options: .allZeros, metrics: .None, views: views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-15-[time]-[name]", options: .allZeros, metrics: .None, views: views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-15-[stage]-[time]-15-|", options: .allZeros, metrics: .None, views: views))
         addConstraint(NSLayoutConstraint(item: timeLabel, attribute: .Baseline, relatedBy: .Equal, toItem: nameLabel, attribute: .Baseline, multiplier: 1, constant: 0))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[dark]|", options: .allZeros, metrics: .None, views: views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[dark]", options: .allZeros, metrics: .None, views: views))
 
         setProgress(0)
 

@@ -13,11 +13,15 @@ internal final class ProgramViewModel {
 
     internal let stages: [String]
     private let items: [[ProgramItem]]
+    internal let start: NSDate
+    internal let end: NSDate
 
     internal init() {
 
         var items = [[ProgramItem]]()
         var stages = [String]()
+        var gstart = NSDate.distantFuture() as! NSDate
+        var gend = NSDate.distantPast() as! NSDate
 
         //TODO: replace with data from model
         let path = NSBundle.mainBundle().pathForResource("bands", ofType: "json")!
@@ -59,6 +63,8 @@ internal final class ProgramViewModel {
                         formatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
                         let startDate = formatter.dateFromString(start)!
                         let endDate = formatter.dateFromString(end)!
+                        gstart = gstart.earlierDate(startDate)
+                        gend = gend.laterDate(endDate)
 
                         let i = ProgramItem(name: name, brief: short, dark: dark, description: description, image: image, web: web, facebook: facebook, youtube: youtube, start: startDate, end: endDate, color: Color(rawValue: idx)!, stage: stages[idx])
 
@@ -74,14 +80,16 @@ internal final class ProgramViewModel {
 
         self.stages = stages
         self.items = items
+        self.start = gstart.dateByAddingTimeInterval(-3600)
+        self.end = gend
     }
 
-    internal func numberOfSections() -> Int {
+    internal func numberOfStages() -> Int {
 
         return stages.count
     }
 
-    internal func colorForSection(section: Int) -> Color {
+    internal func colorForStage(section: Int) -> Color {
 
         switch (section) {
 
@@ -96,13 +104,28 @@ internal final class ProgramViewModel {
         }
     }
 
-    internal func numberOfRows(section: Int) -> Int {
+    internal func numberOfBands(stage: Int) -> Int {
 
-        return items[section].count + 1
+        return items[stage].count + 1
     }
 
-    internal func itemForIndexPath(indexPath: NSIndexPath) -> ProgramItem {
+    internal func bandForIndexPath(indexPath: NSIndexPath) -> ProgramItem {
 
         return items[indexPath.section][indexPath.row - 1]
+    }
+
+    internal func currentBand(stage: Int) -> ProgramItem? {
+
+        let now = Components.shared.now().timeIntervalSince1970
+
+        var band: ProgramItem?
+        for i in items[stage] {
+            if i.end.timeIntervalSince1970 > now {
+                band = i
+                break
+            }
+        }
+
+        return band
     }
 }

@@ -35,7 +35,7 @@ internal final class ProgramViewController: UIViewController {
 
         if let detail = segue.destinationViewController as? DetailViewController {
 
-            detail.item = viewModel.itemForIndexPath(tableView.indexPathForSelectedRow()!)
+            detail.item = viewModel.bandForIndexPath(tableView.indexPathForSelectedRow()!)
         }
     }
 
@@ -50,12 +50,12 @@ extension ProgramViewController: UITableViewDataSource {
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 
-        return viewModel.numberOfSections()
+        return viewModel.numberOfStages()
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return viewModel.numberOfRows(section)
+        return viewModel.numberOfBands(section)
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -71,11 +71,11 @@ extension ProgramViewController: UITableViewDataSource {
         } else {
 
             let c = tableView.dequeueReusableCellWithIdentifier(bandCell) as! ProgramBandCell
-            c.setItem(viewModel.itemForIndexPath(indexPath))
+            c.setItem(viewModel.bandForIndexPath(indexPath))
             cell = c
         }
 
-        cell.setColor(viewModel.colorForSection(indexPath.section))
+        cell.setColor(viewModel.colorForStage(indexPath.section))
         
         return cell
     }

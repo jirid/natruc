@@ -21,6 +21,7 @@
 		4836B03F1B47ED8E0012914B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836B03E1B47ED8E0012914B /* DetailViewController.swift */; };
 		4836B0411B47ED9A0012914B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836B0401B47ED9A0012914B /* MapViewController.swift */; };
 		4836B0431B47EDA70012914B /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836B0421B47EDA70012914B /* InfoViewController.swift */; };
+		487D4B4C1B59B48B00BDBB2B /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487D4B4B1B59B48B00BDBB2B /* Components.swift */; };
 		489458CE1B517B3100105A6B /* bands.json in Resources */ = {isa = PBXBuildFile; fileRef = 489458C51B517B3100105A6B /* bands.json */; };
 		489458CF1B517B3100105A6B /* info-mapka-autem.png in Resources */ = {isa = PBXBuildFile; fileRef = 489458C71B517B3100105A6B /* info-mapka-autem.png */; };
 		489458D01B517B3100105A6B /* info-mapka-pesi.png in Resources */ = {isa = PBXBuildFile; fileRef = 489458C81B517B3100105A6B /* info-mapka-pesi.png */; };
@@ -76,6 +77,7 @@
 		4836B03E1B47ED8E0012914B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4836B0401B47ED9A0012914B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		4836B0421B47EDA70012914B /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		487D4B4B1B59B48B00BDBB2B /* Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		489458C51B517B3100105A6B /* bands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bands.json; sourceTree = "<group>"; };
 		489458C71B517B3100105A6B /* info-mapka-autem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info-mapka-autem.png"; sourceTree = "<group>"; };
 		489458C81B517B3100105A6B /* info-mapka-pesi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info-mapka-pesi.png"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				489458C41B517B3100105A6B /* data */,
+				487D4B4B1B59B48B00BDBB2B /* Components.swift */,
 				4836AFE21B47DFB70012914B /* AppDelegate.swift */,
 				4835FA221B49576C003FCE7F /* TabBarController.swift */,
 				48A50CD71B54545500586B94 /* Program */,
@@ -359,6 +362,7 @@
 				489458D81B52D54300105A6B /* InfoViewModel.swift in Sources */,
 				48A54C771B56E6E60016010C /* ProgressView.swift in Sources */,
 				489458DA1B52D55E00105A6B /* InfoItem.swift in Sources */,
+				487D4B4C1B59B48B00BDBB2B /* Components.swift in Sources */,
 				48A50CDF1B54551500586B94 /* ProgramStageCell.swift in Sources */,
 				48A50CE11B54552200586B94 /* ProgramBandCell.swift in Sources */,
 				48A50CDB1B5454EB00586B94 /* ProgramViewModel.swift in Sources */,

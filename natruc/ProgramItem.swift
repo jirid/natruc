@@ -31,7 +31,7 @@ internal struct ProgramItem {
     func progress() -> Double {
 
         let s = start.timeIntervalSince1970
-        let n = NSDate().timeIntervalSince1970
+        let n = Components.shared.now().timeIntervalSince1970
         let e = end.timeIntervalSince1970
         if (s >= n) {
 
