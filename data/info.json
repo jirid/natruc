@@ -2,11 +2,19 @@
   "items": [
     {
       "type": "title1",
-      "content": "Internet v areálu"
+      "content": "Důležitá upozornění"
     },
     {
       "type": "text",
-      "content": "Celý festivalový areál bude pokrytý wifi připojením k internetu, které bude pro všechny návštěvníky dostupné zdarma. Tuto službu provozuje společnost JON.CZ."
+      "content": "Z bezpečnostních důvodů není dovoleno do areálu festivalu vnášet jakékoli skleněné nádoby včetně lahví, plechovky, hořlaviny, zbraně jakéhokoli druhu, drogy a  omamné látky, předměty ohrožující bezpečnost, pyrotechnické předměty, otevřený oheň, deštníky, laserová ukazovátka, magnetofony a profesionální fotoaparáty a kamery. Rovněž není dovoleno vnášet do areálu festivalu vlastní jídlo a nápoje. V areálu je dostatek stánků s občerstvením a mycích nádob s vodou. Do areálu platí zákaz vstupu psů i jiných zvířat. V areálu festivalu je zakázáno rozdělávat oheň. Do areálu platí zákaz vjezdu jakýchkoli vozidel včetně motocyklů a jízdních kol bez povolení."
+    },
+    {
+      "type": "title1",
+      "content": "Internet"
+    },
+    {
+      "type": "text",
+      "content": "Abyste mohli využívat naše aplikace, sdílet své zážitky z festivalu Natruc a nemuseli se bát přetížení sítí, bude po dobou festivalu na celém ostrově fungovat vysokorychlostní wifi od společnosti JON.CZ."
     },
     {
       "type": "title1",
@@ -14,15 +22,7 @@
     },
     {
       "type": "text",
-      "content": "U stánku společnosti JON.CZ budete mít možnost dobít svá mobilní zařízení."
-    },
-    {
-      "type": "title1",
-      "content": "Důležitá upozornění"
-    },
-    {
-      "type": "text",
-      "content": "Z bezpečnostních důvodů není dovoleno do areálu festivalu vnášet jakékoli skleněné nádoby včetně lahví, plechovky, hořlaviny, zbraně jakéhokoli druhu, drogy a  omamné látky, předměty ohrožující bezpečnost, pyrotechnické předměty, otevřený oheň, deštníky, laserová ukazovátka, magnetofony a profesionální fotoaparáty a kamery. Rovněž není dovoleno vnášet do areálu festivalu vlastní jídlo a nápoje. V areálu je dostatek stánků s občerstvením a mycích nádob s vodou. Do areálu platí zákaz vstupu psů i jiných zvířat. V areálu festivalu je zakázáno rozdělávat oheň. Do areálu platí zákaz vjezdu jakýchkoli vozidel včetně motocyklů a jízdních kol bez povolení."
+      "content": "U stánku společnosti JON.CZ budete mít možnost zdarma dobít svá mobilní zařízení."
     },
     {
       "type": "title1",
@@ -53,6 +53,10 @@
       "content": "Ať jedete z jakéhokoli směru je výhodné vystoupit na autobusovém nádraží a dále pokračovat pěšky po trase vyznačené na mapce. Pozice autobusového nádraží je naznačena níže na mapce společně s cestou na Kmochův ostrov."
     },
     {
+      "type": "text",
+      "content": "Veškeré jízdní řády autobusů lze dohledat na stránkách www.idos.cz."
+    },
+    {
       "type": "image",
       "content": "http://natruc.korejtko.cz/app/ios/images/info-mapka-pesi.png"
     },
@@ -62,7 +66,7 @@
     },
     {
       "type": "text",
-      "content": "Pro cestu autem je nejlepší využít možností plánování tras některé ze služeb jako mapy.cz nebo mapy.google.cz pro navedení do Kolína. K lepší orientaci v Kolíně přikládáme níže mapku s vyznačenými trasami z hlavních příjezdových cest. Na mapce jsou také vyznačena veřejná parkoviště v okolí festivalového areálu. Na Kmochův ostrov je povolen vjezd pouze vozidlům s povolením. Proto prosíme využijte některé z parkovišť v Kolíně a dorazte do areálu pěšky."
+      "content": "Pro cestu autem je nejlepší využít možností plánování tras některé ze služeb jako www.mapy.cz nebo mapy.google.cz pro navedení do Kolína. K lepší orientaci v Kolíně přikládáme níže mapku s vyznačenými trasami z hlavních příjezdových cest. Na mapce jsou také vyznačena veřejná parkoviště v okolí festivalového areálu. Na Kmochův ostrov je povolen vjezd pouze vozidlům s povolením. Proto prosíme využijte některé z parkovišť v Kolíně a dorazte do areálu pěšky."
     },
     {
       "type": "image",
@@ -70,11 +74,19 @@
     },
     {
       "type": "title1",
+      "content": "Ubytování"
+    },
+    {
+      "type": "text",
+      "content": "Kromě stanování můžete využít také penziony a hotely v Kolíně. Přehled možností ubytování naleznete na www.TripAdvisor.cz."
+    },
+    {
+      "type": "title1",
       "content": "Stanování"
     },
     {
       "type": "text",
-      "content": "Stanování na ostrově je možné mimo festivalový areál. Místo bude vyznačeno cedulemi Stanové městečko. Stanování je zdarma. Za stany ani věci v nich uložené neručíme. Kapacita stanového městečka je omezena."
+      "content": "Stanování na ostrově je možné mimo festivalový areál. Místo bude vyznačeno cedulemi Stanové městečko. Stanování je zdarma. Za stany ani věci v nich uložené neručíme. Kapacita stanového městečka je omezena. Stanovat lze od soboty dopoledne do nedělního odpoledne."
     }
   ]
 }
