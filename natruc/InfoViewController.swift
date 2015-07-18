@@ -26,6 +26,8 @@ internal final class InfoViewController: UIViewController {
     @IBOutlet weak var webLabel: UILabel!
     @IBOutlet weak var webContent: UILabel!
 
+    private let imageSegue = "ShowImage"
+
     //MARK: View Lifecycle
 
     override func viewDidLoad() {
@@ -50,6 +52,21 @@ internal final class InfoViewController: UIViewController {
         let build = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion")! as! String
 
         versionContent.text = "\(version) (\(build))"
+    }
+
+    //MARK: Navigation
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+        if let c = segue.destinationViewController as? ImageViewController {
+
+            let item = viewModel.items[tableView.indexPathForSelectedRow()!.row]
+            c.image = UIImage(contentsOfFile: item.content)
+        }
+    }
+
+    @IBAction func prepareForUnwindSegue(segue: UIStoryboardSegue) {
+
     }
 
     //MARK: Actions
@@ -90,6 +107,16 @@ extension InfoViewController: UITableViewDelegate {
 
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
 
-        return .None
+        let item = viewModel.items[indexPath.row]
+        if item.type == .Image {
+            return indexPath
+        } else {
+            return .None
+        }
+    }
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
+        performSegueWithIdentifier(imageSegue, sender: .None)
     }
 }

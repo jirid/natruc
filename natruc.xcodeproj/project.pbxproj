@@ -29,6 +29,7 @@
 		489458D51B517B3100105A6B /* versions.json in Resources */ = {isa = PBXBuildFile; fileRef = 489458CD1B517B3100105A6B /* versions.json */; };
 		489458D81B52D54300105A6B /* InfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489458D71B52D54300105A6B /* InfoViewModel.swift */; };
 		489458DA1B52D55E00105A6B /* InfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489458D91B52D55E00105A6B /* InfoItem.swift */; };
+		489776C31B5AECF000D81B50 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489776C21B5AECF000D81B50 /* ImageViewController.swift */; };
 		48A50CD91B5454D700586B94 /* ProgramItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A50CD81B5454D700586B94 /* ProgramItem.swift */; };
 		48A50CDB1B5454EB00586B94 /* ProgramViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A50CDA1B5454EB00586B94 /* ProgramViewModel.swift */; };
 		48A50CDD1B54550600586B94 /* ProgramCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A50CDC1B54550600586B94 /* ProgramCell.swift */; };
@@ -116,6 +117,7 @@
 		489458CD1B517B3100105A6B /* versions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = versions.json; sourceTree = "<group>"; };
 		489458D71B52D54300105A6B /* InfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewModel.swift; sourceTree = "<group>"; };
 		489458D91B52D55E00105A6B /* InfoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoItem.swift; sourceTree = "<group>"; };
+		489776C21B5AECF000D81B50 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		48A50CD81B5454D700586B94 /* ProgramItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramItem.swift; sourceTree = "<group>"; };
 		48A50CDA1B5454EB00586B94 /* ProgramViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramViewModel.swift; sourceTree = "<group>"; };
 		48A50CDC1B54550600586B94 /* ProgramCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramCell.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				4836AFE21B47DFB70012914B /* AppDelegate.swift */,
 				48F0AC3F1B5A33800001424B /* NavigationController.swift */,
 				48A50CD71B54545500586B94 /* Program */,
+				489776C21B5AECF000D81B50 /* ImageViewController.swift */,
 				4836B0401B47ED9A0012914B /* MapViewController.swift */,
 				489458D61B52D52500105A6B /* Info */,
 				4835FA201B4955DA003FCE7F /* Natruc.swift */,
@@ -475,6 +478,7 @@
 				48A50CDD1B54550600586B94 /* ProgramCell.swift in Sources */,
 				4836B03B1B47ED6E0012914B /* NowViewController.swift in Sources */,
 				4836B03D1B47ED7F0012914B /* ProgramViewController.swift in Sources */,
+				489776C31B5AECF000D81B50 /* ImageViewController.swift in Sources */,
 				48DE49781B52E3E3006D958A /* InfoImageCell.swift in Sources */,
 				48DE497B1B52E3E3006D958A /* InfoTitleCell.swift in Sources */,
 				48DE49791B52E3E3006D958A /* InfoTextCell.swift in Sources */,

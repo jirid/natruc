@@ -28,7 +28,7 @@ internal final class NowViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = Natruc.backgroundBlue
         titleLabel.textColor = Natruc.white
-        subtitleLabel.textColor = Natruc.white
+        subtitleLabel.textColor = Natruc.foregroundBlue
     }
 
     override func viewWillAppear(animated: Bool) {

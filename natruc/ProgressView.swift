@@ -24,14 +24,20 @@ internal final class ProgressView : UIView {
 
         stageLabel = UILabel()
         stageLabel.textColor = Natruc.yellow
+        stageLabel.setContentCompressionResistancePriority(1000, forAxis: .Horizontal)
+        stageLabel.setContentCompressionResistancePriority(1000, forAxis: .Vertical)
         addSubview(stageLabel)
 
         timeLabel = UILabel()
         timeLabel.textColor = Natruc.white
+        timeLabel.setContentCompressionResistancePriority(1000, forAxis: .Horizontal)
+        timeLabel.setContentCompressionResistancePriority(1000, forAxis: .Vertical)
         addSubview(timeLabel)
 
         nameLabel = UILabel()
         nameLabel.textColor = Natruc.white
+        nameLabel.setContentCompressionResistancePriority(1000, forAxis: .Horizontal)
+        nameLabel.setContentCompressionResistancePriority(1000, forAxis: .Vertical)
         addSubview(nameLabel)
 
         let views = ["view": self, "stage": stageLabel, "time": timeLabel, "name": nameLabel, "dark": darkView]

@@ -75,12 +75,18 @@ internal final class DetailViewController: UIViewController {
         textView.text = item.description
         textView.textColor = Natruc.black
         textView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        textView.setNeedsLayout()
 
         view.setNeedsLayout()
 
         configureLinkButton(webButton, enabled: item.web != .None)
         configureLinkButton(facebookButton, enabled: item.facebook != .None)
         configureLinkButton(youtubeButton, enabled: item.youtube != .None)
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        textView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

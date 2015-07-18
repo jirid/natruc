@@ -8,121 +8,28 @@
 
 import UIKit
 
-internal final class MapViewController: UIViewController {
+internal final class MapViewController: ImageViewController {
 
-    //MARK: Properties
+    //MARK: Initializers
 
-    private var chromeVisible = true
-    private var initializing = true
-
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var imageView: UIImageView!
-
-    //MARK: View lifecycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        view.backgroundColor = Natruc.yellow
-
+    private func setUp() {
         //TODO: replace with data from view model
         let path = NSBundle.mainBundle().pathForResource("map", ofType: "jpg")!
-        let map = UIImage(contentsOfFile: path)!
-
-        imageView.image = map
-        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Width, relatedBy: .Equal, toItem: .None, attribute: .NotAnAttribute, multiplier: 1.0, constant: map.size.width))
-        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Height, relatedBy: .Equal, toItem: .None, attribute: .NotAnAttribute, multiplier: 1.0, constant: map.size.height))
+        image = UIImage(contentsOfFile: path)!
     }
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-
-        if (initializing) {
-
-            scrollView.maximumZoomScale = maxScale()
-            scrollView.minimumZoomScale = minScale()
-            scrollView.zoomScale = midScale()
-
-            initializing = false
-        }
-
-        scrollView.flashScrollIndicators()
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setUp()
     }
 
-    override func prefersStatusBarHidden() -> Bool {
-
-        return !chromeVisible
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setUp()
     }
 
-    //MARK: Actions
-
-    @IBAction func tapped(sender: UITapGestureRecognizer) {
-
-        toggleChrome()
-    }
-
-    @IBAction func doubleTapped(sender: UITapGestureRecognizer) {
-
-        scrollView.setZoomScale(midScale(), animated: true)
-        hideChrome()
-    }
-
-    //MARK: Private
-
-    private func minScale() -> CGFloat {
-        return min(scrollView.bounds.width / imageView.image!.size.width, scrollView.bounds.height / imageView.image!.size.height)
-    }
-
-    private func midScale() -> CGFloat {
-        return max(scrollView.bounds.width / imageView.image!.size.width, scrollView.bounds.height / imageView.image!.size.height)
-    }
-
-    private func maxScale() -> CGFloat {
-        return 0.5
-    }
-
-    private func hideChrome() {
-
-        if (chromeVisible) {
-            chromeVisible = false
-            updateChrome()
-        }
-    }
-
-    private func toggleChrome() {
-
-        chromeVisible = !chromeVisible
-        updateChrome()
-    }
-
-    private func updateChrome() {
-
-        tabBarController?.tabBar.hidden = !chromeVisible
-        setNeedsStatusBarAppearanceUpdate()
-    }
-
-}
-
-extension MapViewController: UIScrollViewDelegate {
-
-    //MARK: Scroll View Delegate
-
-    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
-
-        return imageView
-    }
-
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-
-        if (!initializing) {
-            hideChrome()
-        }
-    }
-
-    func scrollViewDidZoom(scrollView: UIScrollView) {
-
-        if (!initializing) {
-            hideChrome()
-        }
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setUp()
     }
 }
