@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NowViewController: UIViewController {
+internal final class NowViewController: UIViewController {
 
     //MARK: Properties
 

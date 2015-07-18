@@ -41,6 +41,7 @@
 		48DE497A1B52E3E3006D958A /* InfoSubtitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DE49761B52E3E3006D958A /* InfoSubtitleCell.swift */; };
 		48DE497B1B52E3E3006D958A /* InfoTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DE49771B52E3E3006D958A /* InfoTitleCell.swift */; };
 		48DE497D1B52E4FB006D958A /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DE497C1B52E4FB006D958A /* InfoCell.swift */; };
+		48F0AC401B5A33800001424B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F0AC3F1B5A33800001424B /* NavigationController.swift */; };
 		C95382F91B59CC370008A4BE /* atmomusic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C95382DA1B59CC370008A4BE /* atmomusic.jpg */; };
 		C95382FA1B59CC370008A4BE /* coversforlovers.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C95382DB1B59CC370008A4BE /* coversforlovers.jpg */; };
 		C95382FB1B59CC370008A4BE /* embersbridge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C95382DC1B59CC370008A4BE /* embersbridge.jpg */; };
@@ -128,6 +129,7 @@
 		48DE49761B52E3E3006D958A /* InfoSubtitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSubtitleCell.swift; sourceTree = "<group>"; };
 		48DE49771B52E3E3006D958A /* InfoTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTitleCell.swift; sourceTree = "<group>"; };
 		48DE497C1B52E4FB006D958A /* InfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		48F0AC3F1B5A33800001424B /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		C95382DA1B59CC370008A4BE /* atmomusic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = atmomusic.jpg; sourceTree = "<group>"; };
 		C95382DB1B59CC370008A4BE /* coversforlovers.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = coversforlovers.jpg; sourceTree = "<group>"; };
 		C95382DC1B59CC370008A4BE /* embersbridge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = embersbridge.jpg; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				487D4B4B1B59B48B00BDBB2B /* Components.swift */,
 				4836AFE21B47DFB70012914B /* AppDelegate.swift */,
 				4835FA221B49576C003FCE7F /* TabBarController.swift */,
+				48F0AC3F1B5A33800001424B /* NavigationController.swift */,
 				48A50CD71B54545500586B94 /* Program */,
 				4836B0401B47ED9A0012914B /* MapViewController.swift */,
 				489458D61B52D52500105A6B /* Info */,
@@ -484,6 +487,7 @@
 				489458DA1B52D55E00105A6B /* InfoItem.swift in Sources */,
 				487D4B4C1B59B48B00BDBB2B /* Components.swift in Sources */,
 				48A50CDF1B54551500586B94 /* ProgramStageCell.swift in Sources */,
+				48F0AC401B5A33800001424B /* NavigationController.swift in Sources */,
 				48A50CE11B54552200586B94 /* ProgramBandCell.swift in Sources */,
 				48A50CDB1B5454EB00586B94 /* ProgramViewModel.swift in Sources */,
 				4836B0411B47ED9A0012914B /* MapViewController.swift in Sources */,
