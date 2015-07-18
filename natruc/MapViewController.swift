@@ -103,7 +103,7 @@ internal final class MapViewController: UIViewController {
 
 }
 
-extension MapViewController : UIScrollViewDelegate {
+extension MapViewController: UIScrollViewDelegate {
 
     //MARK: Scroll View Delegate
 

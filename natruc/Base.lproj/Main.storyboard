@@ -8,7 +8,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="jwW-gH-fMU">
             <objects>
-                <tabBarController id="woP-gO-Pd7" customClass="TabBarController" customModule="natruc" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="woP-gO-Pd7" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="xES-L7-yrS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

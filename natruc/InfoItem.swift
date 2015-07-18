@@ -8,12 +8,12 @@
 
 import Foundation
 
-internal enum InfoItemKey : String {
+internal enum InfoItemKey: String {
     case TypeKey = "type"
     case ContentKey = "content"
 }
 
-internal enum InfoItemType : String {
+internal enum InfoItemType: String {
     case Title = "title1"
     case Text = "text"
     case Subtitle = "title2"
