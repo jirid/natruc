@@ -12,7 +12,7 @@ internal final class InfoViewController: UIViewController {
 
     //MARK: Properties
 
-    private let viewModel = InfoViewModel()
+    private let viewModel = Components.shared.infoViewModel()
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var aboutView: UIView!
@@ -52,6 +52,11 @@ internal final class InfoViewController: UIViewController {
         let build = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion")! as! String
 
         versionContent.text = "\(version) (\(build))"
+
+        viewModel.dataChanged = {
+            [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 
     //MARK: Navigation

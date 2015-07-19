@@ -10,45 +10,43 @@ import Foundation
 
 internal final class InfoViewModel {
 
-    internal let items: [InfoItem]
+    private let model: Model
 
-    internal init() {
+    internal var dataChanged: (Void -> Void)?
 
-        var items = [InfoItem]()
+    internal var items: [InfoItem]
 
-        //TODO: replace with data from model
-        let path = NSBundle.mainBundle().pathForResource("info", ofType: "json")!
-        let data = NSData(contentsOfFile: path)!
+    internal init(model: Model) {
 
-        let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0), error: nil)
+        self.model = model
 
-        if let dict = json as? Dictionary<String,AnyObject>,
-            let arr = dict["items"] as? Array<Dictionary<String,AnyObject>> {
-            for item in arr {
-                if let rawType = item[InfoItemKey.TypeKey.rawValue] as? String,
-                    let type = InfoItemType(rawValue: rawType),
-                    let content = item[InfoItemKey.ContentKey.rawValue] as? String {
+        if let items = model.info {
 
-                        switch type {
-                        case .Image:
-                            let url = NSURL(string: content)!
-                            let path = NSBundle.mainBundle().URLForResource(url.lastPathComponent!, withExtension: .None)!
-                            let i = InfoItem(type: type, content: path.path!)
-                            items.append(i)
+            self.items = items
 
-                        case .Title:
-                            let locale = NSLocale(localeIdentifier: "cs-cz")
-                            let i = InfoItem(type: type, content: content.uppercaseStringWithLocale(locale))
-                            items.append(i)
+            if let dc = dataChanged {
+                dc()
+            }
 
-                        default:
-                            let i = InfoItem(type: type, content: content)
-                            items.append(i)
-                        }
-                }
+        } else {
+
+            items = [InfoItem]()
+
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("dataLoaded"), name: model.DataLoadedNotification, object: model)
+        }
+    }
+
+    @objc func dataLoaded() {
+
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: model.DataLoadedNotification, object: model)
+
+        if let items = model.info {
+
+            self.items = items
+
+            if let dc = dataChanged {
+                dc()
             }
         }
-
-        self.items = items
     }
 }

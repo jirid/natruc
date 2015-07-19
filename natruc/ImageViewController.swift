@@ -12,7 +12,24 @@ internal class ImageViewController: UIViewController {
 
     //MARK: Properties
 
-    internal var image: UIImage!
+    private var _image: UIImage?
+    internal var image: UIImage? {
+        get {
+            return _image
+        }
+        set {
+            _image = newValue
+            if isViewLoaded() {
+                if let i = newValue {
+                    setUpImage(i)
+                    initializing = true
+                    if view.superview != .None {
+                        setUpScrollView()
+                    }
+                }
+            }
+        }
+    }
 
     private var chromeVisible = true
     private var initializing = true
@@ -28,24 +45,17 @@ internal class ImageViewController: UIViewController {
 
         view.backgroundColor = Natruc.yellow
 
-        imageView.image = image
-        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Width, relatedBy: .Equal, toItem: .None, attribute: .NotAnAttribute, multiplier: 1.0, constant: image.size.width))
-        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Height, relatedBy: .Equal, toItem: .None, attribute: .NotAnAttribute, multiplier: 1.0, constant: image.size.height))
+        if let i = image {
+            setUpImage(i)
+        }
     }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
 
-        if (initializing) {
-
-            scrollView.maximumZoomScale = maxScale()
-            scrollView.minimumZoomScale = minScale()
-            scrollView.zoomScale = midScale()
-
-            initializing = false
+        if let i = image {
+            setUpScrollView()
         }
-
-        scrollView.flashScrollIndicators()
     }
 
     override func prefersStatusBarHidden() -> Bool {
@@ -67,6 +77,26 @@ internal class ImageViewController: UIViewController {
     }
 
     //MARK: Private
+
+    private func setUpImage(image: UIImage) {
+        imageView.image = image
+        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Width, relatedBy: .Equal, toItem: .None, attribute: .NotAnAttribute, multiplier: 1.0, constant: image.size.width))
+        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Height, relatedBy: .Equal, toItem: .None, attribute: .NotAnAttribute, multiplier: 1.0, constant: image.size.height))
+    }
+
+    private func setUpScrollView() {
+
+        if (initializing) {
+
+            scrollView.maximumZoomScale = maxScale()
+            scrollView.minimumZoomScale = minScale()
+            scrollView.zoomScale = midScale()
+
+            initializing = false
+        }
+
+        scrollView.flashScrollIndicators()
+    }
 
     private func minScale() -> CGFloat {
         return min(scrollView.bounds.width / imageView.image!.size.width, scrollView.bounds.height / imageView.image!.size.height)

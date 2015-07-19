@@ -12,7 +12,7 @@ internal final class NowViewController: UIViewController {
 
     //MARK: Properties
 
-    private let viewModel = ProgramViewModel()
+    private let viewModel = Components.shared.nowViewModel()
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
@@ -29,32 +29,37 @@ internal final class NowViewController: UIViewController {
         view.backgroundColor = Natruc.backgroundBlue
         titleLabel.textColor = Natruc.white
         subtitleLabel.textColor = Natruc.foregroundBlue
-    }
 
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+        update()
 
-        let now = Components.shared.now().timeIntervalSince1970
-
-        if now < viewModel.start.timeIntervalSince1970 {
-
-            before()
-
-        } else if now > viewModel.end.timeIntervalSince1970 {
-
-            after()
-
-        } else {
-
-            var stage1 = viewModel.currentBand(0)
-            var stage2 = viewModel.currentBand(1)
-            var stage3 = viewModel.currentBand(2)
-
-            progress(stage1, stage2: stage2, stage3: stage3)
+        viewModel.dataChanged = {
+            [weak self] in
+            self?.update()
         }
     }
 
     //MARK: Private
+
+    private func update() {
+        switch viewModel.state() {
+        case .NotLoaded:
+            nothing()
+        case .NotStarted:
+            before()
+        case .Progress(let s1, let s2, let s3):
+            progress(s1, stage2: s2, stage3: s3)
+        case .Ended:
+            after()
+        }
+    }
+
+    private func nothing() {
+
+        titleLabel.text = ""
+        subtitleLabel.text = ""
+        scrollView.hidden = true
+        imageView.hidden = true
+    }
 
     private func before() {
 

@@ -13,9 +13,14 @@ internal final class MapViewController: ImageViewController {
     //MARK: Initializers
 
     private func setUp() {
-        //TODO: replace with data from view model
-        let path = NSBundle.mainBundle().pathForResource("map", ofType: "jpg")!
-        image = UIImage(contentsOfFile: path)!
+
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            [weak self] in
+            let i = UIImage(data: NSData(contentsOfURL: Components.shared.model.mapURL)!)!
+            dispatch_async(dispatch_get_main_queue()) {
+                self?.image = i
+            }
+        }
     }
 
     override func awakeFromNib() {

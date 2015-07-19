@@ -12,7 +12,7 @@ internal final class ProgramViewController: UIViewController {
 
     //MARK: Properties
 
-    private let viewModel = ProgramViewModel()
+    private let viewModel = Components.shared.programViewModel()
     private let detailSegue = "ShowDetail"
     private let stageCell = "stage"
     private let bandCell = "band"
@@ -27,6 +27,11 @@ internal final class ProgramViewController: UIViewController {
         tableView.backgroundColor = Natruc.backgroundBlue
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44.0
+
+        viewModel.dataChanged = {
+            [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 
     //MARK: Navigation
