@@ -110,8 +110,6 @@
 		489458C51B517B3100105A6B /* bands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bands.json; sourceTree = "<group>"; };
 		489458C71B517B3100105A6B /* info-mapka-autem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info-mapka-autem.png"; sourceTree = "<group>"; };
 		489458C81B517B3100105A6B /* info-mapka-pesi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info-mapka-pesi.png"; sourceTree = "<group>"; };
-		489458C91B517B3100105A6B /* liwid.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = liwid.jpg; sourceTree = "<group>"; };
-		489458CA1B517B3100105A6B /* nebe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nebe.jpg; sourceTree = "<group>"; };
 		489458CB1B517B3100105A6B /* info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = info.json; sourceTree = "<group>"; };
 		489458CC1B517B3100105A6B /* map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = map.jpg; sourceTree = "<group>"; };
 		489458CD1B517B3100105A6B /* versions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = versions.json; sourceTree = "<group>"; };
@@ -294,8 +292,6 @@
 				C95382F81B59CC370008A4BE /* xindlx.jpg */,
 				489458C71B517B3100105A6B /* info-mapka-autem.png */,
 				489458C81B517B3100105A6B /* info-mapka-pesi.png */,
-				489458C91B517B3100105A6B /* liwid.jpg */,
-				489458CA1B517B3100105A6B /* nebe.jpg */,
 			);
 			path = images;
 			sourceTree = "<group>";
