@@ -48,8 +48,6 @@
 		C95382FC1B59CC370008A4BE /* fastfoodorchestra.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C95382DD1B59CC370008A4BE /* fastfoodorchestra.jpg */; };
 		C95382FD1B59CC370008A4BE /* hardtoframe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C95382DE1B59CC370008A4BE /* hardtoframe.jpg */; };
 		C95382FE1B59CC370008A4BE /* holdencaulfield.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C95382DF1B59CC370008A4BE /* holdencaulfield.jpg */; };
-		C95382FF1B59CC370008A4BE /* info-mapka-autem.png in Resources */ = {isa = PBXBuildFile; fileRef = C95382E01B59CC370008A4BE /* info-mapka-autem.png */; };
-		C95383001B59CC370008A4BE /* info-mapka-pesi.png in Resources */ = {isa = PBXBuildFile; fileRef = C95382E11B59CC370008A4BE /* info-mapka-pesi.png */; };
 		C95383011B59CC370008A4BE /* kolinanka.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C95382E21B59CC370008A4BE /* kolinanka.jpg */; };
 		C95383021B59CC370008A4BE /* krucipusk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C95382E31B59CC370008A4BE /* krucipusk.jpg */; };
 		C95383031B59CC370008A4BE /* liwid.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C95382E41B59CC370008A4BE /* liwid.jpg */; };
@@ -134,8 +132,6 @@
 		C95382DD1B59CC370008A4BE /* fastfoodorchestra.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fastfoodorchestra.jpg; sourceTree = "<group>"; };
 		C95382DE1B59CC370008A4BE /* hardtoframe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hardtoframe.jpg; sourceTree = "<group>"; };
 		C95382DF1B59CC370008A4BE /* holdencaulfield.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = holdencaulfield.jpg; sourceTree = "<group>"; };
-		C95382E01B59CC370008A4BE /* info-mapka-autem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info-mapka-autem.png"; sourceTree = "<group>"; };
-		C95382E11B59CC370008A4BE /* info-mapka-pesi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info-mapka-pesi.png"; sourceTree = "<group>"; };
 		C95382E21B59CC370008A4BE /* kolinanka.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kolinanka.jpg; sourceTree = "<group>"; };
 		C95382E31B59CC370008A4BE /* krucipusk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = krucipusk.jpg; sourceTree = "<group>"; };
 		C95382E41B59CC370008A4BE /* liwid.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = liwid.jpg; sourceTree = "<group>"; };
@@ -265,8 +261,6 @@
 				C95382DD1B59CC370008A4BE /* fastfoodorchestra.jpg */,
 				C95382DE1B59CC370008A4BE /* hardtoframe.jpg */,
 				C95382DF1B59CC370008A4BE /* holdencaulfield.jpg */,
-				C95382E01B59CC370008A4BE /* info-mapka-autem.png */,
-				C95382E11B59CC370008A4BE /* info-mapka-pesi.png */,
 				C95382E21B59CC370008A4BE /* kolinanka.jpg */,
 				C95382E31B59CC370008A4BE /* krucipusk.jpg */,
 				C95382E41B59CC370008A4BE /* liwid.jpg */,
@@ -415,11 +409,9 @@
 				C95383151B59CC370008A4BE /* vypsanafixa.jpg in Resources */,
 				C95383061B59CC370008A4BE /* monna.jpg in Resources */,
 				489458CF1B517B3100105A6B /* info-mapka-autem.png in Resources */,
-				C95382FF1B59CC370008A4BE /* info-mapka-autem.png in Resources */,
 				C95383081B59CC370008A4BE /* pekar.jpg in Resources */,
 				C953830D1B59CC370008A4BE /* skwor.jpg in Resources */,
 				C95383091B59CC370008A4BE /* pjryba.jpg in Resources */,
-				C95383001B59CC370008A4BE /* info-mapka-pesi.png in Resources */,
 				C95383131B59CC370008A4BE /* vladivojsko.jpg in Resources */,
 				C95383111B59CC370008A4BE /* udg.jpg in Resources */,
 				C95383141B59CC370008A4BE /* voxel.jpg in Resources */,
