@@ -1,5 +1,5 @@
 {
-  "version": "19",
+  "version": "20",
   "bands": [
     {
       "id": "1",
@@ -89,7 +89,7 @@
       "desc": "Známá a populární kapela UDG, alias Ústecký drogový gang. I když už se kapela UDG zabydlela spíš v okolí Prahy, pořád se jedná o GANG veselých muzikantů. Právě připravují novou desku a snad vypustí první vlaštovku už pro návštěvníky Festivalu Natruc. Co ale nebude chybět jsou známé písně Hvězdář, Kurtizána, Sám spát, Zpěvy deště, nebo Raketa.",
       "image": "http://natruc.korejtko.cz/app/ios/images/udg.jpg",
       "links": {
-        "web": "www.udg.cz",
+        "web": "http://www.udg.cz",
         "facebook": "https://www.facebook.com/12154727212",
         "youtube": "https://www.youtube.com/watch?v=Or8ZMqfaFak"
       },
@@ -105,7 +105,7 @@
       "desc": "Včera mu bylo málo a dneska je mu moc. Z písničkáře s kytarou, co na koncerty jezdil výhradně vlakem se vyklubal jeden z nejúspěšnějších hitmakerů všech dob. Ondřej Ládek, vizáž gangstera, sdrce Anděla a v ruce ukulele, to je dnešní Xindl X.",
       "image": "http://natruc.korejtko.cz/app/ios/images/xindlx.jpg",
       "links": {
-        "web": "www.xindlx.cz",
+        "web": "http://www.xindlx.cz",
         "facebook": "https://www.facebook.com/49039601295",
         "youtube": "https://www.youtube.com/watch?v=MfUGPsssytQ"
       },
@@ -233,7 +233,7 @@
       "desc": "Rock'n'roll to není prdel a to Tomáš Hájíček z Podještědí po 25 letech moc dobře ví. I když se Krucipusk se svým posledním albem uchýlil do „Boombaye“ pořád jde o pořádnej nářez a jinak to nebude ani u dalšího alba s exotickým názvem TINTILI VANTILI. Co se pod tím přesně schovává se dozvíme až v listopadu, kdy nová deska vyjde, nicméně první ochutnávky vás čekají už na Kmochově Ostrově a Kiss Delta Stage!",
       "image": "http://natruc.korejtko.cz/app/ios/images/krucipusk.jpg",
       "links": {
-        "web": "www.krucipusk.cz",
+        "web": "http://www.krucipusk.cz",
         "facebook": "https://www.facebook.com/41984874165",
         "youtube": "https://www.youtube.com/watch?v=46YJ10jijwM"
       },
@@ -249,7 +249,7 @@
       "desc": "Že na rodinné oslavě nesmí chybět hlavní gratulant je pochopitelné. Domácí pop punková kapela Rybičky 48, pro něž je Kmochův Ostrov domovem, návštěvníci Natrucu rodinou, vystoupí na Kiss Delta Stage a oslaví tak narozeniny jejich staršího bráchy.\n\nPozor, oslava se může zvrtnout v nekonečný mejdan!",
       "image": "http://natruc.korejtko.cz/app/ios/images/rybicky48.jpg",
       "links": {
-        "web": "www.rybicky48.cz",
+        "web": "http://www.rybicky48.cz",
         "facebook": "https://www.facebook.com/116139658111",
         "youtube": "https://www.youtube.com/watch?v=LcEYpd6MMZg"
       },
@@ -265,7 +265,7 @@
       "desc": "Rocková banda známá svou velkolepou podiovou show. Rachejtle, prskavky a ohňostroje, svítící struny, vymakaná světla i zvuk. Škwor nenechává nic náhodě a stejně pečlivě se připravují i do Kolína. ",
       "image": "http://natruc.korejtko.cz/app/ios/images/skwor.jpg",
       "links": {
-        "web": "www.skwor.cz",
+        "web": "http://www.skwor.cz",
         "facebook": "https://www.facebook.com/159889977134",
         "youtube": "https://www.youtube.com/watch?v=WybFA3lZCSA"
       },
@@ -281,7 +281,7 @@
       "desc": "Legendární punková kapela, hrající téměř 33 let ve stejném složení.\n\nVítězové ankety o nejlepší kytarový riff století přijedou se svým Traktorem šířit anarchii a total chaos. Kde se objeví, tam vyhlásí punkový království, kde neplatí žádná pravidla, kouří se Startky a pije Plzeňský. Punk's not dead, vy volové!",
       "image": "http://natruc.korejtko.cz/app/ios/images/visacizamek.jpg",
       "links": {
-        "web": "www.visaci.cz",
+        "web": "http://www.visaci.cz",
         "facebook": "https://www.facebook.com/22283370442",
         "youtube": "https://www.youtube.com/watch?v=BNmv2P2crqs"
       },
@@ -297,7 +297,7 @@
       "desc": "I letos se na Kmochově ostrově objeví ostrovní kapela ze Spojeného království. Britští TRIBAZIK nabízí jedinečnou hudební smršť trash metalu, acid techna a alternativního rocku s podtóny rave to celé s drtivou energií a silnými vokály.",
       "image": "http://natruc.korejtko.cz/app/ios/images/tribazik.jpg",
       "links": {
-        "web": "www.tribazik.com",
+        "web": "http://www.tribazik.com",
         "facebook": "https://www.facebook.com/51658337612",
         "youtube": "https://www.youtube.com/watch?v=YRdqaH9EgDI"
       },
@@ -374,7 +374,7 @@
       "name": "Pekař",
       "shortDesc": "",
       "darkStatusBar": false,
-      "desc": "Skladatel, muzikant, písničkář, tanečník a profesionální Macho!",
+      "desc": "Chcete-li si poslechnout příjemnou muziku s vtipnými texty, určitě zavítejte na vystoupení Pekaře. A jak to vidí on? Podívejte se na důvody, kterými vás zve na svůj koncert:\n\n1) Nikdy se neví jak dopadne  \n2) Vždycky je to zážitek \n3) Kluk+kytara+zpěv=co víc si přát ",
       "image": "http://natruc.korejtko.cz/app/ios/images/pekar.jpg",
       "links": {
         "web": "",
