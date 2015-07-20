@@ -16,6 +16,7 @@ internal final class ProgramViewController: UIViewController {
     private let detailSegue = "ShowDetail"
     private let stageCell = "stage"
     private let bandCell = "band"
+    private let footerCell = "footer"
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -60,18 +61,22 @@ extension ProgramViewController: UITableViewDataSource {
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return viewModel.numberOfBands(section)
+        return viewModel.numberOfBands(section) + 1
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         var cell: ProgramCell!
 
-        if (indexPath.row == 0) {
+        if indexPath.row == 0 {
 
             let c = tableView.dequeueReusableCellWithIdentifier(stageCell) as! ProgramStageCell
             c.setTitle(viewModel.stages[indexPath.section])
             cell = c
+
+        } else if indexPath.row == viewModel.numberOfBands(indexPath.section) {
+
+            cell = tableView.dequeueReusableCellWithIdentifier(footerCell) as! ProgramCell
 
         } else {
 

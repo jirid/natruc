@@ -219,7 +219,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ns5-ps-0Ou">
-                                                    <rect key="frame" x="15" y="20" width="41" height="16"/>
+                                                    <rect key="frame" x="15" y="30" width="41" height="6"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -228,7 +228,7 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstItem="ns5-ps-0Ou" firstAttribute="top" secondItem="zqC-6j-1KT" secondAttribute="top" constant="20" id="DKZ-rn-ZhT"/>
+                                                <constraint firstItem="ns5-ps-0Ou" firstAttribute="top" secondItem="zqC-6j-1KT" secondAttribute="top" constant="30" id="DKZ-rn-ZhT"/>
                                                 <constraint firstAttribute="bottom" secondItem="ns5-ps-0Ou" secondAttribute="bottom" constant="8" id="IGT-Hw-4Uj"/>
                                                 <constraint firstItem="ns5-ps-0Ou" firstAttribute="leading" secondItem="zqC-6j-1KT" secondAttribute="leading" constant="15" id="SPs-UT-C3r"/>
                                             </constraints>
@@ -293,6 +293,30 @@
                                             <outlet property="timeLabel" destination="BJk-kE-NUG" id="L0p-2T-vJk"/>
                                             <outlet property="titleLabel" destination="JJJ-hp-Y9S" id="Hzb-Vu-agh"/>
                                         </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="footer" rowHeight="30" id="HTi-oj-fRV" customClass="ProgramCell" customModule="natruc" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HTi-oj-fRV" id="zaG-Em-eeW">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lgn-eS-tdn">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="nEM-PG-sFr"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="lgn-eS-tdn" secondAttribute="trailing" id="GU7-nM-qDW"/>
+                                                <constraint firstItem="lgn-eS-tdn" firstAttribute="top" secondItem="zaG-Em-eeW" secondAttribute="top" id="HRM-eb-Ieq"/>
+                                                <constraint firstItem="lgn-eS-tdn" firstAttribute="leading" secondItem="zaG-Em-eeW" secondAttribute="leading" id="MUZ-4c-X5F"/>
+                                                <constraint firstAttribute="bottom" secondItem="lgn-eS-tdn" secondAttribute="bottom" id="Nya-TG-ibL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
