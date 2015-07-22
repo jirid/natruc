@@ -2,11 +2,27 @@
   "items": [
     {
       "type": "title1",
+      "content": "O festivalu"
+    },
+    {
+      "type": "text",
+      "content": "Žánrově velmi pestrý festival s neopakovatelnou atmosférou Kmochova ostrova letos přinese vystoupení 29 hudebních skupin z Čech i ze zahraničí. To, čím se Natruc liší od jiných letních hudebních festivalů, je zejména výborná atmosféra, přátelské prostředí a jedinečné místo konání festivalu uprostřed řeky Labe. Letos opět bude možné zapůjčit přímo během kulturní přehlídky šlapadlo či loďku a užít si hudební zážitek zcela netradičně přímo z vody."
+    },
+    {
+      "type": "text",
+      "content": "Historie festivalu sahá až do roku 1998, kdy se konal s podtitulem „Natruc ospalému městu“. Další ročníky byly obvykle zasvěceny někomu natruc. Například „Natruc všem rodičům, kteří zapomínají na své děti“, „Natruc ospalým lidem“ či „Natruc ruské okupaci“ apod."
+    },
+    {
+      "type": "text",
+      "content": "Dnes se již festival nikomu natruc nepořádá, za to má poslední tři roky benefiční charakter. Podporuje hiporehabilitaci dětí se sociálním a zdravotním handicapem."
+    },
+    {
+      "type": "title1",
       "content": "Důležitá upozornění"
     },
     {
       "type": "text",
-      "content": "Z bezpečnostních důvodů není dovoleno do areálu festivalu vnášet jakékoli skleněné nádoby včetně lahví, plechovky, hořlaviny, zbraně jakéhokoli druhu, drogy a  omamné látky, předměty ohrožující bezpečnost, pyrotechnické předměty, otevřený oheň, deštníky, laserová ukazovátka, magnetofony a profesionální fotoaparáty a kamery. Rovněž není dovoleno vnášet do areálu festivalu vlastní jídlo a nápoje. V areálu je dostatek stánků s občerstvením a mycích nádob s vodou. Do areálu platí zákaz vstupu psů i jiných zvířat. V areálu festivalu je zakázáno rozdělávat oheň. Do areálu platí zákaz vjezdu jakýchkoli vozidel včetně motocyklů a jízdních kol bez povolení."
+      "content": "Z bezpečnostních důvodů není dovoleno do areálu festivalu vnášet jakékoli skleněné nádoby včetně lahví, plechovky, hořlaviny, zbraně jakéhokoli druhu, drogy a omamné látky, předměty ohrožující bezpečnost, pyrotechnické předměty, otevřený oheň, deštníky, laserová ukazovátka, magnetofony a profesionální fotoaparáty a kamery. Rovněž není dovoleno vnášet do areálu festivalu vlastní jídlo a nápoje. V areálu je dostatek stánků s občerstvením a mycích nádob s vodou. Do areálu platí zákaz vstupu psů i jiných zvířat. V areálu festivalu je zakázáno rozdělávat oheň. Do areálu platí zákaz vjezdu jakýchkoli vozidel včetně motocyklů a jízdních kol bez povolení."
     },
     {
       "type": "title1",
