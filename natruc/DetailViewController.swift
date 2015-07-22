@@ -13,6 +13,7 @@ internal final class DetailViewController: UIViewController {
     //MARK: Properties
 
     internal var item: ProgramItem!
+    private var timer: Timer?
 
     private var dark = false
 
@@ -24,6 +25,13 @@ internal final class DetailViewController: UIViewController {
     @IBOutlet weak var webButton: UIButton!
     @IBOutlet weak var facebookButton: UIButton!
     @IBOutlet weak var youtubeButton: UIButton!
+
+    //MARK: Initializers
+
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        deactivate()
+    }
 
     //MARK: View Lifecycle
 
@@ -71,7 +79,6 @@ internal final class DetailViewController: UIViewController {
 
         setNeedsStatusBarAppearanceUpdate()
 
-        progressView.setItem(item)
         textView.text = item.description
         textView.textColor = Natruc.black
         textView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -82,6 +89,36 @@ internal final class DetailViewController: UIViewController {
         configureLinkButton(webButton, enabled: item.web != .None)
         configureLinkButton(facebookButton, enabled: item.facebook != .None)
         configureLinkButton(youtubeButton, enabled: item.youtube != .None)
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("activate"), name: UIApplicationDidBecomeActiveNotification, object: .None)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("deactivate"), name: UIApplicationWillResignActiveNotification, object: .None)
+        activate()
+    }
+
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationDidBecomeActiveNotification, object: .None)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationWillResignActiveNotification, object: .None)
+        deactivate()
+    }
+
+    @objc func activate() {
+        update()
+        deactivate()
+        timer = Timer(ti: 10) {
+            [weak self] in
+            self?.update()
+        }
+    }
+
+    @objc func deactivate() {
+        if let t = timer {
+            t.invalidate()
+        }
+        timer = .None
     }
 
     override func viewDidLayoutSubviews() {
@@ -122,6 +159,11 @@ internal final class DetailViewController: UIViewController {
     }
 
     //MARK: Private
+
+    private func update() {
+
+        progressView.setItem(item)
+    }
 
     private func configureLinkButton(button: UIButton, enabled: Bool) {
 

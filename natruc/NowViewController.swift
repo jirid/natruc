@@ -13,6 +13,7 @@ internal final class NowViewController: UIViewController {
     //MARK: Properties
 
     private let viewModel = Components.shared.nowViewModel()
+    private var timer: Timer?
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
@@ -22,6 +23,13 @@ internal final class NowViewController: UIViewController {
     @IBOutlet weak var stageView2: ProgressView!
     @IBOutlet weak var stageView3: ProgressView!
 
+    //MARK: Initializers
+
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        deactivate()
+    }
+
     //MARK: View Lifecycle
 
     override func viewDidLoad() {
@@ -30,12 +38,40 @@ internal final class NowViewController: UIViewController {
         titleLabel.textColor = Natruc.white
         subtitleLabel.textColor = Natruc.foregroundBlue
 
-        update()
-
         viewModel.dataChanged = {
             [weak self] in
             self?.update()
         }
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("activate"), name: UIApplicationDidBecomeActiveNotification, object: .None)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("deactivate"), name: UIApplicationWillResignActiveNotification, object: .None)
+        activate()
+    }
+
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationDidBecomeActiveNotification, object: .None)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationWillResignActiveNotification, object: .None)
+        deactivate()
+    }
+
+    @objc func activate() {
+        update()
+        deactivate()
+        timer = Timer(ti: 10) {
+            [weak self] in
+            self?.update()
+        }
+    }
+
+    @objc func deactivate() {
+        if let t = timer {
+            t.invalidate()
+        }
+        timer = .None
     }
 
     //MARK: Private
