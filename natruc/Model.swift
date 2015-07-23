@@ -115,7 +115,7 @@ internal final class Model {
             
         }
 
-        return (stages, items, gstart, gend)
+        return (stages, items, gstart.dateByAddingTimeInterval(-3600), gend)
     }
 
     internal func loadInfo(url: NSURL) -> [InfoItem] {
