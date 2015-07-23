@@ -14,6 +14,7 @@ internal final class NowViewController: UIViewController {
 
     private let viewModel = Components.shared.nowViewModel()
     private var timer: Timer?
+    private let detailSegue = "ShowDetail"
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
@@ -22,6 +23,11 @@ internal final class NowViewController: UIViewController {
     @IBOutlet weak var stageView1: ProgressView!
     @IBOutlet weak var stageView2: ProgressView!
     @IBOutlet weak var stageView3: ProgressView!
+
+    private var curItem: ProgramItem?
+    private var s1Item: ProgramItem?
+    private var s2Item: ProgramItem?
+    private var s3Item: ProgramItem?
 
     //MARK: Initializers
 
@@ -74,6 +80,40 @@ internal final class NowViewController: UIViewController {
         timer = .None
     }
 
+    //MARK: Navigation
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+        if let detail = segue.destinationViewController as? DetailViewController, let item = curItem {
+
+            detail.item = item
+        }
+    }
+
+    @IBAction func prepareForUnwindSegue(segue: UIStoryboardSegue) {
+        
+    }
+
+    //MARK: Actions
+
+    @IBAction func stage1ButtonTapped(sender: UIButton) {
+
+        curItem = s1Item
+        performSegueWithIdentifier(detailSegue, sender: .None)
+    }
+
+    @IBAction func stage2ButtonTapped(sender: UIButton) {
+
+        curItem = s2Item
+        performSegueWithIdentifier(detailSegue, sender: .None)
+    }
+    
+    @IBAction func stage3ButtonTapped(sender: UIButton) {
+
+        curItem = s3Item
+        performSegueWithIdentifier(detailSegue, sender: .None)
+    }
+
     //MARK: Private
 
     private func update() {
@@ -83,6 +123,9 @@ internal final class NowViewController: UIViewController {
         case .NotStarted:
             before()
         case .Progress(let s1, let s2, let s3):
+            s1Item = s1
+            s2Item = s2
+            s3Item = s3
             progress(s1, stage2: s2, stage3: s3)
         case .Ended:
             after()
