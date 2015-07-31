@@ -83,9 +83,9 @@ internal final class NowViewModel {
 
             } else {
 
-                var s1 = currentBand(0)!
-                var s2 = currentBand(1)!
-                var s3 = currentBand(2)!
+                let s1 = currentBand(0)!
+                let s2 = currentBand(1)!
+                let s3 = currentBand(2)!
 
                 return .Progress(s1, s2, s3)
             }

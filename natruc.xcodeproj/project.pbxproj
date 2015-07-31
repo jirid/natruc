@@ -13,7 +13,6 @@
 		4836AFE81B47DFB70012914B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4836AFE61B47DFB70012914B /* Main.storyboard */; };
 		4836AFEA1B47DFB70012914B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4836AFE91B47DFB70012914B /* Images.xcassets */; };
 		4836AFED1B47DFB70012914B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4836AFEB1B47DFB70012914B /* LaunchScreen.xib */; };
-		4836AFF91B47DFB70012914B /* natrucTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836AFF81B47DFB70012914B /* natrucTests.swift */; };
 		4836B0061B47E0AF0012914B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4836B0041B47E0AF0012914B /* Localizable.strings */; };
 		4836B0081B47E3FC0012914B /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 4836B0071B47E3FC0012914B /* iTunesArtwork@2x */; };
 		4836B03B1B47ED6E0012914B /* NowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836B03A1B47ED6E0012914B /* NowViewController.swift */; };
@@ -76,16 +75,6 @@
 		C95383171B59CC370008A4BE /* xindlx.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C95382F81B59CC370008A4BE /* xindlx.jpg */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		4836AFF31B47DFB70012914B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4836AFD51B47DFB70012914B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4836AFDC1B47DFB70012914B;
-			remoteInfo = natruc;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		480801471B5C217500760566 /* NowViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowViewModel.swift; sourceTree = "<group>"; };
 		4835FA201B4955DA003FCE7F /* Natruc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Natruc.swift; sourceTree = "<group>"; };
@@ -95,9 +84,6 @@
 		4836AFE71B47DFB70012914B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4836AFE91B47DFB70012914B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4836AFEC1B47DFB70012914B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		4836AFF21B47DFB70012914B /* natrucTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = natrucTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4836AFF71B47DFB70012914B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4836AFF81B47DFB70012914B /* natrucTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = natrucTests.swift; sourceTree = "<group>"; };
 		4836B0021B47E00E0012914B /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Main.strings; sourceTree = "<group>"; };
 		4836B0031B47E00E0012914B /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4836B0051B47E0AF0012914B /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -171,13 +157,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4836AFEF1B47DFB70012914B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -185,7 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				4836AFDF1B47DFB70012914B /* natruc */,
-				4836AFF51B47DFB70012914B /* natrucTests */,
 				4836AFDE1B47DFB70012914B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -194,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				4836AFDD1B47DFB70012914B /* natruc.app */,
-				4836AFF21B47DFB70012914B /* natrucTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -227,23 +204,6 @@
 			children = (
 				4836B0071B47E3FC0012914B /* iTunesArtwork@2x */,
 				4836AFE11B47DFB70012914B /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4836AFF51B47DFB70012914B /* natrucTests */ = {
-			isa = PBXGroup;
-			children = (
-				4836AFF81B47DFB70012914B /* natrucTests.swift */,
-				4836AFF61B47DFB70012914B /* Supporting Files */,
-			);
-			path = natrucTests;
-			sourceTree = "<group>";
-		};
-		4836AFF61B47DFB70012914B /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4836AFF71B47DFB70012914B /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -350,40 +310,19 @@
 			productReference = 4836AFDD1B47DFB70012914B /* natruc.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4836AFF11B47DFB70012914B /* natrucTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4836AFFF1B47DFB70012914B /* Build configuration list for PBXNativeTarget "natrucTests" */;
-			buildPhases = (
-				4836AFEE1B47DFB70012914B /* Sources */,
-				4836AFEF1B47DFB70012914B /* Frameworks */,
-				4836AFF01B47DFB70012914B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4836AFF41B47DFB70012914B /* PBXTargetDependency */,
-			);
-			name = natrucTests;
-			productName = natrucTests;
-			productReference = 4836AFF21B47DFB70012914B /* natrucTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		4836AFD51B47DFB70012914B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Jiri Dutkevic";
 				TargetAttributes = {
 					4836AFDC1B47DFB70012914B = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					4836AFF11B47DFB70012914B = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 4836AFDC1B47DFB70012914B;
 					};
 				};
 			};
@@ -402,7 +341,6 @@
 			projectRoot = "";
 			targets = (
 				4836AFDC1B47DFB70012914B /* natruc */,
-				4836AFF11B47DFB70012914B /* natrucTests */,
 			);
 		};
 /* End PBXProject section */
@@ -455,13 +393,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4836AFF01B47DFB70012914B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -498,23 +429,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4836AFEE1B47DFB70012914B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4836AFF91B47DFB70012914B /* natrucTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		4836AFF41B47DFB70012914B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4836AFDC1B47DFB70012914B /* natruc */;
-			targetProxy = 4836AFF31B47DFB70012914B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4836AFE61B47DFB70012914B /* Main.storyboard */ = {
@@ -568,6 +483,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -583,7 +499,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -621,7 +537,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -634,6 +550,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = natruc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = eu.natruc.iosapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -644,41 +561,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = natruc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = eu.natruc.iosapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		4836B0001B47DFB70012914B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = natrucTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/natruc.app/natruc";
-			};
-			name = Debug;
-		};
-		4836B0011B47DFB70012914B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = natrucTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/natruc.app/natruc";
 			};
 			name = Release;
 		};
@@ -699,15 +583,6 @@
 			buildConfigurations = (
 				4836AFFD1B47DFB70012914B /* Debug */,
 				4836AFFE1B47DFB70012914B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4836AFFF1B47DFB70012914B /* Build configuration list for PBXNativeTarget "natrucTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4836B0001B47DFB70012914B /* Debug */,
-				4836B0011B47DFB70012914B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

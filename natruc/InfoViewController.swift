@@ -65,7 +65,7 @@ internal final class InfoViewController: UIViewController {
 
         if let c = segue.destinationViewController as? ImageViewController {
 
-            let item = viewModel.items[tableView.indexPathForSelectedRow()!.row]
+            let item = viewModel.items[tableView.indexPathForSelectedRow!.row]
             c.image = UIImage(contentsOfFile: item.content)
         }
     }

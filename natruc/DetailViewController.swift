@@ -73,7 +73,7 @@ internal final class DetailViewController: UIViewController {
 
             imageView.removeFromSuperview()
             let views = ["view": view, "progress": progressView]
-            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-70-[progress]", options: .allZeros, metrics: .None, views: views))
+            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-70-[progress]", options: [], metrics: .None, views: views))
             dark = false
         }
 

@@ -59,12 +59,17 @@ internal final class Model {
 
         var items = [[ProgramItem]]()
         var stages = [String]()
-        var gstart = NSDate.distantFuture() as! NSDate
-        var gend = NSDate.distantPast() as! NSDate
+        var gstart = NSDate.distantFuture() 
+        var gend = NSDate.distantPast() 
 
         let data = NSData(contentsOfURL: url)!
 
-        let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0), error: nil)
+        let json: AnyObject?
+        do {
+            json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        } catch _ {
+            json = nil
+        }
 
         if let dict = json as? Dictionary<String,AnyObject> {
 
@@ -92,7 +97,7 @@ internal final class Model {
                         let web = webPath == "" ? .None : NSURL(string: webPath)
                         let facebook = facebookPath == "" ? .None : NSURL(string: facebookPath)
                         let youtube = youtubePath == "" ? .None : NSURL(string: youtubePath)
-                        let idx = stage.toInt()! - 1
+                        let idx = Int(stage)! - 1
 
                         let formatter = NSDateFormatter()
                         formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
@@ -124,7 +129,12 @@ internal final class Model {
 
         let data = NSData(contentsOfURL: url)!
 
-        let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0), error: nil)
+        let json: AnyObject?
+        do {
+            json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        } catch _ {
+            json = nil
+        }
 
         if let dict = json as? Dictionary<String,AnyObject>,
             let arr = dict["items"] as? Array<Dictionary<String,AnyObject>> {

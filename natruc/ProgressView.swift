@@ -41,20 +41,20 @@ internal final class ProgressView : UIView {
         addSubview(nameLabel)
 
         let views = ["view": self, "stage": stageLabel, "time": timeLabel, "name": nameLabel, "dark": darkView]
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-15-[stage]", options: .allZeros, metrics: .None, views: views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-15-[time]-[name]", options: .allZeros, metrics: .None, views: views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-15-[stage]-[time]-15-|", options: .allZeros, metrics: .None, views: views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-15-[stage]", options: [], metrics: .None, views: views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-15-[time]-[name]", options: [], metrics: .None, views: views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-15-[stage]-[time]-15-|", options: [], metrics: .None, views: views))
         addConstraint(NSLayoutConstraint(item: timeLabel, attribute: .Baseline, relatedBy: .Equal, toItem: nameLabel, attribute: .Baseline, multiplier: 1, constant: 0))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[dark]|", options: .allZeros, metrics: .None, views: views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[dark]", options: .allZeros, metrics: .None, views: views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[dark]|", options: [], metrics: .None, views: views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[dark]", options: [], metrics: .None, views: views))
 
         setProgress(0)
 
-        setTranslatesAutoresizingMaskIntoConstraints(false)
-        darkView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        stageLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
-        timeLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
-        nameLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        translatesAutoresizingMaskIntoConstraints = false
+        darkView.translatesAutoresizingMaskIntoConstraints = false
+        stageLabel.translatesAutoresizingMaskIntoConstraints = false
+        timeLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
     }
 
     override func awakeFromNib() {
@@ -67,7 +67,7 @@ internal final class ProgressView : UIView {
         setUp()
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 

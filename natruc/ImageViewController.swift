@@ -53,7 +53,7 @@ internal class ImageViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
 
-        if let i = image {
+        if let _ = image {
             setUpScrollView()
         }
     }

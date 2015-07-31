@@ -41,7 +41,7 @@ internal final class ProgramViewController: UIViewController {
 
         if let detail = segue.destinationViewController as? DetailViewController {
 
-            detail.item = viewModel.bandForIndexPath(tableView.indexPathForSelectedRow()!)
+            detail.item = viewModel.bandForIndexPath(tableView.indexPathForSelectedRow!)
         }
     }
 

@@ -33,7 +33,7 @@ internal final class MapViewController: ImageViewController {
         setUp()
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setUp()
     }
