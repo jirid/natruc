@@ -52,15 +52,19 @@ internal final class NowViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("activate"), name: UIApplicationDidBecomeActiveNotification, object: .None)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("deactivate"), name: UIApplicationWillResignActiveNotification, object: .None)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("activate"),
+            name: UIApplicationDidBecomeActiveNotification, object: .None)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("deactivate"),
+            name: UIApplicationWillResignActiveNotification, object: .None)
         activate()
     }
 
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationDidBecomeActiveNotification, object: .None)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationWillResignActiveNotification, object: .None)
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+            name: UIApplicationDidBecomeActiveNotification, object: .None)
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+            name: UIApplicationWillResignActiveNotification, object: .None)
         deactivate()
     }
 
@@ -84,14 +88,15 @@ internal final class NowViewController: UIViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
-        if let detail = segue.destinationViewController as? DetailViewController, let item = curItem {
+        if let detail = segue.destinationViewController as? DetailViewController,
+            let item = curItem {
 
             detail.item = item
         }
     }
 
     @IBAction func prepareForUnwindSegue(segue: UIStoryboardSegue) {
-        
+
     }
 
     //MARK: Actions
@@ -107,7 +112,7 @@ internal final class NowViewController: UIViewController {
         curItem = s2Item
         performSegueWithIdentifier(detailSegue, sender: .None)
     }
-    
+
     @IBAction func stage3ButtonTapped(sender: UIButton) {
 
         curItem = s3Item
@@ -142,8 +147,12 @@ internal final class NowViewController: UIViewController {
 
     private func before() {
 
-        titleLabel.text = NSLocalizedString("BeforeTitle", value: "The festival has not started yet", comment: "Title on the Now screen displayed before the start of the festival.")
-        subtitleLabel.text = NSLocalizedString("BeforeSubtitle", value: "Looking forward to seeing you there", comment: "Subtitle on the now screen displayed before the start of the festival.")
+        titleLabel.text = NSLocalizedString("BeforeTitle",
+            value: "The festival has not started yet",
+            comment: "Title on the Now screen displayed before the start of the festival.")
+        subtitleLabel.text = NSLocalizedString("BeforeSubtitle",
+            value: "Looking forward to seeing you there",
+            comment: "Subtitle on the now screen displayed before the start of the festival.")
 
         scrollView.hidden = true
         imageView.hidden = false
@@ -152,8 +161,12 @@ internal final class NowViewController: UIViewController {
 
     private func progress(stage1: ProgramItem?, stage2: ProgramItem?, stage3: ProgramItem?) {
 
-        titleLabel.text = NSLocalizedString("ProgressTitle", value: "Enjoy the festival!", comment: "Title on the Now screen displayed while the festival is in progress.")
-        subtitleLabel.text = NSLocalizedString("ProgressSubtitle", value: "Now playing", comment: "Subtitle on the now screen displayed while the festival is in progress.")
+        titleLabel.text = NSLocalizedString("ProgressTitle",
+            value: "Enjoy the festival!",
+            comment: "Title on the Now screen displayed while the festival is in progress.")
+        subtitleLabel.text = NSLocalizedString("ProgressSubtitle",
+            value: "Now playing",
+            comment: "Subtitle on the now screen displayed while the festival is in progress.")
 
         scrollView.hidden = false
         imageView.hidden = true
@@ -183,8 +196,12 @@ internal final class NowViewController: UIViewController {
 
     private func after() {
 
-        titleLabel.text = NSLocalizedString("AfterTitle", value: "The festival is over", comment: "Title on the Now screen displayed after the end of the festival.")
-        subtitleLabel.text = NSLocalizedString("AfterSubtitle", value: "Thanks for visiting!", comment: "Subtitle on the now screen displayed after the end of the festival.")
+        titleLabel.text = NSLocalizedString("AfterTitle",
+            value: "The festival is over",
+            comment: "Title on the Now screen displayed after the end of the festival.")
+        subtitleLabel.text = NSLocalizedString("AfterSubtitle",
+            value: "Thanks for visiting!",
+            comment: "Subtitle on the now screen displayed after the end of the festival.")
 
         scrollView.hidden = true
         imageView.hidden = false

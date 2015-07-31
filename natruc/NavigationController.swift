@@ -8,7 +8,8 @@
 
 import UIKit
 
-// re-enabling pop gesture when back button is hidden due to http://keighl.com/post/ios7-interactive-pop-gesture-custom-back-button/
+// re-enabling pop gesture when back button is hidden
+// due to http://keighl.com/post/ios7-interactive-pop-gesture-custom-back-button/
 
 internal final class NavigationController: UINavigationController {
 
@@ -30,8 +31,9 @@ internal final class NavigationController: UINavigationController {
 
 extension NavigationController: UINavigationControllerDelegate {
 
-    func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
-        
+    func navigationController(navigationController: UINavigationController,
+        didShowViewController viewController: UIViewController, animated: Bool) {
+
         interactivePopGestureRecognizer?.enabled = viewControllers.count > 1
     }
 }

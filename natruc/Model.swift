@@ -13,7 +13,7 @@ internal final class Model {
 
     //MARK: Properties
 
-    internal let DataLoadedNotification = "DataLoadedNotification"
+    internal static let dataLoadedNotification = "DataLoadedNotification"
 
     internal var stages: [String]?
     internal var program: [[ProgramItem]]?
@@ -48,7 +48,8 @@ internal final class Model {
             dispatch_async(dispatch_get_main_queue()) {
 
                 if let s = self {
-                    NSNotificationCenter.defaultCenter().postNotificationName(s.DataLoadedNotification, object: s)
+                    NSNotificationCenter.defaultCenter()
+                        .postNotificationName(Model.dataLoadedNotification, object: s)
                 }
             }
         }
@@ -60,8 +61,8 @@ internal final class Model {
 
         var items = [[ProgramItem]]()
         var stages = [String]()
-        var gstart = NSDate.distantFuture() 
-        var gend = NSDate.distantPast() 
+        var gstart = NSDate.distantFuture()
+        var gend = NSDate.distantPast()
 
         let data = NSData(contentsOfURL: url)!
 
@@ -81,10 +82,21 @@ internal final class Model {
 
             let l = j["links"]
 
-            if let name = j["name"].string, let short = j["shortDesc"].string, let dark = j["darkStatusBar"].bool, let description = j["desc"].string, let imagePath = j["image"].string, let webPath = l["web"].string, let facebookPath = l["facebook"].string, let youtubePath = l["youtube"].string, let start = j["start"].string, let end = j["end"].string, let stage = j["stageId"].string {
+            if let name = j["name"].string,
+                let short = j["shortDesc"].string,
+                let dark = j["darkStatusBar"].bool,
+                let description = j["desc"].string,
+                let imagePath = j["image"].string,
+                let webPath = l["web"].string,
+                let facebookPath = l["facebook"].string,
+                let youtubePath = l["youtube"].string,
+                let start = j["start"].string,
+                let end = j["end"].string,
+                let stage = j["stageId"].string {
 
                 let resource = NSURL(string: imagePath)?.lastPathComponent
-                let image = resource == .None ? .None : NSBundle.mainBundle().URLForResource(resource!, withExtension: .None)
+                let image = resource == .None ? .None :
+                    NSBundle.mainBundle().URLForResource(resource!, withExtension: .None)
                 let web = webPath == "" ? .None : NSURL(string: webPath)
                 let facebook = facebookPath == "" ? .None : NSURL(string: facebookPath)
                 let youtube = youtubePath == "" ? .None : NSURL(string: youtubePath)
@@ -96,7 +108,11 @@ internal final class Model {
                 gstart = gstart.earlierDate(startDate)
                 gend = gend.laterDate(endDate)
 
-                let i = ProgramItem(name: name, brief: short, dark: dark, description: description, image: image, web: web, facebook: facebook, youtube: youtube, start: startDate, end: endDate, color: Color(rawValue: idx)!, stage: stages[idx])
+                let i = ProgramItem(name: name, brief: short, dark: dark,
+                    description: description, image: image, web: web,
+                    facebook: facebook, youtube: youtube, start: startDate,
+                    end: endDate, color: Color(rawValue: idx)!,
+                    stage: stages[idx])
 
                 var l = items[idx]
                 l.append(i)
@@ -125,13 +141,15 @@ internal final class Model {
                     switch type {
                     case .Image:
                         let url = NSURL(string: content)!
-                        let path = NSBundle.mainBundle().URLForResource(url.lastPathComponent!, withExtension: .None)!
+                        let path = NSBundle.mainBundle().URLForResource(url.lastPathComponent!,
+                            withExtension: .None)!
                         let i = InfoItem(type: type, content: path.path!)
                         items.append(i)
 
                     case .Title:
                         let locale = NSLocale(localeIdentifier: "cs-cz")
-                        let i = InfoItem(type: type, content: content.uppercaseStringWithLocale(locale))
+                        let i = InfoItem(type: type,
+                            content: content.uppercaseStringWithLocale(locale))
                         items.append(i)
 
                     default:

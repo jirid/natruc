@@ -48,10 +48,17 @@ internal final class InfoViewController: UIViewController {
         webLabel.textColor = Natruc.white
         webContent.textColor = Natruc.white
 
-        let version = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString")! as! String
-        let build = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion")! as! String
+        if let version = NSBundle.mainBundle()
+            .objectForInfoDictionaryKey("CFBundleShortVersionString") as? String,
+            let build = NSBundle.mainBundle()
+                .objectForInfoDictionaryKey("CFBundleVersion") as? String {
 
-        versionContent.text = "\(version) (\(build))"
+                versionContent.text = "\(version) (\(build))"
+
+        } else {
+
+            versionContent.text = ""
+        }
 
         viewModel.dataChanged = {
             [weak self] in
@@ -78,7 +85,10 @@ internal final class InfoViewController: UIViewController {
 
     @IBAction func facebookTapped(sender: UITapGestureRecognizer) {
 
-        UIApplication.sharedApplication().openURL(NSURL(string: "https://www.facebook.com/112926885403019")!)
+        if let url = NSURL(string: "https://www.facebook.com/112926885403019") {
+
+            UIApplication.sharedApplication().openURL(url)
+        }
     }
 
     @IBAction func webTapped(sender: UITapGestureRecognizer) {
@@ -97,11 +107,15 @@ extension InfoViewController: UITableViewDataSource {
         return viewModel.items.count
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView,
+        cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let item = viewModel.items[indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier(item.type.rawValue) as! InfoCell
-        cell.setContent(item)
+        let cell = tableView.dequeueReusableCellWithIdentifier(item.type.rawValue)!
+        if let c = cell as? InfoCell {
+
+            c.setContent(item)
+        }
         return cell
     }
 }
@@ -110,7 +124,8 @@ extension InfoViewController: UITableViewDelegate {
 
     //MARK: Table View Delegate
 
-    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+    func tableView(tableView: UITableView,
+        willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
 
         let item = viewModel.items[indexPath.row]
         if item.type == .Image {

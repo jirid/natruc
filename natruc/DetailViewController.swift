@@ -62,18 +62,22 @@ internal final class DetailViewController: UIViewController {
             let image = UIImage(named: "backlight")
             backButton.setImage(image, forState: .Normal)
         }
-        
+
         if let image = item.image {
 
             let img = UIImage(contentsOfFile: image.path!)!
             imageView.image = img
-            imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Width, relatedBy: .Equal, toItem: imageView, attribute: .Height, multiplier: img.size.width / img.size.height, constant: 0))
+            imageView.addConstraint(NSLayoutConstraint(item: imageView,
+                attribute: .Width, relatedBy: .Equal, toItem: imageView,
+                attribute: .Height,
+                multiplier: img.size.width / img.size.height, constant: 0))
 
         } else {
 
             imageView.removeFromSuperview()
             let views = ["view": view, "progress": progressView]
-            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-70-[progress]", options: [], metrics: .None, views: views))
+            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-70-[progress]",
+                options: [], metrics: .None, views: views))
             dark = false
         }
 
@@ -93,15 +97,19 @@ internal final class DetailViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("activate"), name: UIApplicationDidBecomeActiveNotification, object: .None)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("deactivate"), name: UIApplicationWillResignActiveNotification, object: .None)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("activate"),
+            name: UIApplicationDidBecomeActiveNotification, object: .None)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("deactivate"),
+            name: UIApplicationWillResignActiveNotification, object: .None)
         activate()
     }
 
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationDidBecomeActiveNotification, object: .None)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationWillResignActiveNotification, object: .None)
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+            name: UIApplicationDidBecomeActiveNotification, object: .None)
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+            name: UIApplicationWillResignActiveNotification, object: .None)
         deactivate()
     }
 

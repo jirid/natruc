@@ -11,7 +11,7 @@ import UIKit
 internal final class InfoSubtitleCell: InfoCell {
 
     @IBOutlet weak var label: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
 

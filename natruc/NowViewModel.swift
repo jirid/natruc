@@ -44,13 +44,15 @@ internal final class NowViewModel {
             start = .None
             end = .None
 
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("dataLoaded"), name: model.DataLoadedNotification, object: model)
+            NSNotificationCenter.defaultCenter().addObserver(self,
+                selector: Selector("dataLoaded"), name: Model.dataLoadedNotification, object: model)
         }
     }
 
     @objc func dataLoaded() {
 
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: model.DataLoadedNotification, object: model)
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+            name: Model.dataLoadedNotification, object: model)
 
         if let items = model.program, start = model.start, end = model.end {
 
@@ -61,7 +63,6 @@ internal final class NowViewModel {
             if let dc = dataChanged {
                 dc()
             }
-            
         }
     }
 

@@ -16,7 +16,8 @@ internal final class Timer {
     internal init(ti: NSTimeInterval, callback: () -> ()) {
 
         self.callback = callback
-        timer = NSTimer.scheduledTimerWithTimeInterval(ti, target: self, selector: Selector("timerElapsed"), userInfo: .None, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(ti, target: self,
+            selector: Selector("timerElapsed"), userInfo: .None, repeats: true)
     }
 
     internal func invalidate() {

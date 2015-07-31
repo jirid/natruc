@@ -33,11 +33,11 @@ internal struct ProgramItem {
         let s = start.timeIntervalSince1970
         let n = Components.shared.now().timeIntervalSince1970
         let e = end.timeIntervalSince1970
-        if (s >= n) {
+        if s >= n {
 
             return 0
 
-        } else if (e <= n) {
+        } else if e <= n {
 
             return 1
 

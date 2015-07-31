@@ -64,29 +64,37 @@ extension ProgramViewController: UITableViewDataSource {
         return viewModel.numberOfBands(section) + 1
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView,
+        cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        var cell: ProgramCell!
+        var cell: UITableViewCell
 
         if indexPath.row == 0 {
 
-            let c = tableView.dequeueReusableCellWithIdentifier(stageCell) as! ProgramStageCell
-            c.setTitle(viewModel.stages[indexPath.section])
-            cell = c
+            cell = tableView.dequeueReusableCellWithIdentifier(stageCell)!
+            if let c = cell as? ProgramStageCell {
+
+                c.setTitle(viewModel.stages[indexPath.section])
+            }
 
         } else if indexPath.row == viewModel.numberOfBands(indexPath.section) {
 
-            cell = tableView.dequeueReusableCellWithIdentifier(footerCell) as! ProgramCell
+            cell = tableView.dequeueReusableCellWithIdentifier(footerCell)!
 
         } else {
 
-            let c = tableView.dequeueReusableCellWithIdentifier(bandCell) as! ProgramBandCell
-            c.setItem(viewModel.bandForIndexPath(indexPath))
-            cell = c
+            cell = tableView.dequeueReusableCellWithIdentifier(bandCell)!
+            if let c = cell as? ProgramBandCell {
+
+                c.setItem(viewModel.bandForIndexPath(indexPath))
+            }
         }
 
-        cell.setColor(viewModel.colorForStage(indexPath.section))
-        
+        if let c = cell as? ProgramCell {
+
+            c.setColor(viewModel.colorForStage(indexPath.section))
+        }
+
         return cell
     }
 }
@@ -95,7 +103,8 @@ extension ProgramViewController: UITableViewDelegate {
 
     //MARK: Table View Delegate
 
-    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+    func tableView(tableView: UITableView,
+        willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
 
         return indexPath.row == 0 ? .None : .Some(indexPath)
     }

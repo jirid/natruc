@@ -12,13 +12,13 @@ internal class ImageViewController: UIViewController {
 
     //MARK: Properties
 
-    private var _image: UIImage?
+    private var cachedImage: UIImage?
     internal var image: UIImage? {
         get {
-            return _image
+            return cachedImage
         }
         set {
-            _image = newValue
+            cachedImage = newValue
             if isViewLoaded() {
                 if let i = newValue {
                     setUpImage(i)
@@ -80,13 +80,17 @@ internal class ImageViewController: UIViewController {
 
     private func setUpImage(image: UIImage) {
         imageView.image = image
-        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Width, relatedBy: .Equal, toItem: .None, attribute: .NotAnAttribute, multiplier: 1.0, constant: image.size.width))
-        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Height, relatedBy: .Equal, toItem: .None, attribute: .NotAnAttribute, multiplier: 1.0, constant: image.size.height))
+        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Width,
+            relatedBy: .Equal, toItem: .None, attribute: .NotAnAttribute, multiplier: 1.0,
+            constant: image.size.width))
+        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Height,
+            relatedBy: .Equal, toItem: .None, attribute: .NotAnAttribute, multiplier: 1.0,
+            constant: image.size.height))
     }
 
     private func setUpScrollView() {
 
-        if (initializing) {
+        if initializing {
 
             scrollView.maximumZoomScale = maxScale()
             scrollView.minimumZoomScale = minScale()
@@ -99,11 +103,13 @@ internal class ImageViewController: UIViewController {
     }
 
     private func minScale() -> CGFloat {
-        return min(scrollView.bounds.width / imageView.image!.size.width, scrollView.bounds.height / imageView.image!.size.height)
+        return min(scrollView.bounds.width / imageView.image!.size.width,
+            scrollView.bounds.height / imageView.image!.size.height)
     }
 
     private func midScale() -> CGFloat {
-        return max(scrollView.bounds.width / imageView.image!.size.width, scrollView.bounds.height / imageView.image!.size.height)
+        return max(scrollView.bounds.width / imageView.image!.size.width,
+            scrollView.bounds.height / imageView.image!.size.height)
     }
 
     private func maxScale() -> CGFloat {
@@ -112,7 +118,7 @@ internal class ImageViewController: UIViewController {
 
     private func hideChrome() {
 
-        if (chromeVisible) {
+        if chromeVisible {
             chromeVisible = false
             updateChrome()
         }
@@ -144,15 +150,15 @@ extension ImageViewController: UIScrollViewDelegate {
     }
 
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        
-        if (!initializing) {
+
+        if !initializing {
             hideChrome()
         }
     }
-    
+
     func scrollViewDidZoom(scrollView: UIScrollView) {
-        
-        if (!initializing) {
+
+        if !initializing {
             hideChrome()
         }
     }

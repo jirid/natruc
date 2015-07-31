@@ -19,7 +19,10 @@ internal final class Components {
 
     private init() {
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didReceiveMemoryWarning"), name: UIApplicationDidReceiveMemoryWarningNotification, object: .None)
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: Selector("didReceiveMemoryWarning"),
+            name: UIApplicationDidReceiveMemoryWarningNotification,
+            object: .None)
     }
 
     deinit {
@@ -29,7 +32,7 @@ internal final class Components {
 
     @objc func didReceiveMemoryWarning() {
 
-        _dateParser = .None
+        cachedDateParser = .None
     }
 
     //MARK: Model
@@ -49,7 +52,7 @@ internal final class Components {
     }
 
     internal func infoViewModel() -> InfoViewModel {
-        
+
         return InfoViewModel(model: model)
     }
 
@@ -60,10 +63,10 @@ internal final class Components {
         return NSDate()
     }
 
-    private var _dateParser: NSDateFormatter?
+    private var cachedDateParser: NSDateFormatter?
     internal func dateParser() -> NSDateFormatter {
 
-        if let dp = _dateParser {
+        if let dp = cachedDateParser {
 
             return dp
 
@@ -73,7 +76,7 @@ internal final class Components {
             dp.locale = NSLocale(localeIdentifier: "en_US_POSIX")
             dp.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSSZ"
             dp.timeZone = NSTimeZone(forSecondsFromGMT: 0)
-            _dateParser = dp
+            cachedDateParser = dp
             return dp
         }
     }
