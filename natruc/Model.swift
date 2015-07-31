@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 internal final class Model {
 
@@ -64,60 +65,44 @@ internal final class Model {
 
         let data = NSData(contentsOfURL: url)!
 
-        let json: AnyObject?
-        do {
-            json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
-        } catch _ {
-            json = nil
+        let json = JSON(data)
+
+        for (_, j) in json["stages"] {
+
+            if let name = j["name"].string {
+
+                let locale = NSLocale(localeIdentifier: "cs-cz")
+                stages.append(name.uppercaseStringWithLocale(locale))
+                items.append([ProgramItem]())
+            }
         }
 
-        if let dict = json as? Dictionary<String,AnyObject> {
+        for (_, j) in json["bands"] {
 
-            if let s = dict["stages"] as? Array<Dictionary<String,AnyObject>> {
+            let l = j["links"]
 
-                for item in s {
+            if let name = j["name"].string, let short = j["shortDesc"].string, let dark = j["darkStatusBar"].bool, let description = j["desc"].string, let imagePath = j["image"].string, let webPath = l["web"].string, let facebookPath = l["facebook"].string, let youtubePath = l["youtube"].string, let start = j["start"].string, let end = j["end"].string, let stage = j["stageId"].string {
 
-                    if let name = item["name"] as? String {
+                let resource = NSURL(string: imagePath)?.lastPathComponent
+                let image = resource == .None ? .None : NSBundle.mainBundle().URLForResource(resource!, withExtension: .None)
+                let web = webPath == "" ? .None : NSURL(string: webPath)
+                let facebook = facebookPath == "" ? .None : NSURL(string: facebookPath)
+                let youtube = youtubePath == "" ? .None : NSURL(string: youtubePath)
+                let idx = Int(stage)! - 1
 
-                        let locale = NSLocale(localeIdentifier: "cs-cz")
-                        stages.append(name.uppercaseStringWithLocale(locale))
-                        items.append([ProgramItem]())
-                    }
-                }
+                let formatter = Components.shared.dateParser()
+                let startDate = formatter.dateFromString(start)!
+                let endDate = formatter.dateFromString(end)!
+                gstart = gstart.earlierDate(startDate)
+                gend = gend.laterDate(endDate)
+
+                let i = ProgramItem(name: name, brief: short, dark: dark, description: description, image: image, web: web, facebook: facebook, youtube: youtube, start: startDate, end: endDate, color: Color(rawValue: idx)!, stage: stages[idx])
+
+                var l = items[idx]
+                l.append(i)
+                items[idx] = l
+
             }
-
-            if let b = dict["bands"] as? Array<Dictionary<String,AnyObject>> {
-
-                for item in b {
-
-                    if let name = item["name"] as? String, let short = item["shortDesc"] as? String, let dark = item["darkStatusBar"] as? Bool, let description = item["desc"] as? String, let imagePath = item["image"] as? String, let links = item["links"] as? Dictionary<String, String>, let webPath = links["web"], let facebookPath = links["facebook"], let youtubePath = links["youtube"], let start = item["start"] as? String, let end = item["end"] as? String, let stage = item["stageId"] as? String {
-
-                        let resource = NSURL(string: imagePath)?.lastPathComponent
-                        let image = resource == .None ? .None : NSBundle.mainBundle().URLForResource(resource!, withExtension: .None)
-                        let web = webPath == "" ? .None : NSURL(string: webPath)
-                        let facebook = facebookPath == "" ? .None : NSURL(string: facebookPath)
-                        let youtube = youtubePath == "" ? .None : NSURL(string: youtubePath)
-                        let idx = Int(stage)! - 1
-
-                        let formatter = NSDateFormatter()
-                        formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-                        formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSSZ"
-                        formatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
-                        let startDate = formatter.dateFromString(start)!
-                        let endDate = formatter.dateFromString(end)!
-                        gstart = gstart.earlierDate(startDate)
-                        gend = gend.laterDate(endDate)
-
-                        let i = ProgramItem(name: name, brief: short, dark: dark, description: description, image: image, web: web, facebook: facebook, youtube: youtube, start: startDate, end: endDate, color: Color(rawValue: idx)!, stage: stages[idx])
-
-                        var l = items[idx]
-                        l.append(i)
-                        items[idx] = l
-                        
-                    }
-                }
-            }
-            
         }
 
         return (stages, items, gstart.dateByAddingTimeInterval(-3600), gend)
@@ -129,38 +114,31 @@ internal final class Model {
 
         let data = NSData(contentsOfURL: url)!
 
-        let json: AnyObject?
-        do {
-            json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
-        } catch _ {
-            json = nil
-        }
+        let json = JSON(data)
 
-        if let dict = json as? Dictionary<String,AnyObject>,
-            let arr = dict["items"] as? Array<Dictionary<String,AnyObject>> {
-                for item in arr {
-                    if let rawType = item[InfoItemKey.TypeKey.rawValue] as? String,
-                        let type = InfoItemType(rawValue: rawType),
-                        let content = item[InfoItemKey.ContentKey.rawValue] as? String {
+        for (_, j) in json["items"] {
 
-                            switch type {
-                            case .Image:
-                                let url = NSURL(string: content)!
-                                let path = NSBundle.mainBundle().URLForResource(url.lastPathComponent!, withExtension: .None)!
-                                let i = InfoItem(type: type, content: path.path!)
-                                items.append(i)
+            if let rawType = j[InfoItemKey.TypeKey.rawValue].string,
+                let type = InfoItemType(rawValue: rawType),
+                let content = j[InfoItemKey.ContentKey.rawValue].string {
 
-                            case .Title:
-                                let locale = NSLocale(localeIdentifier: "cs-cz")
-                                let i = InfoItem(type: type, content: content.uppercaseStringWithLocale(locale))
-                                items.append(i)
+                    switch type {
+                    case .Image:
+                        let url = NSURL(string: content)!
+                        let path = NSBundle.mainBundle().URLForResource(url.lastPathComponent!, withExtension: .None)!
+                        let i = InfoItem(type: type, content: path.path!)
+                        items.append(i)
 
-                            default:
-                                let i = InfoItem(type: type, content: content)
-                                items.append(i)
-                            }
+                    case .Title:
+                        let locale = NSLocale(localeIdentifier: "cs-cz")
+                        let i = InfoItem(type: type, content: content.uppercaseStringWithLocale(locale))
+                        items.append(i)
+
+                    default:
+                        let i = InfoItem(type: type, content: content)
+                        items.append(i)
                     }
-                }
+            }
         }
 
         return items
