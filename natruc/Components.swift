@@ -12,11 +12,7 @@ internal final class Components {
 
     //MARK: Instance
 
-    private struct Cache {
-        static var shared = Components()
-    }
-
-    internal class var shared: Components { return Cache.shared }
+    internal static var shared = Components()
 
     //MARK: Model
 

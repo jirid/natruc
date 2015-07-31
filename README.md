@@ -7,7 +7,7 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 [![This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
 ### Festival data and graphics
-Copyright &copy; 2015 natruc. All rights reserved.
+Copyright &copy; 2015 Jiri Korejtko, Natruc team. All rights reserved.
 
 ### Visual design
 Copyright &copy; 2015 Michal Feltl. All rights reserved.

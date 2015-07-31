@@ -17,11 +17,11 @@ internal final class NavigationController: UINavigationController {
 
         weak var weakSelf = self
         delegate = weakSelf
-        interactivePopGestureRecognizer!.delegate = weakSelf
+        interactivePopGestureRecognizer?.delegate = weakSelf
     }
 
     override func pushViewController(viewController: UIViewController, animated: Bool) {
-        interactivePopGestureRecognizer!.enabled = false
+        interactivePopGestureRecognizer?.enabled = false
         super.pushViewController(viewController, animated: animated)
     }
 
@@ -30,7 +30,7 @@ internal final class NavigationController: UINavigationController {
 extension NavigationController: UINavigationControllerDelegate {
 
     func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
-        interactivePopGestureRecognizer!.enabled = viewControllers.count > 1
+        interactivePopGestureRecognizer?.enabled = viewControllers.count > 1
     }
 }
 
