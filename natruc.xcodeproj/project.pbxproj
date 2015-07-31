@@ -20,7 +20,8 @@
 		4836B03F1B47ED8E0012914B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836B03E1B47ED8E0012914B /* DetailViewController.swift */; };
 		4836B0411B47ED9A0012914B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836B0401B47ED9A0012914B /* MapViewController.swift */; };
 		4836B0431B47EDA70012914B /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836B0421B47EDA70012914B /* InfoViewController.swift */; };
-		483CB53D1B6C05B5008D7332 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 483CB53C1B6C05B5008D7332 /* SwiftyJSON.framework */; };
+		483CB5651B6C1139008D7332 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 483CB5641B6C1139008D7332 /* SwiftyJSON.framework */; };
+		483CB5681B6C126F008D7332 /* SwiftyJSON.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 483CB5641B6C1139008D7332 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		486092851B5BF71A0032A128 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486092841B5BF71A0032A128 /* Model.swift */; };
 		487D4B4C1B59B48B00BDBB2B /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487D4B4B1B59B48B00BDBB2B /* Components.swift */; };
 		4885D76E1B601DB600C76DE2 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4885D76D1B601DB600C76DE2 /* Timer.swift */; };
@@ -76,6 +77,20 @@
 		C95383171B59CC370008A4BE /* xindlx.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C95382F81B59CC370008A4BE /* xindlx.jpg */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		483CB5661B6C1171008D7332 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				483CB5681B6C126F008D7332 /* SwiftyJSON.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		480801471B5C217500760566 /* NowViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowViewModel.swift; sourceTree = "<group>"; };
 		4835FA201B4955DA003FCE7F /* Natruc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Natruc.swift; sourceTree = "<group>"; };
@@ -95,7 +110,7 @@
 		4836B03E1B47ED8E0012914B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4836B0401B47ED9A0012914B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		4836B0421B47EDA70012914B /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
-		483CB53C1B6C05B5008D7332 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		483CB5641B6C1139008D7332 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		486092841B5BF71A0032A128 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		487D4B4B1B59B48B00BDBB2B /* Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		4885D76D1B601DB600C76DE2 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
@@ -156,7 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				483CB53D1B6C05B5008D7332 /* SwiftyJSON.framework in Frameworks */,
+				483CB5651B6C1139008D7332 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,7 +230,7 @@
 		483CB53E1B6C05BD008D7332 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				483CB53C1B6C05B5008D7332 /* SwiftyJSON.framework */,
+				483CB5641B6C1139008D7332 /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -312,7 +327,7 @@
 				4836AFD91B47DFB70012914B /* Sources */,
 				4836AFDA1B47DFB70012914B /* Frameworks */,
 				4836AFDB1B47DFB70012914B /* Resources */,
-				483CB53F1B6C062B008D7332 /* ShellScript */,
+				483CB5661B6C1171008D7332 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -407,23 +422,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		483CB53F1B6C062B008D7332 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4836AFD91B47DFB70012914B /* Sources */ = {
@@ -578,10 +576,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = natruc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eu.natruc.iosapp;
@@ -593,10 +587,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = natruc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eu.natruc.iosapp;
