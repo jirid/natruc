@@ -65,7 +65,7 @@ internal final class Model {
 
         let data = NSData(contentsOfURL: url)!
 
-        let json = JSON(data)
+        let json = JSON(data: data)
 
         for (_, j) in json["stages"] {
 
@@ -114,7 +114,7 @@ internal final class Model {
 
         let data = NSData(contentsOfURL: url)!
 
-        let json = JSON(data)
+        let json = JSON(data: data)
 
         for (_, j) in json["items"] {
 
