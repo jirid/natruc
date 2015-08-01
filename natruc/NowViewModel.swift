@@ -11,7 +11,7 @@ import Foundation
 internal enum Progress {
     case NotLoaded
     case NotStarted
-    case Progress(ProgramItem, ProgramItem, ProgramItem)
+    case Progress(ProgramItem?, ProgramItem?, ProgramItem?)
     case Ended
 }
 
@@ -84,11 +84,7 @@ internal final class NowViewModel {
 
             } else {
 
-                let s1 = currentBand(0)!
-                let s2 = currentBand(1)!
-                let s3 = currentBand(2)!
-
-                return .Progress(s1, s2, s3)
+                return .Progress(currentBand(0), currentBand(1), currentBand(2))
             }
 
         } else {
