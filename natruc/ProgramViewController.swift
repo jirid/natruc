@@ -39,9 +39,15 @@ internal final class ProgramViewController: UIViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
-        if let detail = segue.destinationViewController as? DetailViewController {
+        if segue.identifier == detailSegue {
 
-            detail.item = viewModel.bandForIndexPath(tableView.indexPathForSelectedRow!)
+            if let detail = segue.destinationViewController as? DetailViewController {
+
+                detail.item = viewModel.bandForIndexPath(tableView.indexPathForSelectedRow!)
+
+            } else {
+                fatalError("Did not get the correct view controller type out of the storyboard.")
+            }
         }
     }
 
@@ -75,6 +81,9 @@ extension ProgramViewController: UITableViewDataSource {
             if let c = cell as? ProgramStageCell {
 
                 c.setTitle(viewModel.stages[indexPath.section])
+
+            } else {
+                fatalError("Did not get the correct cell type out of the storyboard.")
             }
 
         } else if indexPath.row == viewModel.numberOfBands(indexPath.section) {
@@ -87,12 +96,18 @@ extension ProgramViewController: UITableViewDataSource {
             if let c = cell as? ProgramBandCell {
 
                 c.setItem(viewModel.bandForIndexPath(indexPath))
+
+            } else {
+                fatalError("Did not get the correct cell type out of the storyboard.")
             }
         }
 
         if let c = cell as? ProgramCell {
 
             c.setColor(viewModel.colorForStage(indexPath.section))
+
+        } else {
+            fatalError("Did not get the correct cell type out of the storyboard.")
         }
 
         return cell

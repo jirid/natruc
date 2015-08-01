@@ -63,9 +63,7 @@ internal final class Model {
         var stages = [String]()
         var gstart = NSDate.distantFuture()
         var gend = NSDate.distantPast()
-
         let data = NSData(contentsOfURL: url)!
-
         let json = JSON(data: data)
 
         for (_, j) in json["stages"] {
@@ -80,19 +78,32 @@ internal final class Model {
 
         for (_, j) in json["bands"] {
 
-            let l = j["links"]
+            if let (i, idx) = parseProgramItem(j, stages: stages) {
 
-            if let name = j["name"].string,
-                let short = j["shortDesc"].string,
-                let dark = j["darkStatusBar"].bool,
-                let description = j["desc"].string,
-                let imagePath = j["image"].string,
-                let webPath = l["web"].string,
-                let facebookPath = l["facebook"].string,
-                let youtubePath = l["youtube"].string,
-                let start = j["start"].string,
-                let end = j["end"].string,
-                let stage = j["stageId"].string {
+                gstart = gstart.earlierDate(i.start)
+                gend = gend.laterDate(i.end)
+
+                var l = items[idx]
+                l.append(i)
+                items[idx] = l
+            }
+        }
+
+        return (stages, items, gstart.dateByAddingTimeInterval(-3600), gend)
+    }
+
+    private func parseProgramItem(j: JSON, stages: [String]) -> (ProgramItem, Int)? {
+
+        var result: (ProgramItem, Int)?
+
+        let l = j["links"]
+
+        if let name = j["name"].string, let short = j["shortDesc"].string,
+            let dark = j["darkStatusBar"].bool, let description = j["desc"].string,
+            let imagePath = j["image"].string, let webPath = l["web"].string,
+            let facebookPath = l["facebook"].string, let youtubePath = l["youtube"].string,
+            let start = j["start"].string, let end = j["end"].string,
+            let stage = j["stageId"].string {
 
                 let resource = NSURL(string: imagePath)?.lastPathComponent
                 let image = resource == .None ? .None :
@@ -105,31 +116,20 @@ internal final class Model {
                 let formatter = Components.shared.dateParser()
                 let startDate = formatter.dateFromString(start)!
                 let endDate = formatter.dateFromString(end)!
-                gstart = gstart.earlierDate(startDate)
-                gend = gend.laterDate(endDate)
 
-                let i = ProgramItem(name: name, brief: short, dark: dark,
-                    description: description, image: image, web: web,
-                    facebook: facebook, youtube: youtube, start: startDate,
-                    end: endDate, color: Color(rawValue: idx)!,
-                    stage: stages[idx])
-
-                var l = items[idx]
-                l.append(i)
-                items[idx] = l
-
-            }
+                result = (ProgramItem(name: name, brief: short, dark: dark,
+                    description: description, image: image, web: web, facebook: facebook,
+                    youtube: youtube, start: startDate, end: endDate, color: Color(rawValue: idx)!,
+                    stage: stages[idx]), idx)
         }
 
-        return (stages, items, gstart.dateByAddingTimeInterval(-3600), gend)
+        return result
     }
 
     internal func loadInfo(url: NSURL) -> [InfoItem] {
 
         var items = [InfoItem]()
-
         let data = NSData(contentsOfURL: url)!
-
         let json = JSON(data: data)
 
         for (_, j) in json["items"] {

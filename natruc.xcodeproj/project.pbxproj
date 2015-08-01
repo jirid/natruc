@@ -93,7 +93,7 @@
 
 /* Begin PBXFileReference section */
 		480801471B5C217500760566 /* NowViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowViewModel.swift; sourceTree = "<group>"; };
-		4835FA201B4955DA003FCE7F /* Natruc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Natruc.swift; sourceTree = "<group>"; };
+		4835FA201B4955DA003FCE7F /* Natruc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Natruc.swift; path = ../resources/Natruc.swift; sourceTree = "<group>"; };
 		4836AFDD1B47DFB70012914B /* natruc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = natruc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4836AFE11B47DFB70012914B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4836AFE21B47DFB70012914B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };

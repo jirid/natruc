@@ -10,16 +10,16 @@ import UIKit
 
 internal final class InfoImageCell: InfoCell {
 
-    @IBOutlet weak var iv: UIImageView!
+    @IBOutlet weak var imgView: UIImageView!
 
     private var constraint: NSLayoutConstraint?
 
     override func setContent(content: InfoItem) {
 
-        iv.image = UIImage(contentsOfFile: content.content)
+        imgView.image = UIImage(contentsOfFile: content.content)
 
         if let c = constraint {
-            iv.removeConstraint(c)
+            imgView.removeConstraint(c)
             constraint = .None
         }
 
@@ -27,11 +27,11 @@ internal final class InfoImageCell: InfoCell {
     }
 
     override func updateConstraints() {
-        if let i = iv.image {
-            let c = NSLayoutConstraint(item: iv, attribute: .Width, relatedBy: .Equal,
-                toItem: iv, attribute: .Height, multiplier: i.size.width / i.size.height,
+        if let i = imgView.image {
+            let c = NSLayoutConstraint(item: imgView, attribute: .Width, relatedBy: .Equal,
+                toItem: imgView, attribute: .Height, multiplier: i.size.width / i.size.height,
                 constant: 0)
-            iv.addConstraint(c)
+            imgView.addConstraint(c)
             constraint = c
         }
         super.updateConstraints()

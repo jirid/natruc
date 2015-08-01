@@ -19,49 +19,19 @@ internal final class ProgressView: UIView {
 
     private func setUp() {
 
+        translatesAutoresizingMaskIntoConstraints = false
+
         darkView = UIView(frame: bounds)
+        darkView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(darkView)
 
-        stageLabel = UILabel()
-        stageLabel.textColor = Natruc.yellow
-        stageLabel.setContentCompressionResistancePriority(1000, forAxis: .Horizontal)
-        stageLabel.setContentCompressionResistancePriority(1000, forAxis: .Vertical)
-        addSubview(stageLabel)
+        stageLabel = configureLabel(Natruc.yellow)
+        timeLabel = configureLabel(Natruc.white)
+        nameLabel = configureLabel(Natruc.white)
 
-        timeLabel = UILabel()
-        timeLabel.textColor = Natruc.white
-        timeLabel.setContentCompressionResistancePriority(1000, forAxis: .Horizontal)
-        timeLabel.setContentCompressionResistancePriority(1000, forAxis: .Vertical)
-        addSubview(timeLabel)
-
-        nameLabel = UILabel()
-        nameLabel.textColor = Natruc.white
-        nameLabel.setContentCompressionResistancePriority(1000, forAxis: .Horizontal)
-        nameLabel.setContentCompressionResistancePriority(1000, forAxis: .Vertical)
-        addSubview(nameLabel)
-
-        let views = ["view": self, "stage": stageLabel, "time": timeLabel,
-            "name": nameLabel, "dark": darkView]
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-15-[stage]",
-            options: [], metrics: .None, views: views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-15-[time]-[name]",
-            options: [], metrics: .None, views: views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-15-[stage]-[time]-15-|",
-            options: [], metrics: .None, views: views))
-        addConstraint(NSLayoutConstraint(item: timeLabel, attribute: .Baseline, relatedBy: .Equal,
-            toItem: nameLabel, attribute: .Baseline, multiplier: 1, constant: 0))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[dark]|", options: [],
-            metrics: .None, views: views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[dark]", options: [],
-            metrics: .None, views: views))
+        configureConstraints()
 
         setProgress(0)
-
-        translatesAutoresizingMaskIntoConstraints = false
-        darkView.translatesAutoresizingMaskIntoConstraints = false
-        stageLabel.translatesAutoresizingMaskIntoConstraints = false
-        timeLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
     }
 
     override func awakeFromNib() {
@@ -109,4 +79,33 @@ internal final class ProgressView: UIView {
         setNeedsLayout()
     }
 
+    private func configureLabel(color: UIColor) -> UILabel {
+
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = color
+        label.setContentCompressionResistancePriority(1000, forAxis: .Horizontal)
+        label.setContentCompressionResistancePriority(1000, forAxis: .Vertical)
+        addSubview(label)
+
+        return label
+    }
+
+    private func configureConstraints() {
+
+        let views = ["view": self, "stage": stageLabel, "time": timeLabel,
+            "name": nameLabel, "dark": darkView]
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-15-[stage]",
+            options: [], metrics: .None, views: views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-15-[time]-[name]",
+            options: [], metrics: .None, views: views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-15-[stage]-[time]-15-|",
+            options: [], metrics: .None, views: views))
+        addConstraint(NSLayoutConstraint(item: timeLabel, attribute: .Baseline, relatedBy: .Equal,
+            toItem: nameLabel, attribute: .Baseline, multiplier: 1, constant: 0))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[dark]|", options: [],
+            metrics: .None, views: views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[dark]", options: [],
+            metrics: .None, views: views))
+    }
 }

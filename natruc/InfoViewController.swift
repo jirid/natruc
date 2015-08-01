@@ -70,10 +70,16 @@ internal final class InfoViewController: UIViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
-        if let c = segue.destinationViewController as? ImageViewController {
+        if segue.identifier == imageSegue {
 
-            let item = viewModel.items[tableView.indexPathForSelectedRow!.row]
-            c.image = UIImage(contentsOfFile: item.content)
+            if let c = segue.destinationViewController as? ImageViewController {
+
+                let item = viewModel.items[tableView.indexPathForSelectedRow!.row]
+                c.image = UIImage(contentsOfFile: item.content)
+
+            } else {
+                fatalError("Did not get the correct view controller type out of the storyboard.")
+            }
         }
     }
 
@@ -115,6 +121,9 @@ extension InfoViewController: UITableViewDataSource {
         if let c = cell as? InfoCell {
 
             c.setContent(item)
+
+        } else {
+            fatalError("Did not get the correct cell type out of the storyboard.")
         }
         return cell
     }

@@ -88,10 +88,16 @@ internal final class NowViewController: UIViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
-        if let detail = segue.destinationViewController as? DetailViewController,
-            let item = curItem {
+        if segue.identifier == detailSegue {
 
-            detail.item = item
+            if let detail = segue.destinationViewController as? DetailViewController,
+                let item = curItem {
+
+                    detail.item = item
+
+            } else {
+                fatalError("Did not get the correct view controller type out of the storyboard.")
+            }
         }
     }
 
@@ -172,25 +178,18 @@ internal final class NowViewController: UIViewController {
         imageView.hidden = true
         imageView.image = .None
 
-        if let s = stage1 {
-            stageView1.setItem(s)
-            stageView1.hidden = false
-        } else {
-            stageView1.hidden = true
-        }
+        setUpStageView(stageView1, stageItem: stage1)
+        setUpStageView(stageView2, stageItem: stage2)
+        setUpStageView(stageView3, stageItem: stage3)
+    }
 
-        if let s = stage2 {
-            stageView2.setItem(s)
-            stageView2.hidden = false
-        } else {
-            stageView2.hidden = true
-        }
+    private func setUpStageView(stageView: ProgressView, stageItem: ProgramItem?) {
 
-        if let s = stage3 {
-            stageView3.setItem(s)
-            stageView3.hidden = false
+        if let s = stageItem {
+            stageView.setItem(s)
+            stageView.hidden = false
         } else {
-            stageView3.hidden = true
+            stageView.hidden = true
         }
     }
 

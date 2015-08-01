@@ -40,59 +40,15 @@ internal final class DetailViewController: UIViewController {
 
         dark = item.dark
 
-        switch item.color {
-        case .Blue:
-            view.backgroundColor = Natruc.lightBlue
-            buttonContainer.backgroundColor = Natruc.lightBlue
-        case .Red:
-            view.backgroundColor = Natruc.lightRed
-            buttonContainer.backgroundColor = Natruc.lightRed
-        case .Green:
-            view.backgroundColor = Natruc.lightGreen
-            buttonContainer.backgroundColor = Natruc.lightGreen
-        }
-
-        if dark {
-
-            let image = UIImage(named: "backdark")
-            backButton.setImage(image, forState: .Normal)
-
-        } else {
-
-            let image = UIImage(named: "backlight")
-            backButton.setImage(image, forState: .Normal)
-        }
-
-        if let image = item.image {
-
-            let img = UIImage(contentsOfFile: image.path!)!
-            imageView.image = img
-            imageView.addConstraint(NSLayoutConstraint(item: imageView,
-                attribute: .Width, relatedBy: .Equal, toItem: imageView,
-                attribute: .Height,
-                multiplier: img.size.width / img.size.height, constant: 0))
-
-        } else {
-
-            imageView.removeFromSuperview()
-            let views = ["view": view, "progress": progressView]
-            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-70-[progress]",
-                options: [], metrics: .None, views: views))
-            dark = false
-        }
-
-        setNeedsStatusBarAppearanceUpdate()
-
-        textView.text = item.description
-        textView.textColor = Natruc.black
-        textView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        textView.setNeedsLayout()
-
-        view.setNeedsLayout()
-
+        configureBackground()
+        configureImageView()
+        configureTextView()
         configureLinkButton(webButton, enabled: item.web != .None)
         configureLinkButton(facebookButton, enabled: item.facebook != .None)
         configureLinkButton(youtubeButton, enabled: item.youtube != .None)
+
+        setNeedsStatusBarAppearanceUpdate()
+        view.setNeedsLayout()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -171,6 +127,61 @@ internal final class DetailViewController: UIViewController {
     private func update() {
 
         progressView.setItem(item)
+    }
+
+    private func configureBackground() {
+
+        switch item.color {
+        case .Blue:
+            view.backgroundColor = Natruc.lightBlue
+            buttonContainer.backgroundColor = Natruc.lightBlue
+        case .Red:
+            view.backgroundColor = Natruc.lightRed
+            buttonContainer.backgroundColor = Natruc.lightRed
+        case .Green:
+            view.backgroundColor = Natruc.lightGreen
+            buttonContainer.backgroundColor = Natruc.lightGreen
+        }
+    }
+
+    private func configureImageView() {
+
+        if dark {
+
+            let image = UIImage(named: "backdark")
+            backButton.setImage(image, forState: .Normal)
+
+        } else {
+
+            let image = UIImage(named: "backlight")
+            backButton.setImage(image, forState: .Normal)
+        }
+
+        if let image = item.image {
+
+            let img = UIImage(contentsOfFile: image.path!)!
+            imageView.image = img
+            imageView.addConstraint(NSLayoutConstraint(item: imageView,
+                attribute: .Width, relatedBy: .Equal, toItem: imageView,
+                attribute: .Height,
+                multiplier: img.size.width / img.size.height, constant: 0))
+
+        } else {
+
+            imageView.removeFromSuperview()
+            let views = ["view": view, "progress": progressView]
+            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-70-[progress]",
+                options: [], metrics: .None, views: views))
+            dark = false
+        }
+    }
+
+    private func configureTextView() {
+
+        textView.text = item.description
+        textView.textColor = Natruc.black
+        textView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        textView.setNeedsLayout()
     }
 
     private func configureLinkButton(button: UIButton, enabled: Bool) {
