@@ -68,25 +68,27 @@ internal final class Model {
 
         for (_, j) in json["stages"] {
 
-            if let name = j["name"].string {
-
-                let locale = NSLocale(localeIdentifier: "cs-cz")
-                stages.append(name.uppercaseStringWithLocale(locale))
-                items.append([ProgramItem]())
+            guard let name = j["name"].string else {
+                continue
             }
+
+            let locale = NSLocale(localeIdentifier: "cs-cz")
+            stages.append(name.uppercaseStringWithLocale(locale))
+            items.append([ProgramItem]())
         }
 
         for (_, j) in json["bands"] {
 
-            if let (i, idx) = parseProgramItem(j, stages: stages) {
-
-                gstart = gstart.earlierDate(i.start)
-                gend = gend.laterDate(i.end)
-
-                var l = items[idx]
-                l.append(i)
-                items[idx] = l
+            guard let (i, idx) = parseProgramItem(j, stages: stages) else {
+                continue
             }
+
+            gstart = gstart.earlierDate(i.start)
+            gend = gend.laterDate(i.end)
+
+            var l = items[idx]
+            l.append(i)
+            items[idx] = l
         }
 
         return (stages, items, gstart.dateByAddingTimeInterval(-3600), gend)
@@ -94,34 +96,33 @@ internal final class Model {
 
     private func parseProgramItem(j: JSON, stages: [String]) -> (ProgramItem, Int)? {
 
-        var result: (ProgramItem, Int)?
-
         let l = j["links"]
-
-        if let name = j["name"].string, let short = j["shortDesc"].string,
+        guard let name = j["name"].string, let short = j["shortDesc"].string,
             let dark = j["darkStatusBar"].bool, let description = j["desc"].string,
             let imagePath = j["image"].string, let webPath = l["web"].string,
             let facebookPath = l["facebook"].string, let youtubePath = l["youtube"].string,
             let start = j["start"].string, let end = j["end"].string,
-            let stage = j["stageId"].string {
+            let stage = j["stageId"].string else {
 
-                let resource = NSURL(string: imagePath)?.lastPathComponent
-                let image = resource == .None ? .None :
-                    NSBundle.mainBundle().URLForResource(resource!, withExtension: .None)
-                let web = webPath == "" ? .None : NSURL(string: webPath)
-                let facebook = facebookPath == "" ? .None : NSURL(string: facebookPath)
-                let youtube = youtubePath == "" ? .None : NSURL(string: youtubePath)
-                let idx = Int(stage)! - 1
-
-                let formatter = Components.shared.dateParser()
-                let startDate = formatter.dateFromString(start)!
-                let endDate = formatter.dateFromString(end)!
-
-                result = (ProgramItem(name: name, brief: short, dark: dark,
-                    description: description, image: image, web: web, facebook: facebook,
-                    youtube: youtube, start: startDate, end: endDate, color: Color(rawValue: idx)!,
-                    stage: stages[idx]), idx)
+                return .None
         }
+
+        let resource = NSURL(string: imagePath)?.lastPathComponent
+        let image = resource == .None ? .None :
+            NSBundle.mainBundle().URLForResource(resource!, withExtension: .None)
+        let web = webPath == "" ? .None : NSURL(string: webPath)
+        let facebook = facebookPath == "" ? .None : NSURL(string: facebookPath)
+        let youtube = youtubePath == "" ? .None : NSURL(string: youtubePath)
+        let idx = Int(stage)! - 1
+
+        let formatter = Components.shared.dateParser()
+        let startDate = formatter.dateFromString(start)!
+        let endDate = formatter.dateFromString(end)!
+
+        let result = (ProgramItem(name: name, brief: short, dark: dark,
+            description: description, image: image, web: web, facebook: facebook,
+            youtube: youtube, start: startDate, end: endDate, color: Color(rawValue: idx)!,
+            stage: stages[idx]), idx)
 
         return result
     }
@@ -134,28 +135,31 @@ internal final class Model {
 
         for (_, j) in json["items"] {
 
-            if let rawType = j[InfoItemKey.TypeKey.rawValue].string,
+            guard let rawType = j[InfoItemKey.TypeKey.rawValue].string,
                 let type = InfoItemType(rawValue: rawType),
-                let content = j[InfoItemKey.ContentKey.rawValue].string {
+                let content = j[InfoItemKey.ContentKey.rawValue].string else {
 
-                    switch type {
-                    case .Image:
-                        let url = NSURL(string: content)!
-                        let path = NSBundle.mainBundle().URLForResource(url.lastPathComponent!,
-                            withExtension: .None)!
-                        let i = InfoItem(type: type, content: path.path!)
-                        items.append(i)
+                    continue
+            }
 
-                    case .Title:
-                        let locale = NSLocale(localeIdentifier: "cs-cz")
-                        let i = InfoItem(type: type,
-                            content: content.uppercaseStringWithLocale(locale))
-                        items.append(i)
+            switch type {
 
-                    default:
-                        let i = InfoItem(type: type, content: content)
-                        items.append(i)
-                    }
+            case .Image:
+                let url = NSURL(string: content)!
+                let path = NSBundle.mainBundle().URLForResource(url.lastPathComponent!,
+                    withExtension: .None)!
+                let i = InfoItem(type: type, content: path.path!)
+                items.append(i)
+
+            case .Title:
+                let locale = NSLocale(localeIdentifier: "cs-cz")
+                let i = InfoItem(type: type,
+                    content: content.uppercaseStringWithLocale(locale))
+                items.append(i)
+
+            default:
+                let i = InfoItem(type: type, content: content)
+                items.append(i)
             }
         }
 
