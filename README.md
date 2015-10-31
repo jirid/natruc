@@ -1,7 +1,6 @@
-# natruc
-An iOS application for the [natruc](http://www.natruc.eu/) music festival.
+# Natruc [![Build Status](http://img.shields.io/travis/jirid/natruc/master.svg?style=flat)](https://travis-ci.org/jirid/natruc)  [![GitHub release](https://img.shields.io/github/release/jirid/natruc.svg)](https://github.com/jirid/natruc/releases)
 
-[![Build Status](http://img.shields.io/travis/jirid/natruc/master.svg?style=flat)](https://travis-ci.org/jirid/natruc)
+An iOS application for the [natruc](http://www.natruc.eu/) music festival.
 
 ### Source code
 Copyright &copy; 2015 Jiri Dutkevic.
