@@ -13,7 +13,7 @@ internal class ProgramCell: UITableViewCell {
 
     internal func setColor(color: Color) {
 
-        switch (color) {
+        switch color {
 
         case .Blue:
             contentView.backgroundColor = Natruc.lightBlue

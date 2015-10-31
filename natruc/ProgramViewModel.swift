@@ -64,7 +64,7 @@ internal final class ProgramViewModel {
 
     internal func colorForStage(section: Int) -> Color {
 
-        switch (section) {
+        switch section {
 
         case 0:
             return .Blue
