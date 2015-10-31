@@ -40,6 +40,7 @@
 		48A50CDF1B54551500586B94 /* ProgramStageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A50CDE1B54551500586B94 /* ProgramStageCell.swift */; };
 		48A50CE11B54552200586B94 /* ProgramBandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A50CE01B54552200586B94 /* ProgramBandCell.swift */; };
 		48A54C771B56E6E60016010C /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A54C761B56E6E60016010C /* ProgressView.swift */; };
+		48A7FEE61BE4D2CC00A166EF /* natrucTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A7FEE51BE4D2CC00A166EF /* natrucTests.swift */; };
 		48DE49781B52E3E3006D958A /* InfoImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DE49741B52E3E3006D958A /* InfoImageCell.swift */; };
 		48DE49791B52E3E3006D958A /* InfoTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DE49751B52E3E3006D958A /* InfoTextCell.swift */; };
 		48DE497A1B52E3E3006D958A /* InfoSubtitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DE49761B52E3E3006D958A /* InfoSubtitleCell.swift */; };
@@ -76,6 +77,16 @@
 		C95383161B59CC370008A4BE /* waf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C95382F71B59CC370008A4BE /* waf.jpg */; };
 		C95383171B59CC370008A4BE /* xindlx.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C95382F81B59CC370008A4BE /* xindlx.jpg */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		48A7FEE81BE4D2CC00A166EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4836AFD51B47DFB70012914B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4836AFDC1B47DFB70012914B;
+			remoteInfo = natruc;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		483CB5661B6C1171008D7332 /* Copy Frameworks */ = {
@@ -129,6 +140,9 @@
 		48A50CDE1B54551500586B94 /* ProgramStageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramStageCell.swift; sourceTree = "<group>"; };
 		48A50CE01B54552200586B94 /* ProgramBandCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramBandCell.swift; sourceTree = "<group>"; };
 		48A54C761B56E6E60016010C /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		48A7FEE31BE4D2CC00A166EF /* natrucTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = natrucTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		48A7FEE51BE4D2CC00A166EF /* natrucTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = natrucTests.swift; sourceTree = "<group>"; };
+		48A7FEE71BE4D2CC00A166EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48DE49741B52E3E3006D958A /* InfoImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoImageCell.swift; sourceTree = "<group>"; };
 		48DE49751B52E3E3006D958A /* InfoTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTextCell.swift; sourceTree = "<group>"; };
 		48DE49761B52E3E3006D958A /* InfoSubtitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSubtitleCell.swift; sourceTree = "<group>"; };
@@ -175,6 +189,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		48A7FEE01BE4D2CC00A166EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -182,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				4836AFDF1B47DFB70012914B /* natruc */,
+				48A7FEE41BE4D2CC00A166EF /* natrucTests */,
 				483CB53E1B6C05BD008D7332 /* Frameworks */,
 				4836AFDE1B47DFB70012914B /* Products */,
 			);
@@ -191,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				4836AFDD1B47DFB70012914B /* natruc.app */,
+				48A7FEE31BE4D2CC00A166EF /* natrucTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -317,6 +340,15 @@
 			name = Program;
 			sourceTree = "<group>";
 		};
+		48A7FEE41BE4D2CC00A166EF /* natrucTests */ = {
+			isa = PBXGroup;
+			children = (
+				48A7FEE51BE4D2CC00A166EF /* natrucTests.swift */,
+				48A7FEE71BE4D2CC00A166EF /* Info.plist */,
+			);
+			path = natrucTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -339,6 +371,24 @@
 			productReference = 4836AFDD1B47DFB70012914B /* natruc.app */;
 			productType = "com.apple.product-type.application";
 		};
+		48A7FEE21BE4D2CC00A166EF /* natrucTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48A7FEEC1BE4D2CC00A166EF /* Build configuration list for PBXNativeTarget "natrucTests" */;
+			buildPhases = (
+				48A7FEDF1BE4D2CC00A166EF /* Sources */,
+				48A7FEE01BE4D2CC00A166EF /* Frameworks */,
+				48A7FEE11BE4D2CC00A166EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				48A7FEE91BE4D2CC00A166EF /* PBXTargetDependency */,
+			);
+			name = natrucTests;
+			productName = natrucTests;
+			productReference = 48A7FEE31BE4D2CC00A166EF /* natrucTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -346,12 +396,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Jiri Dutkevic";
 				TargetAttributes = {
 					4836AFDC1B47DFB70012914B = {
 						CreatedOnToolsVersion = 6.4;
+					};
+					48A7FEE21BE4D2CC00A166EF = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 4836AFDC1B47DFB70012914B;
 					};
 				};
 			};
@@ -370,6 +424,7 @@
 			projectRoot = "";
 			targets = (
 				4836AFDC1B47DFB70012914B /* natruc */,
+				48A7FEE21BE4D2CC00A166EF /* natrucTests */,
 			);
 		};
 /* End PBXProject section */
@@ -419,6 +474,13 @@
 				C95383071B59CC370008A4BE /* nebe.jpg in Resources */,
 				C95382F91B59CC370008A4BE /* atmomusic.jpg in Resources */,
 				489458D01B517B3100105A6B /* info-mapka-pesi.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48A7FEE11BE4D2CC00A166EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,7 +537,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		48A7FEDF1BE4D2CC00A166EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48A7FEE61BE4D2CC00A166EF /* natrucTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		48A7FEE91BE4D2CC00A166EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4836AFDC1B47DFB70012914B /* natruc */;
+			targetProxy = 48A7FEE81BE4D2CC00A166EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4836AFE61B47DFB70012914B /* Main.storyboard */ = {
@@ -612,6 +690,33 @@
 			};
 			name = Release;
 		};
+		48A7FEEA1BE4D2CC00A166EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = natrucTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dutkevic.natrucTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/natruc.app/natruc";
+			};
+			name = Debug;
+		};
+		48A7FEEB1BE4D2CC00A166EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = natrucTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dutkevic.natrucTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/natruc.app/natruc";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -632,6 +737,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		48A7FEEC1BE4D2CC00A166EF /* Build configuration list for PBXNativeTarget "natrucTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48A7FEEA1BE4D2CC00A166EF /* Debug */,
+				48A7FEEB1BE4D2CC00A166EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
