@@ -13,10 +13,10 @@ internal final class Timer {
     var timer: NSTimer?
     let callback: () -> ()
 
-    internal init(ti: NSTimeInterval, callback: () -> ()) {
+    internal init(interval: NSTimeInterval, callback: () -> ()) {
 
         self.callback = callback
-        timer = NSTimer.scheduledTimerWithTimeInterval(ti, target: self,
+        timer = NSTimer.scheduledTimerWithTimeInterval(interval, target: self,
             selector: Selector("timerElapsed"), userInfo: .None, repeats: true)
     }
 

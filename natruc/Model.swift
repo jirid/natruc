@@ -94,15 +94,15 @@ internal final class Model {
         return (stages, items, gstart.dateByAddingTimeInterval(-3600), gend)
     }
 
-    private func parseProgramItem(j: JSON, stages: [String]) -> (ProgramItem, Int)? {
+    private func parseProgramItem(json: JSON, stages: [String]) -> (ProgramItem, Int)? {
 
-        let l = j["links"]
-        guard let name = j["name"].string, let short = j["shortDesc"].string,
-            let dark = j["darkStatusBar"].bool, let description = j["desc"].string,
-            let imagePath = j["image"].string, let webPath = l["web"].string,
+        let l = json["links"]
+        guard let name = json["name"].string, let short = json["shortDesc"].string,
+            let dark = json["darkStatusBar"].bool, let description = json["desc"].string,
+            let imagePath = json["image"].string, let webPath = l["web"].string,
             let facebookPath = l["facebook"].string, let youtubePath = l["youtube"].string,
-            let start = j["start"].string, let end = j["end"].string,
-            let stage = j["stageId"].string else {
+            let start = json["start"].string, let end = json["end"].string,
+            let stage = json["stageId"].string else {
 
                 return .None
         }

@@ -72,7 +72,7 @@ internal final class DetailViewController: UIViewController {
     @objc func activate() {
         update()
         deactivate()
-        timer = Timer(ti: 10) {
+        timer = Timer(interval: 10) {
             [weak self] in
             self?.update()
         }
