@@ -53,9 +53,11 @@ internal final class DetailViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("activate"),
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: #selector(DetailViewController.activate),
             name: UIApplicationDidBecomeActiveNotification, object: .None)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("deactivate"),
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: #selector(DetailViewController.deactivate),
             name: UIApplicationWillResignActiveNotification, object: .None)
         activate()
     }

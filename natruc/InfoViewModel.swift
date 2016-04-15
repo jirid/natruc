@@ -33,7 +33,8 @@ internal final class InfoViewModel {
             items = [InfoItem]()
 
             NSNotificationCenter.defaultCenter().addObserver(self,
-                selector: Selector("dataLoaded"), name: Model.dataLoadedNotification, object: model)
+                selector: #selector(InfoViewModel.dataLoaded),
+                name: Model.dataLoadedNotification, object: model)
         }
     }
 

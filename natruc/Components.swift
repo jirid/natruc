@@ -20,7 +20,7 @@ internal final class Components {
     private init() {
 
         NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: Selector("didReceiveMemoryWarning"),
+            selector: #selector(Components.didReceiveMemoryWarning),
             name: UIApplicationDidReceiveMemoryWarningNotification,
             object: .None)
     }

@@ -52,9 +52,11 @@ internal final class NowViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("activate"),
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: #selector(NowViewController.activate),
             name: UIApplicationDidBecomeActiveNotification, object: .None)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("deactivate"),
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: #selector(NowViewController.deactivate),
             name: UIApplicationWillResignActiveNotification, object: .None)
         activate()
     }

@@ -45,7 +45,8 @@ internal final class NowViewModel {
             end = .None
 
             NSNotificationCenter.defaultCenter().addObserver(self,
-                selector: Selector("dataLoaded"), name: Model.dataLoadedNotification, object: model)
+                selector: #selector(NowViewModel.dataLoaded),
+                name: Model.dataLoadedNotification, object: model)
         }
     }
 

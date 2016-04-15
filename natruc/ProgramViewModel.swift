@@ -37,7 +37,8 @@ internal final class ProgramViewModel {
             items = [[ProgramItem]]()
 
             NSNotificationCenter.defaultCenter().addObserver(self,
-                selector: Selector("dataLoaded"), name: Model.dataLoadedNotification, object: model)
+                selector: #selector(ProgramViewModel.dataLoaded),
+                name: Model.dataLoadedNotification, object: model)
         }
     }
 
