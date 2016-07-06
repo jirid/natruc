@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15A216g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,20 +11,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header" translatesAutoresizingMaskIntoConstraints="NO" id="uJj-G0-BMg">
-                    <rect key="frame" x="0.0" y="0.0" width="480" height="166"/>
-                    <animations/>
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="204"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="166" id="1rK-CM-9Jd"/>
+                        <constraint firstAttribute="height" constant="204" id="1rK-CM-9Jd"/>
                     </constraints>
                 </imageView>
                 <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NOO-pq-IkA">
                     <rect key="frame" x="0.0" y="431" width="480" height="49"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                     <items/>
                 </tabBar>
             </subviews>
-            <animations/>
             <color key="backgroundColor" red="0.090196078431372548" green="0.25098039215686274" blue="0.58039215686274503" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="uJj-G0-BMg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2Vd-21-YWm"/>
@@ -40,6 +37,6 @@
         </view>
     </objects>
     <resources>
-        <image name="header" width="414" height="166"/>
+        <image name="header" width="414" height="204"/>
     </resources>
 </document>
