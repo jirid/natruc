@@ -373,7 +373,6 @@
 				4836AFD91B47DFB70012914B /* Sources */,
 				4836AFDA1B47DFB70012914B /* Frameworks */,
 				4836AFDB1B47DFB70012914B /* Resources */,
-				483CB56A1B6C163B008D7332 /* Swift Lint */,
 				48308DB51D2D411A00978566 /* Embed Frameworks - Carthage */,
 			);
 			buildRules = (
@@ -516,20 +515,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		483CB56A1B6C163B008D7332 /* Swift Lint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Swift Lint";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    cd natruc && swiftlint\nelse\n    echo \"SwiftLint not installed. Skipping lint.\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
