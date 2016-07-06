@@ -15,7 +15,7 @@ internal final class InfoTitleCell: InfoCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        label.textColor = Natruc.yellow
+        label.textColor = Natruc.sectionHeader
     }
 
     override func setContent(content: InfoItem) {

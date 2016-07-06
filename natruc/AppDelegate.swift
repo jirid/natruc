@@ -15,8 +15,9 @@ final class AppDelegate: UIResponder {
 
     private func customizeAppearance() {
 
-        UITabBar.appearance().tintColor = Natruc.backgroundBlue
+        UITabBar.appearance().tintColor = Natruc.activeGray
         UITabBar.appearance().backgroundColor = Natruc.backgroundGray
+        UITabBar.appearance().opaque = true
     }
 }
 
