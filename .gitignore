@@ -4,3 +4,4 @@ xcuserdata
 *.xccheckout
 *.xcscmblueprint
 *.xcuserstate
+Carthage/
