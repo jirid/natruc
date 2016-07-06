@@ -38,7 +38,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header" translatesAutoresizingMaskIntoConstraints="NO" id="EmH-nv-aTy">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header2" translatesAutoresizingMaskIntoConstraints="NO" id="EmH-nv-aTy">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="204"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="204" id="Vxs-gs-O9l"/>
@@ -229,7 +229,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header" translatesAutoresizingMaskIntoConstraints="NO" id="SLj-8O-VqK">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header2" translatesAutoresizingMaskIntoConstraints="NO" id="SLj-8O-VqK">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="204"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="204" id="wWB-va-oIQ"/>
@@ -594,7 +594,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header" translatesAutoresizingMaskIntoConstraints="NO" id="Z1r-VZ-bne">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header2" translatesAutoresizingMaskIntoConstraints="NO" id="Z1r-VZ-bne">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="204"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="204" id="Ygb-jt-PVI"/>
@@ -958,7 +958,7 @@
         <image name="backdark" width="22" height="22"/>
         <image name="detail" width="20" height="20"/>
         <image name="frown" width="124" height="124"/>
-        <image name="header" width="414" height="204"/>
+        <image name="header2" width="414" height="204"/>
         <image name="info" width="25" height="25"/>
         <image name="map" width="25" height="25"/>
         <image name="now" width="25" height="25"/>

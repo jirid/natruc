@@ -10,7 +10,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header" translatesAutoresizingMaskIntoConstraints="NO" id="uJj-G0-BMg">
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header2" translatesAutoresizingMaskIntoConstraints="NO" id="uJj-G0-BMg">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="204"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="204" id="1rK-CM-9Jd"/>
@@ -22,7 +22,7 @@
                     <items/>
                 </tabBar>
             </subviews>
-            <color key="backgroundColor" red="0.090196078431372548" green="0.25098039215686274" blue="0.58039215686274503" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.56470588235294117" green="0.76470588235294112" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="uJj-G0-BMg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2Vd-21-YWm"/>
                 <constraint firstItem="NOO-pq-IkA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5jc-aw-jRL"/>
@@ -37,6 +37,6 @@
         </view>
     </objects>
     <resources>
-        <image name="header" width="414" height="204"/>
+        <image name="header2" width="414" height="204"/>
     </resources>
 </document>
