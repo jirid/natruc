@@ -4,7 +4,4 @@
    <FileRef
       location = "group:natruc.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:Carthage/Checkouts/SwiftyJSON/SwiftyJSON.xcodeproj">
-   </FileRef>
 </Workspace>
