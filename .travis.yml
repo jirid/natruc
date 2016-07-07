@@ -1,9 +1,4 @@
 language: objective-c
-
-branches:
- only:
- - master
-
 xcode_workspace: natruc.xcworkspace
 xcode_scheme: natruc
 osx_image: xcode7.3
