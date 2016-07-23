@@ -121,7 +121,7 @@ extension ProgramViewController: UITableViewDelegate {
     func tableView(tableView: UITableView,
         willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
 
-        return indexPath.row == 0 ? .None : .Some(indexPath)
+        return indexPath.row == 0 || indexPath.row == viewModel.numberOfBands(indexPath.section) ? .None : .Some(indexPath)
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
