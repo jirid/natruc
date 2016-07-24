@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="woP-gO-Pd7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="woP-gO-Pd7">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -276,8 +277,8 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJJ-hp-Y9S">
-                                                    <rect key="frame" x="58.5" y="0.0" width="42" height="19.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJJ-hp-Y9S">
+                                                    <rect key="frame" x="58" y="0.0" width="501.5" height="57.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -290,7 +291,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="brief" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ucw-Kf-l3T">
-                                                    <rect key="frame" x="58.5" y="27.5" width="501.5" height="52.5"/>
+                                                    <rect key="frame" x="58" y="65" width="501.5" height="14.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -299,15 +300,24 @@
                                             <constraints>
                                                 <constraint firstItem="pIG-fe-KmX" firstAttribute="leading" secondItem="Ucw-Kf-l3T" secondAttribute="trailing" constant="10" id="1Io-1R-LoS"/>
                                                 <constraint firstItem="JJJ-hp-Y9S" firstAttribute="leading" secondItem="BJk-kE-NUG" secondAttribute="trailing" constant="10" id="1sz-ag-KoZ"/>
+                                                <constraint firstItem="JJJ-hp-Y9S" firstAttribute="top" secondItem="BJk-kE-NUG" secondAttribute="top" id="6Ee-cf-ZYx"/>
+                                                <constraint firstItem="Ucw-Kf-l3T" firstAttribute="trailing" secondItem="JJJ-hp-Y9S" secondAttribute="trailing" id="6yD-Jb-fDO"/>
                                                 <constraint firstItem="BJk-kE-NUG" firstAttribute="baseline" secondItem="JJJ-hp-Y9S" secondAttribute="baseline" id="Axw-6h-G0h"/>
                                                 <constraint firstAttribute="trailing" secondItem="pIG-fe-KmX" secondAttribute="trailing" constant="10" id="MJe-v5-b5j"/>
                                                 <constraint firstAttribute="centerY" secondItem="pIG-fe-KmX" secondAttribute="centerY" id="O4w-I9-upJ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="JJJ-hp-Y9S" secondAttribute="trailing" constant="10" id="TCW-gE-aE3"/>
                                                 <constraint firstItem="BJk-kE-NUG" firstAttribute="top" secondItem="dYd-Be-4zn" secondAttribute="top" id="YQT-NA-aEi"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ucw-Kf-l3T" secondAttribute="bottom" constant="8" id="Zya-WG-bEB"/>
                                                 <constraint firstItem="Ucw-Kf-l3T" firstAttribute="top" secondItem="JJJ-hp-Y9S" secondAttribute="bottom" constant="8" symbolic="YES" id="scg-ej-EU4"/>
                                                 <constraint firstItem="Ucw-Kf-l3T" firstAttribute="leading" secondItem="JJJ-hp-Y9S" secondAttribute="leading" id="vEB-jd-Vdp"/>
                                                 <constraint firstItem="BJk-kE-NUG" firstAttribute="leading" secondItem="dYd-Be-4zn" secondAttribute="leading" constant="15" id="y72-uQ-aaj"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Axw-6h-G0h"/>
+                                                    <exclude reference="TCW-gE-aE3"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="briefLabel" destination="Ucw-Kf-l3T" id="drx-Nt-ksT"/>
@@ -965,6 +975,6 @@
         <image name="program" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lhk-ou-DOT"/>
+        <segue reference="3Nb-y5-NGJ"/>
     </inferredMetricsTieBreakers>
 </document>
