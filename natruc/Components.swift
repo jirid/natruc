@@ -37,7 +37,8 @@ internal final class Components {
 
     //MARK: Model
 
-    internal let model = Model()
+    internal private(set) lazy var model = Model()
+    internal private(set) lazy var resources = ResourceLoader()
 
     //MARK: View Model
 
