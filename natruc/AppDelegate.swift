@@ -26,7 +26,14 @@ extension AppDelegate: UIApplicationDelegate {
     func application(application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
+        Components.shared.resources.load()
+        Components.shared.model.load()
         customizeAppearance()
         return true
+    }
+    
+    func applicationDidBecomeActive(application: UIApplication) {
+        
+        Components.shared.resources.updateIfNeeded()
     }
 }

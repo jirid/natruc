@@ -20,39 +20,47 @@ internal final class Model {
     internal var start: NSDate?
     internal var end: NSDate?
     internal var info: [InfoItem]?
-    internal let mapURL: NSURL
 
     //MARK: Initializers
 
     internal init() {
 
-        mapURL = NSBundle.mainBundle().URLForResource("map", withExtension: "jpg")!
-
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-
+    }
+    
+    internal func load() {
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)) {
+            
             [weak self] in
-
-            let programURL = NSBundle.mainBundle().URLForResource("bands", withExtension: "json")!
-            if let (stages, program, start, end) = self?.loadProgram(programURL) {
-                self?.stages = stages
-                self?.program = program
-                self?.start = start
-                self?.end = end
-            }
-
-            let infoURL = NSBundle.mainBundle().URLForResource("info", withExtension: "json")!
-            if let info = self?.loadInfo(infoURL) {
-                self?.info = info
-            }
-
+            
+            self?.loadBands()
+            self?.loadInfo()
+            
             dispatch_async(dispatch_get_main_queue()) {
-
+                
                 if let s = self {
                     NSNotificationCenter.defaultCenter()
                         .postNotificationName(Model.dataLoadedNotification, object: s)
                 }
             }
         }
+    }
+    
+    internal func loadBands() {
+        guard let programURL = Components.shared.resources.localUrl(.Bands) else {
+            return
+        }
+        let (stages, program, start, end) = loadProgram(programURL)
+        self.stages = stages
+        self.program = program
+        self.start = start
+        self.end = end
+    }
+    
+    internal func loadInfo() {
+        guard let infoURL = Components.shared.resources.localUrl(.Info) else {
+            return
+        }
+        info = loadInfo(infoURL)
     }
 
     //MARK: Data Parsers
@@ -107,9 +115,9 @@ internal final class Model {
                 return .None
         }
 
-        let resource = NSURL(string: imagePath)?.lastPathComponent
-        let image = resource == .None ? .None :
-            NSBundle.mainBundle().URLForResource(resource!, withExtension: .None)
+        let image = NSURL(string: imagePath).flatMap {
+            Components.shared.resources.localUrlForRemoteUrl($0)
+        }
         let web = webPath == "" ? .None : NSURL(string: webPath)
         let facebook = facebookPath == "" ? .None : NSURL(string: facebookPath)
         let youtube = youtubePath == "" ? .None : NSURL(string: youtubePath)
@@ -145,7 +153,7 @@ internal final class Model {
             switch type {
 
             case .Image:
-                let url = NSURL(string: content)!
+                let url = Components.shared.resources.localUrlForRemoteUrl(NSURL(string: content)!)!
                 let path = NSBundle.mainBundle().URLForResource(url.lastPathComponent!,
                     withExtension: .None)!
                 let i = InfoItem(type: type, content: path.path!)
