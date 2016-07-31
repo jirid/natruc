@@ -1,5 +1,5 @@
 {
-  "version": "3",
+  "version": "4",
   "bands": [
     {
       "id": "1",
@@ -12,6 +12,22 @@
         "web": "https://www.facebook.com/stripesofglory/",
         "facebook": "https://www.facebook.com/stripesofglory/",
         "youtube": "https://www.youtube.com/watch?v=5v22VLC2Duc"
+      },
+      "start": "2016-08-06T10:55:00.000+0200",
+      "end": "2016-08-06T11:25:00.000+0200",
+      "stageId": "1"
+    },
+    {
+      "id": "31",
+      "name": "Toad in the Stone",
+      "shortDesc": "",
+      "darkStatusBar": false,
+      "desc": "Mladá čtyřčlenná indie rocková kapela z Prahy se vyznačujeme velmi energickými a melodickými písničkami s chytlavými refrény, které si budete prozpěvovat dlouhou dobu po koncertu.",
+      "image": "http://natruc.korejtko.cz/app/ios/images/toadinthestone.jpg",
+      "links": {
+        "web": "http://bandzone.cz/toadinthestone",
+        "facebook": "https://www.facebook.com/toadinthestone/",
+        "youtube": "https://www.youtube.com/watch?v=44dYfrgEiHE"
       },
       "start": "2016-08-06T11:50:00.000+0200",
       "end": "2016-08-06T12:20:00.000+0200",
@@ -53,7 +69,7 @@
       "id": "4",
       "name": "Vladimír Mišík & ETC",
       "shortDesc": "",
-      "darkStatusBar": true,
+      "darkStatusBar": false,
       "desc": "Rocková legenda, zakládající člen Blue Effect, Matadors, nebo Flamengo a v neposlední řadě současných ETC se ukáže na Kmochově Kolíně. Vladimírovi je 69 let a pořád je ve skvělé formě. Variace na renesanční téma, Sluneční hrob, nebo Stříhali do hola malého chlapečka v jeho podání, vás čeká na hlavním podiu našeho festivalu.",
       "image": "http://natruc.korejtko.cz/app/ios/images/vladimirmisik.jpg",
       "links": {
@@ -389,7 +405,7 @@
       "id": "25",
       "name": "The Agony",
       "shortDesc": "",
-      "darkStatusBar": false,
+      "darkStatusBar": true,
       "desc": "Nejen s novou písní Rádio Silence, kterou právě kapela představila nově svým fanouškům, ale s mnoha dalšími metalovými hity přijíždí do Kolína The Agony. Čtveřice andílků s ďáblem v těle, nenechte se zmást jejich roztomilou kukuč, koušou!",
       "image": "http://natruc.korejtko.cz/app/ios/images/theagony.jpg",
       "links": {
