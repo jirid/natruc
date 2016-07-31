@@ -23,5 +23,6 @@ internal class ProgramBandCell: ProgramCell {
         briefLabel.textColor = Natruc.white
         timeLabel.text = item.time()
         timeLabel.textColor = Natruc.white
+        self.accessibilityIdentifier = item.name
     }
 }

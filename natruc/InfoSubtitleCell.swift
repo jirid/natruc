@@ -21,6 +21,7 @@ internal final class InfoSubtitleCell: InfoCell {
     override func setContent(content: InfoItem) {
 
         label.text = content.content
+        self.accessibilityIdentifier = content.content
     }
 
 }
