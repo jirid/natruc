@@ -83,6 +83,7 @@
 		48DE497B1B52E3E3006D958A /* InfoTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DE49771B52E3E3006D958A /* InfoTitleCell.swift */; };
 		48DE497D1B52E4FB006D958A /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DE497C1B52E4FB006D958A /* InfoCell.swift */; };
 		48F0AC401B5A33800001424B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F0AC3F1B5A33800001424B /* NavigationController.swift */; };
+		C9431F051D4E936B00180E55 /* toadinthestone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9431F041D4E936A00180E55 /* toadinthestone.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +192,7 @@
 		48DE49771B52E3E3006D958A /* InfoTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTitleCell.swift; sourceTree = "<group>"; };
 		48DE497C1B52E4FB006D958A /* InfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		48F0AC3F1B5A33800001424B /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		C9431F041D4E936A00180E55 /* toadinthestone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = toadinthestone.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +302,7 @@
 		489458C61B517B3100105A6B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				C9431F041D4E936A00180E55 /* toadinthestone.jpg */,
 				48164B641D4343CC006134CB /* arakain.jpg */,
 				48164B651D4343CC006134CB /* atmomusic.jpg */,
 				48164B661D4343CC006134CB /* basoxcrew.jpg */,
@@ -468,6 +471,7 @@
 				48164B961D4343CC006134CB /* pipesandpints.jpg in Resources */,
 				48164B831D4343CC006134CB /* atmomusic.jpg in Resources */,
 				48164B8C1D4343CC006134CB /* insania.jpg in Resources */,
+				C9431F051D4E936B00180E55 /* toadinthestone.jpg in Resources */,
 				489458D41B517B3100105A6B /* map.jpg in Resources */,
 				48164B821D4343CC006134CB /* arakain.jpg in Resources */,
 				489458CF1B517B3100105A6B /* info-mapka-autem.png in Resources */,
