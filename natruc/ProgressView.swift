@@ -84,6 +84,7 @@ internal final class ProgressView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = color
+        label.adjustsFontSizeToFitWidth = true
         label.setContentCompressionResistancePriority(1000, forAxis: .Horizontal)
         label.setContentCompressionResistancePriority(1000, forAxis: .Vertical)
         addSubview(label)
@@ -97,7 +98,7 @@ internal final class ProgressView: UIView {
             "name": nameLabel, "dark": darkView]
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-15-[stage]",
             options: [], metrics: .None, views: views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-15-[time]-[name]",
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-15-[time]-[name]->=15-|",
             options: [], metrics: .None, views: views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-15-[stage]-[time]-15-|",
             options: [], metrics: .None, views: views))
