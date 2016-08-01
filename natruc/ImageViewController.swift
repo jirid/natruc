@@ -43,7 +43,7 @@ internal class ImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = Natruc.yellow
+        view.backgroundColor = UIColor(colorLiteralRed: 221.0 / 255.0, green: 203.0 / 255.0, blue: 187.0 / 255.0, alpha: 1.0)
 
         if let i = image {
             setUpImage(i)
