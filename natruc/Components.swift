@@ -63,6 +63,8 @@ internal final class Components {
 
         return NSDate()
     }
+    
+    internal let updateInterval: NSTimeInterval = 3600
 
     private var cachedDateParser: NSDateFormatter?
     internal func dateParser() -> NSDateFormatter {

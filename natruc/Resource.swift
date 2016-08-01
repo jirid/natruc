@@ -97,7 +97,7 @@ internal final class ResourceLoader {
     
     internal func updateIfNeeded() {
         let now = NSDate().timeIntervalSince1970
-        if lastUpdateCheck <= now - 3600 {
+        if lastUpdateCheck <= now - Components.shared.updateInterval {
             lastUpdateCheck = now
             dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)) {
                 self.updateResource(.Info) {
