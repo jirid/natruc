@@ -21,6 +21,17 @@ internal enum Resource: String {
             return "jpg"
         }
     }
+    
+    private var hash: String {
+        switch self {
+        case .Info:
+            return "b9371ce9ec01318151d928714ab5378fae363f9f67a238e48c9ab49da3a3e9dd"
+        case .Bands:
+            return "fe479c66ea5babb13cd97b0d62f075ceaee54e28027075fec6c86580ef29102c"
+        case .Map:
+            return "b44c2ecc8907122dac284f7ae9eae84573a79230138ff624b98b58776d37acd9"
+        }
+    }
 }
 
 internal final class ResourceLoader {
@@ -33,7 +44,7 @@ internal final class ResourceLoader {
     
     // hash
     private func getHash(resource: Resource) -> String {
-        return NSUserDefaults.standardUserDefaults().stringForKey(resource.rawValue) ?? ""
+        return NSUserDefaults.standardUserDefaults().stringForKey(resource.rawValue) ?? resource.hash
     }
     
     private func setHash(resource: Resource, hash: String) {
