@@ -35,17 +35,17 @@ internal final class ProgramViewModel {
 
             stages = [String]()
             items = [[ProgramItem]]()
-
-            NSNotificationCenter.defaultCenter().addObserver(self,
-                selector: #selector(ProgramViewModel.dataLoaded),
-                name: Model.dataLoadedNotification, object: model)
         }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProgramViewModel.dataLoaded), name: Model.dataLoadedNotification, object: nil)
+    }
+    
+    deinit {
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
     @objc func dataLoaded() {
-
-        NSNotificationCenter.defaultCenter().removeObserver(self,
-            name: Model.dataLoadedNotification, object: model)
 
         if let stages = model.stages, items = model.program {
 

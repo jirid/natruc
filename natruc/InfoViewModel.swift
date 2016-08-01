@@ -32,16 +32,17 @@ internal final class InfoViewModel {
 
             items = [InfoItem]()
 
-            NSNotificationCenter.defaultCenter().addObserver(self,
-                selector: #selector(InfoViewModel.dataLoaded),
-                name: Model.dataLoadedNotification, object: model)
         }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(InfoViewModel.dataLoaded), name: Model.dataLoadedNotification, object: nil)
+    }
+    
+    deinit {
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
     @objc func dataLoaded() {
-
-        NSNotificationCenter.defaultCenter().removeObserver(self,
-            name: Model.dataLoadedNotification, object: model)
 
         if let items = model.info {
 
