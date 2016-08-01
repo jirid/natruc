@@ -159,9 +159,11 @@ internal final class DetailViewController: UIViewController {
             backButton.setImage(image, forState: .Normal)
         }
 
-        if let image = item.image {
+        let tmp = item.image?.path.flatMap {
+            UIImage(contentsOfFile: $0)
+        }
+        if let img = tmp {
 
-            let img = UIImage(contentsOfFile: image.path!)!
             imageView.image = img
             imageView.addConstraint(NSLayoutConstraint(item: imageView,
                 attribute: .Width, relatedBy: .Equal, toItem: imageView,
