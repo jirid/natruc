@@ -38,8 +38,7 @@ internal final class Model {
             dispatch_async(dispatch_get_main_queue()) {
                 
                 if let s = self {
-                    NSNotificationCenter.defaultCenter()
-                        .postNotificationName(Model.dataLoadedNotification, object: s)
+                    NSNotificationCenter.defaultCenter().postNotificationName(Model.dataLoadedNotification, object: s)
                 }
             }
         }
@@ -154,9 +153,7 @@ internal final class Model {
 
             case .Image:
                 let url = Components.shared.resources.localUrlForRemoteUrl(NSURL(string: content)!)!
-                let path = NSBundle.mainBundle().URLForResource(url.lastPathComponent!,
-                    withExtension: .None)!
-                let i = InfoItem(type: type, content: path.path!)
+                let i = InfoItem(type: type, content: url.path!)
                 items.append(i)
 
             case .Title:
