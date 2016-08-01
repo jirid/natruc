@@ -100,7 +100,7 @@ internal final class ResourceLoader {
         if lastUpdateCheck <= now - Components.shared.updateInterval {
             lastUpdateCheck = now
             dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)) {
-                self.updateResource(.Info) {
+                self.updateResourceIfNeeded(.Info) {
                     if $0 {
                         Components.shared.model.loadInfo()
                         dispatch_async(dispatch_get_main_queue()) {
@@ -108,14 +108,14 @@ internal final class ResourceLoader {
                         }
                     }
                 }
-                self.updateResource(.Map) {
+                self.updateResourceIfNeeded(.Map) {
                     if $0 {
                         dispatch_async(dispatch_get_main_queue()) {
                             NSNotificationCenter.defaultCenter().postNotificationName(Model.dataLoadedNotification, object: self)
                         }
                     }
                 }
-                self.updateResource(.Bands) {
+                self.updateResourceIfNeeded(.Bands) {
                     if $0 {
                         Components.shared.model.loadBands()
                         dispatch_async(dispatch_get_main_queue()) {
