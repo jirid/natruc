@@ -68,9 +68,9 @@ internal final class ProgramViewModel {
         switch section {
 
         case 0:
-            return .Blue
-        case 1:
             return .Red
+        case 1:
+            return .Blue
         case 2:
             return .Green
         default:

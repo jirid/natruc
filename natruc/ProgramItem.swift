@@ -9,8 +9,8 @@
 import Foundation
 
 internal enum Color: Int {
-    case Blue = 0
-    case Red = 1
+    case Blue = 1
+    case Red = 0
     case Green = 2
 }
 
