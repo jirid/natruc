@@ -20,7 +20,7 @@ class NatrucUITests: XCTestCase {
         
         let app = XCUIApplication()
         // Initialize Fastlane Snapshot
-        setupSnapshot(app)
+        setupSnapshot(app: app)
         
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         app.launch()
@@ -35,23 +35,23 @@ class NatrucUITests: XCTestCase {
     
     func testTakeScreenshots() {
         let app = XCUIApplication()
-        snapshot("1_Now")
+        snapshot(name: "1_Now")
         
         app.tabBars.buttons["Program"].tap()
-        scrollTo("Brutální Jahoda", collectionViewElement: app.tables.element(boundBy: 0), scrollUp: false, fullyVisible: true)
+        let _ = scrollTo("Brutální Jahoda", collectionViewElement: app.tables.element(boundBy: 0), scrollUp: false, fullyVisible: true)
         
-        snapshot("2_Program")
+        snapshot(name: "2_Program")
         
         app.tables.staticTexts["Tata Bojs"].tap()
-        snapshot("3_BandDetail")
+        snapshot(name: "3_BandDetail")
         
         app.tabBars.buttons.element(boundBy: 2).tap()
-        snapshot("4_Map")
+        snapshot(name: "4_Map")
         
         app.tabBars.buttons["Info"].tap()
-        scrollTo("Vlakem", collectionViewElement: app.tables.element(boundBy: 0), scrollUp: false, fullyVisible: true)
+        let _ = scrollTo("Vlakem", collectionViewElement: app.tables.element(boundBy: 0), scrollUp: false, fullyVisible: true)
 
-        snapshot("5_Info")
+        snapshot(name: "5_Info")
     }
 }
 
