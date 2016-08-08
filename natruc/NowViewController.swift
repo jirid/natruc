@@ -32,7 +32,7 @@ internal final class NowViewController: UIViewController {
     //MARK: Initializers
 
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
         deactivate()
     }
 
@@ -50,23 +50,23 @@ internal final class NowViewController: UIViewController {
         }
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
             selector: #selector(NowViewController.activate),
-            name: UIApplicationDidBecomeActiveNotification, object: .None)
-        NSNotificationCenter.defaultCenter().addObserver(self,
+            name: NSNotification.Name.UIApplicationDidBecomeActive, object: .none)
+        NotificationCenter.default.addObserver(self,
             selector: #selector(NowViewController.deactivate),
-            name: UIApplicationWillResignActiveNotification, object: .None)
+            name: NSNotification.Name.UIApplicationWillResignActive, object: .none)
         activate()
     }
 
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self,
-            name: UIApplicationDidBecomeActiveNotification, object: .None)
-        NSNotificationCenter.defaultCenter().removeObserver(self,
-            name: UIApplicationWillResignActiveNotification, object: .None)
+        NotificationCenter.default.removeObserver(self,
+            name: NSNotification.Name.UIApplicationDidBecomeActive, object: .none)
+        NotificationCenter.default.removeObserver(self,
+            name: NSNotification.Name.UIApplicationWillResignActive, object: .none)
         deactivate()
     }
 
@@ -83,16 +83,16 @@ internal final class NowViewController: UIViewController {
         if let t = timer {
             t.invalidate()
         }
-        timer = .None
+        timer = .none
     }
 
     //MARK: Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
 
         if segue.identifier == detailSegue {
 
-            if let detail = segue.destinationViewController as? DetailViewController,
+            if let detail = segue.destination as? DetailViewController,
                 let item = curItem {
 
                     detail.item = item
@@ -103,44 +103,44 @@ internal final class NowViewController: UIViewController {
         }
     }
 
-    @IBAction func prepareForUnwindSegue(segue: UIStoryboardSegue) {
+    @IBAction func prepareForUnwindSegue(_ segue: UIStoryboardSegue) {
 
     }
 
     //MARK: Actions
 
-    @IBAction func stage1ButtonTapped(sender: UIButton) {
+    @IBAction func stage1ButtonTapped(_ sender: UIButton) {
 
         curItem = s1Item
-        performSegueWithIdentifier(detailSegue, sender: .None)
+        performSegue(withIdentifier: detailSegue, sender: .none)
     }
 
-    @IBAction func stage2ButtonTapped(sender: UIButton) {
+    @IBAction func stage2ButtonTapped(_ sender: UIButton) {
 
         curItem = s2Item
-        performSegueWithIdentifier(detailSegue, sender: .None)
+        performSegue(withIdentifier: detailSegue, sender: .none)
     }
 
-    @IBAction func stage3ButtonTapped(sender: UIButton) {
+    @IBAction func stage3ButtonTapped(_ sender: UIButton) {
 
         curItem = s3Item
-        performSegueWithIdentifier(detailSegue, sender: .None)
+        performSegue(withIdentifier: detailSegue, sender: .none)
     }
 
     //MARK: Private
 
     private func update() {
         switch viewModel.state() {
-        case .NotLoaded:
+        case .notLoaded:
             nothing()
-        case .NotStarted:
+        case .notStarted:
             before()
-        case .Progress(let s1, let s2, let s3):
+        case .progress(let s1, let s2, let s3):
             s1Item = s1
             s2Item = s2
             s3Item = s3
             progress(s1, stage2: s2, stage3: s3)
-        case .Ended:
+        case .ended:
             after()
         }
     }
@@ -149,8 +149,8 @@ internal final class NowViewController: UIViewController {
 
         titleLabel.text = ""
         subtitleLabel.text = ""
-        scrollView.hidden = true
-        imageView.hidden = true
+        scrollView.isHidden = true
+        imageView.isHidden = true
     }
 
     private func before() {
@@ -162,12 +162,12 @@ internal final class NowViewController: UIViewController {
             value: "Looking forward to seeing you there",
             comment: "Subtitle on the now screen displayed before the start of the festival.")
 
-        scrollView.hidden = true
-        imageView.hidden = false
+        scrollView.isHidden = true
+        imageView.isHidden = false
         imageView.image = UIImage(named: "smile")
     }
 
-    private func progress(stage1: ProgramItem?, stage2: ProgramItem?, stage3: ProgramItem?) {
+    private func progress(_ stage1: ProgramItem?, stage2: ProgramItem?, stage3: ProgramItem?) {
 
         titleLabel.text = NSLocalizedString("ProgressTitle",
             value: "Enjoy the festival!",
@@ -176,22 +176,22 @@ internal final class NowViewController: UIViewController {
             value: "Now playing",
             comment: "Subtitle on the now screen displayed while the festival is in progress.")
 
-        scrollView.hidden = false
-        imageView.hidden = true
-        imageView.image = .None
+        scrollView.isHidden = false
+        imageView.isHidden = true
+        imageView.image = .none
 
         setUpStageView(stageView1, stageItem: stage1)
         setUpStageView(stageView2, stageItem: stage2)
         setUpStageView(stageView3, stageItem: stage3)
     }
 
-    private func setUpStageView(stageView: ProgressView, stageItem: ProgramItem?) {
+    private func setUpStageView(_ stageView: ProgressView, stageItem: ProgramItem?) {
 
         if let s = stageItem {
             stageView.setItem(s)
-            stageView.hidden = false
+            stageView.isHidden = false
         } else {
-            stageView.hidden = true
+            stageView.isHidden = true
         }
     }
 
@@ -204,8 +204,8 @@ internal final class NowViewController: UIViewController {
             value: "Thanks for visiting!",
             comment: "Subtitle on the now screen displayed after the end of the festival.")
 
-        scrollView.hidden = true
-        imageView.hidden = false
+        scrollView.isHidden = true
+        imageView.isHidden = false
         imageView.image = UIImage(named: "frown")
     }
 

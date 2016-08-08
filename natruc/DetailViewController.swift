@@ -29,7 +29,7 @@ internal final class DetailViewController: UIViewController {
     //MARK: Initializers
 
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
         deactivate()
     }
 
@@ -43,31 +43,31 @@ internal final class DetailViewController: UIViewController {
         configureBackground()
         configureImageView()
         configureTextView()
-        configureLinkButton(webButton, enabled: item.web != .None)
-        configureLinkButton(facebookButton, enabled: item.facebook != .None)
-        configureLinkButton(youtubeButton, enabled: item.youtube != .None)
+        configureLinkButton(webButton, enabled: item.web != .none)
+        configureLinkButton(facebookButton, enabled: item.facebook != .none)
+        configureLinkButton(youtubeButton, enabled: item.youtube != .none)
 
         setNeedsStatusBarAppearanceUpdate()
         view.setNeedsLayout()
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
             selector: #selector(DetailViewController.activate),
-            name: UIApplicationDidBecomeActiveNotification, object: .None)
-        NSNotificationCenter.defaultCenter().addObserver(self,
+            name: NSNotification.Name.UIApplicationDidBecomeActive, object: .none)
+        NotificationCenter.default.addObserver(self,
             selector: #selector(DetailViewController.deactivate),
-            name: UIApplicationWillResignActiveNotification, object: .None)
+            name: NSNotification.Name.UIApplicationWillResignActive, object: .none)
         activate()
     }
 
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self,
-            name: UIApplicationDidBecomeActiveNotification, object: .None)
-        NSNotificationCenter.defaultCenter().removeObserver(self,
-            name: UIApplicationWillResignActiveNotification, object: .None)
+        NotificationCenter.default.removeObserver(self,
+            name: NSNotification.Name.UIApplicationDidBecomeActive, object: .none)
+        NotificationCenter.default.removeObserver(self,
+            name: NSNotification.Name.UIApplicationWillResignActive, object: .none)
         deactivate()
     }
 
@@ -84,43 +84,42 @@ internal final class DetailViewController: UIViewController {
         if let t = timer {
             t.invalidate()
         }
-        timer = .None
+        timer = .none
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         textView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
     }
-
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
         if dark {
-
-            return .Default
-
+            
+            return .default
+            
         } else {
-
-            return .LightContent
+            
+            return .lightContent
         }
     }
 
     //MARK: Actions
 
-    @IBAction func webButtonTapped(sender: UIButton) {
+    @IBAction func webButtonTapped(_ sender: UIButton) {
         if let url = item.web {
-            UIApplication.sharedApplication().openURL(url)
+            UIApplication.shared.openURL(url as URL)
         }
     }
 
-    @IBAction func facebookButtonTapped(sender: UIButton) {
+    @IBAction func facebookButtonTapped(_ sender: UIButton) {
         if let url = item.facebook {
-            UIApplication.sharedApplication().openURL(url)
+            UIApplication.shared.openURL(url as URL)
         }
     }
 
-    @IBAction func youtubeButtonTapped(sender: UIButton) {
+    @IBAction func youtubeButtonTapped(_ sender: UIButton) {
         if let url = item.youtube {
-            UIApplication.sharedApplication().openURL(url)
+            UIApplication.shared.openURL(url as URL)
         }
     }
 
@@ -134,13 +133,13 @@ internal final class DetailViewController: UIViewController {
     private func configureBackground() {
 
         switch item.color {
-        case .Blue:
+        case .blue:
             view.backgroundColor = Natruc.lightBlue
             buttonContainer.backgroundColor = Natruc.lightBlue
-        case .Red:
+        case .red:
             view.backgroundColor = Natruc.lightRed
             buttonContainer.backgroundColor = Natruc.lightRed
-        case .Green:
+        case .green:
             view.backgroundColor = Natruc.lightGreen
             buttonContainer.backgroundColor = Natruc.lightGreen
         }
@@ -151,31 +150,31 @@ internal final class DetailViewController: UIViewController {
         if dark {
 
             let image = UIImage(named: "backdark")
-            backButton.setImage(image, forState: .Normal)
+            backButton.setImage(image, for: UIControlState())
 
         } else {
 
             let image = UIImage(named: "backlight")
-            backButton.setImage(image, forState: .Normal)
+            backButton.setImage(image, for: UIControlState())
         }
 
-        let tmp = item.image?.path.flatMap {
+        let tmp = (item.image?.path).flatMap {
             UIImage(contentsOfFile: $0)
         }
         if let img = tmp {
 
             imageView.image = img
             imageView.addConstraint(NSLayoutConstraint(item: imageView,
-                attribute: .Width, relatedBy: .Equal, toItem: imageView,
-                attribute: .Height,
+                attribute: .width, relatedBy: .equal, toItem: imageView,
+                attribute: .height,
                 multiplier: img.size.width / img.size.height, constant: 0))
 
         } else {
 
             imageView.removeFromSuperview()
-            let views = ["view": view, "progress": progressView]
-            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-70-[progress]",
-                options: [], metrics: .None, views: views))
+            let views = ["view": view as AnyObject, "progress": progressView as AnyObject]
+            view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-70-[progress]",
+                options: [], metrics: .none, views: views))
             dark = false
         }
     }
@@ -188,12 +187,12 @@ internal final class DetailViewController: UIViewController {
         textView.setNeedsLayout()
     }
 
-    private func configureLinkButton(button: UIButton, enabled: Bool) {
+    private func configureLinkButton(_ button: UIButton, enabled: Bool) {
 
-        button.setTitleColor(Natruc.white, forState: .Normal)
-        button.setTitleColor(Natruc.yellow, forState: .Highlighted)
-        button.enabled = enabled
-        button.setTitleColor(Natruc.foregroundGray, forState: .Disabled)
+        button.setTitleColor(Natruc.white, for: UIControlState())
+        button.setTitleColor(Natruc.yellow, for: .highlighted)
+        button.isEnabled = enabled
+        button.setTitleColor(Natruc.foregroundGray, for: .disabled)
     }
 
 }

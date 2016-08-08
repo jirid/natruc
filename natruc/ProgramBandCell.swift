@@ -15,7 +15,7 @@ internal class ProgramBandCell: ProgramCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var briefLabel: UILabel!
 
-    internal func setItem(item: ProgramItem) {
+    internal func setItem(_ item: ProgramItem) {
 
         titleLabel.text = item.name
         titleLabel.textColor = Natruc.white

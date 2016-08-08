@@ -19,20 +19,20 @@ internal final class Components {
 
     private init() {
 
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
             selector: #selector(Components.didReceiveMemoryWarning),
-            name: UIApplicationDidReceiveMemoryWarningNotification,
-            object: .None)
+            name: NSNotification.Name.UIApplicationDidReceiveMemoryWarning,
+            object: .none)
     }
 
     deinit {
 
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 
     @objc func didReceiveMemoryWarning() {
 
-        cachedDateParser = .None
+        cachedDateParser = .none
     }
 
     //MARK: Model
@@ -59,15 +59,15 @@ internal final class Components {
 
     //MARK: Utils
 
-    internal func now() -> NSDate {
+    internal func now() -> Date {
 
-        return NSDate()
+        return Date()
     }
     
-    internal let updateInterval: NSTimeInterval = 3600
+    internal let updateInterval: TimeInterval = 3600
 
-    private var cachedDateParser: NSDateFormatter?
-    internal func dateParser() -> NSDateFormatter {
+    private var cachedDateParser: DateFormatter?
+    internal func dateParser() -> DateFormatter {
 
         if let dp = cachedDateParser {
 
@@ -75,10 +75,10 @@ internal final class Components {
 
         } else {
 
-            let dp = NSDateFormatter()
-            dp.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+            let dp = DateFormatter()
+            dp.locale = Locale(identifier: "en_US_POSIX")
             dp.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSSZ"
-            dp.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+            dp.timeZone = TimeZone(secondsFromGMT: 0)
             cachedDateParser = dp
             return dp
         }

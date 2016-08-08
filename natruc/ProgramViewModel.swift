@@ -13,7 +13,7 @@ internal final class ProgramViewModel {
 
     private let model: Model
 
-    internal var dataChanged: (Void -> Void)?
+    internal var dataChanged: ((Void) -> Void)?
 
     internal var stages: [String]
     private var items: [[ProgramItem]]
@@ -22,7 +22,7 @@ internal final class ProgramViewModel {
 
         self.model = model
 
-        if let stages = model.stages, items = model.program {
+        if let stages = model.stages, let items = model.program {
 
             self.stages = stages
             self.items = items
@@ -37,17 +37,17 @@ internal final class ProgramViewModel {
             items = [[ProgramItem]]()
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProgramViewModel.dataLoaded), name: Model.dataLoadedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ProgramViewModel.dataLoaded), name: NSNotification.Name(rawValue: Model.dataLoadedNotification), object: nil)
     }
     
     deinit {
         
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 
     @objc func dataLoaded() {
 
-        if let stages = model.stages, items = model.program {
+        if let stages = model.stages, let items = model.program {
 
             self.stages = stages
             self.items = items
@@ -63,28 +63,28 @@ internal final class ProgramViewModel {
         return stages.count
     }
 
-    internal func colorForStage(section: Int) -> Color {
+    internal func colorForStage(_ section: Int) -> Color {
 
         switch section {
 
         case 0:
-            return .Red
+            return .red
         case 1:
-            return .Blue
+            return .blue
         case 2:
-            return .Green
+            return .green
         default:
-            return .Blue
+            return .blue
         }
     }
 
-    internal func numberOfBands(stage: Int) -> Int {
+    internal func numberOfBands(_ stage: Int) -> Int {
 
         return items[stage].count + 1
     }
 
-    internal func bandForIndexPath(indexPath: NSIndexPath) -> ProgramItem {
+    internal func bandForIndexPath(_ indexPath: IndexPath) -> ProgramItem {
 
-        return items[indexPath.section][indexPath.row - 1]
+        return items[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row - 1]
     }
 }

@@ -12,7 +12,7 @@ internal final class InfoViewModel {
 
     private let model: Model
 
-    internal var dataChanged: (Void -> Void)?
+    internal var dataChanged: ((Void) -> Void)?
 
     internal var items: [InfoItem]
 
@@ -34,12 +34,12 @@ internal final class InfoViewModel {
 
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(InfoViewModel.dataLoaded), name: Model.dataLoadedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(InfoViewModel.dataLoaded), name: NSNotification.Name(rawValue: Model.dataLoadedNotification), object: nil)
     }
     
     deinit {
         
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 
     @objc func dataLoaded() {

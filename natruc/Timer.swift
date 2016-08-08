@@ -10,14 +10,14 @@ import Foundation
 
 internal final class Timer {
 
-    var timer: NSTimer?
+    var timer: Foundation.Timer?
     let callback: () -> ()
 
-    internal init(interval: NSTimeInterval, callback: () -> ()) {
+    internal init(interval: TimeInterval, callback: () -> ()) {
 
         self.callback = callback
-        timer = NSTimer.scheduledTimerWithTimeInterval(interval, target: self,
-            selector: #selector(Timer.timerElapsed), userInfo: .None, repeats: true)
+        timer = Foundation.Timer.scheduledTimer(timeInterval: interval, target: self,
+            selector: #selector(Timer.timerElapsed), userInfo: .none, repeats: true)
     }
 
     internal func invalidate() {

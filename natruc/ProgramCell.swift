@@ -11,15 +11,15 @@ import UIKit
 
 internal class ProgramCell: UITableViewCell {
 
-    internal func setColor(color: Color) {
+    internal func setColor(_ color: Color) {
 
         switch color {
 
-        case .Blue:
+        case .blue:
             contentView.backgroundColor = Natruc.lightBlue
-        case .Red:
+        case .red:
             contentView.backgroundColor = Natruc.lightRed
-        case .Green:
+        case .green:
             contentView.backgroundColor = Natruc.lightGreen
         }
     }

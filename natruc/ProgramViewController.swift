@@ -37,11 +37,11 @@ internal final class ProgramViewController: UIViewController {
 
     //MARK: Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
 
         if segue.identifier == detailSegue {
 
-            if let detail = segue.destinationViewController as? DetailViewController {
+            if let detail = segue.destination as? DetailViewController {
 
                 detail.item = viewModel.bandForIndexPath(tableView.indexPathForSelectedRow!)
 
@@ -51,7 +51,7 @@ internal final class ProgramViewController: UIViewController {
         }
     }
 
-    @IBAction func prepareForUnwindSegue(segue: UIStoryboardSegue) {
+    @IBAction func prepareForUnwindSegue(_ segue: UIStoryboardSegue) {
 
     }
 }
@@ -60,39 +60,39 @@ extension ProgramViewController: UITableViewDataSource {
 
     //MARK: Table View Data Source
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
 
         return viewModel.numberOfStages()
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return viewModel.numberOfBands(section) + 1
     }
 
-    func tableView(tableView: UITableView,
-        cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         var cell: UITableViewCell
 
-        if indexPath.row == 0 {
+        if (indexPath as NSIndexPath).row == 0 {
 
-            cell = tableView.dequeueReusableCellWithIdentifier(stageCell)!
+            cell = tableView.dequeueReusableCell(withIdentifier: stageCell)!
             if let c = cell as? ProgramStageCell {
 
-                c.setTitle(viewModel.stages[indexPath.section])
+                c.setTitle(viewModel.stages[(indexPath as NSIndexPath).section])
 
             } else {
                 fatalError("Did not get the correct cell type out of the storyboard.")
             }
 
-        } else if indexPath.row == viewModel.numberOfBands(indexPath.section) {
+        } else if (indexPath as NSIndexPath).row == viewModel.numberOfBands((indexPath as NSIndexPath).section) {
 
-            cell = tableView.dequeueReusableCellWithIdentifier(footerCell)!
+            cell = tableView.dequeueReusableCell(withIdentifier: footerCell)!
 
         } else {
 
-            cell = tableView.dequeueReusableCellWithIdentifier(bandCell)!
+            cell = tableView.dequeueReusableCell(withIdentifier: bandCell)!
             if let c = cell as? ProgramBandCell {
 
                 c.setItem(viewModel.bandForIndexPath(indexPath))
@@ -104,7 +104,7 @@ extension ProgramViewController: UITableViewDataSource {
 
         if let c = cell as? ProgramCell {
 
-            c.setColor(viewModel.colorForStage(indexPath.section))
+            c.setColor(viewModel.colorForStage((indexPath as NSIndexPath).section))
 
         } else {
             fatalError("Did not get the correct cell type out of the storyboard.")
@@ -118,14 +118,14 @@ extension ProgramViewController: UITableViewDelegate {
 
     //MARK: Table View Delegate
 
-    func tableView(tableView: UITableView,
-        willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+    func tableView(_ tableView: UITableView,
+        willSelectRowAt indexPath: IndexPath) -> IndexPath? {
 
-        return indexPath.row == 0 || indexPath.row == viewModel.numberOfBands(indexPath.section) ? .None : .Some(indexPath)
+        return (indexPath as NSIndexPath).row == 0 || (indexPath as NSIndexPath).row == viewModel.numberOfBands((indexPath as NSIndexPath).section) ? .none : .some(indexPath)
     }
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        performSegueWithIdentifier(detailSegue, sender: .None)
+        performSegue(withIdentifier: detailSegue, sender: .none)
     }
 }

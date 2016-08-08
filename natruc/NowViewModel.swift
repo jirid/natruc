@@ -9,30 +9,30 @@
 import Foundation
 
 internal enum Progress {
-    case NotLoaded
-    case NotStarted
-    case Progress(ProgramItem?, ProgramItem?, ProgramItem?)
-    case Ended
+    case notLoaded
+    case notStarted
+    case progress(ProgramItem?, ProgramItem?, ProgramItem?)
+    case ended
 }
 
 internal final class NowViewModel {
 
     private let model: Model
     private var items: [[ProgramItem]]
-    private var start: NSDate?
-    private var end: NSDate?
+    private var start: Date?
+    private var end: Date?
 
-    internal var dataChanged: (Void -> Void)?
+    internal var dataChanged: ((Void) -> Void)?
 
     internal init(model: Model) {
 
         self.model = model
 
-        if let items = model.program, start = model.start, end = model.end {
+        if let items = model.program, let start = model.start, let end = model.end {
 
             self.items = items
-            self.start = start
-            self.end = end
+            self.start = start as Date
+            self.end = end as Date
 
             if let dc = dataChanged {
                 dc()
@@ -41,25 +41,25 @@ internal final class NowViewModel {
         } else {
 
             items = [[ProgramItem]]()
-            start = .None
-            end = .None
+            start = .none
+            end = .none
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NowViewModel.dataLoaded), name: Model.dataLoadedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(NowViewModel.dataLoaded), name: NSNotification.Name(rawValue: Model.dataLoadedNotification), object: nil)
     }
     
     deinit {
         
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 
     @objc func dataLoaded() {
 
-        if let items = model.program, start = model.start, end = model.end {
+        if let items = model.program, let start = model.start, let end = model.end {
 
             self.items = items
-            self.start = start
-            self.end = end
+            self.start = start as Date
+            self.end = end as Date
 
             if let dc = dataChanged {
                 dc()
@@ -77,24 +77,24 @@ internal final class NowViewModel {
 
             if now < start.timeIntervalSince1970 {
 
-                return .NotStarted
+                return .notStarted
 
             } else if now > end.timeIntervalSince1970 {
 
-                return .Ended
+                return .ended
 
             } else {
 
-                return .Progress(currentBand(0), currentBand(1), currentBand(2))
+                return .progress(currentBand(0), currentBand(1), currentBand(2))
             }
 
         } else {
 
-            return .NotLoaded
+            return .notLoaded
         }
     }
 
-    internal func currentBand(stage: Int) -> ProgramItem? {
+    internal func currentBand(_ stage: Int) -> ProgramItem? {
 
         let now = Components.shared.now().timeIntervalSince1970
 

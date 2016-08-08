@@ -19,11 +19,11 @@ internal class ImageViewController: UIViewController {
         }
         set {
             cachedImage = newValue
-            if isViewLoaded() {
+            if isViewLoaded {
                 if let i = newValue {
                     setUpImage(i)
                     initializing = true
-                    if view.superview != .None {
+                    if view.superview != .none {
                         setUpScrollView()
                     }
                 }
@@ -50,27 +50,26 @@ internal class ImageViewController: UIViewController {
         }
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         if let _ = image {
             setUpScrollView()
         }
     }
-
-    override func prefersStatusBarHidden() -> Bool {
-
+    
+    override var prefersStatusBarHidden: Bool {
         return !chromeVisible
     }
 
     //MARK: Actions
 
-    @IBAction func tapped(sender: UITapGestureRecognizer) {
+    @IBAction func tapped(_ sender: UITapGestureRecognizer) {
 
         toggleChrome()
     }
 
-    @IBAction func doubleTapped(sender: UITapGestureRecognizer) {
+    @IBAction func doubleTapped(_ sender: UITapGestureRecognizer) {
 
         scrollView.setZoomScale(midScale(), animated: true)
         hideChrome()
@@ -78,13 +77,13 @@ internal class ImageViewController: UIViewController {
 
     //MARK: Private
 
-    private func setUpImage(image: UIImage) {
+    private func setUpImage(_ image: UIImage) {
         imageView.image = image
-        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Width,
-            relatedBy: .Equal, toItem: .None, attribute: .NotAnAttribute, multiplier: 1.0,
+        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .width,
+            relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1.0,
             constant: image.size.width))
-        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Height,
-            relatedBy: .Equal, toItem: .None, attribute: .NotAnAttribute, multiplier: 1.0,
+        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .height,
+            relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1.0,
             constant: image.size.height))
     }
 
@@ -132,9 +131,9 @@ internal class ImageViewController: UIViewController {
 
     private func updateChrome() {
 
-        tabBarController?.tabBar.hidden = !chromeVisible
-        navigationController?.navigationBar.hidden = !chromeVisible
-        closeButton?.hidden = !chromeVisible
+        tabBarController?.tabBar.isHidden = !chromeVisible
+        navigationController?.navigationBar.isHidden = !chromeVisible
+        closeButton?.isHidden = !chromeVisible
         setNeedsStatusBarAppearanceUpdate()
     }
 
@@ -144,19 +143,19 @@ extension ImageViewController: UIScrollViewDelegate {
 
     //MARK: Scroll View Delegate
 
-    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
 
         return imageView
     }
 
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         if !initializing {
             hideChrome()
         }
     }
 
-    func scrollViewDidZoom(scrollView: UIScrollView) {
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
 
         if !initializing {
             hideChrome()

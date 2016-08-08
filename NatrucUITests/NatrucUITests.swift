@@ -38,35 +38,35 @@ class NatrucUITests: XCTestCase {
         snapshot("1_Now")
         
         app.tabBars.buttons["Program"].tap()
-        scrollTo("Brutální Jahoda", collectionViewElement: app.tables.elementBoundByIndex(0), scrollUp: false, fullyVisible: true)
+        scrollTo("Brutální Jahoda", collectionViewElement: app.tables.element(boundBy: 0), scrollUp: false, fullyVisible: true)
         
         snapshot("2_Program")
         
         app.tables.staticTexts["Tata Bojs"].tap()
         snapshot("3_BandDetail")
         
-        app.tabBars.buttons.elementBoundByIndex(2).tap()
+        app.tabBars.buttons.element(boundBy: 2).tap()
         snapshot("4_Map")
         
         app.tabBars.buttons["Info"].tap()
-        scrollTo("Vlakem", collectionViewElement: app.tables.elementBoundByIndex(0), scrollUp: false, fullyVisible: true)
+        scrollTo("Vlakem", collectionViewElement: app.tables.element(boundBy: 0), scrollUp: false, fullyVisible: true)
 
         snapshot("5_Info")
     }
 }
 
-func scrollTo(cellIdentifier: String, collectionViewElement: XCUIElement, scrollUp: Bool = false, fullyVisible: Bool = false) -> Bool {
+func scrollTo(_ cellIdentifier: String, collectionViewElement: XCUIElement, scrollUp: Bool = false, fullyVisible: Bool = false) -> Bool {
     var rtn = false
     var lastMidCellID = ""
-    var lastMidCellRect = CGRectZero
+    var lastMidCellRect = CGRect.zero
     
-    var currentMidCell = collectionViewElement.cells.elementBoundByIndex(collectionViewElement.cells.count / 2)
+    var currentMidCell = collectionViewElement.cells.element(boundBy: collectionViewElement.cells.count / 2)
     
     // Scroll until the requested cell is hittable, or until we try and scroll but nothing changes
     
-    while (lastMidCellID != currentMidCell.identifier || !CGRectEqualToRect(lastMidCellRect, currentMidCell.frame)) {
+    while (lastMidCellID != currentMidCell.identifier || !lastMidCellRect.equalTo(currentMidCell.frame)) {
         
-        if (collectionViewElement.cells.matchingIdentifier(cellIdentifier).count > 0 && collectionViewElement.cells[cellIdentifier].exists && collectionViewElement.cells[cellIdentifier].hittable) {
+        if (collectionViewElement.cells.matching(identifier: cellIdentifier).count > 0 && collectionViewElement.cells[cellIdentifier].exists && collectionViewElement.cells[cellIdentifier].isHittable) {
             rtn = true
             break;
         }
@@ -75,13 +75,13 @@ func scrollTo(cellIdentifier: String, collectionViewElement: XCUIElement, scroll
         lastMidCellRect = currentMidCell.frame      // Need to capture this before the scroll
         
         if (scrollUp) {
-            collectionViewElement.coordinateWithNormalizedOffset(CGVector(dx: 0.99, dy: 0.4)).pressForDuration(0.01, thenDragToCoordinate: collectionViewElement.coordinateWithNormalizedOffset(CGVector(dx: 0.99, dy: 0.9)))
+            collectionViewElement.coordinate(withNormalizedOffset: CGVector(dx: 0.99, dy: 0.4)).press(forDuration: 0.01, thenDragTo: collectionViewElement.coordinate(withNormalizedOffset: CGVector(dx: 0.99, dy: 0.9)))
         }
         else {
-            collectionViewElement.coordinateWithNormalizedOffset(CGVector(dx: 0.99, dy: 0.9)).pressForDuration(0.01, thenDragToCoordinate: collectionViewElement.coordinateWithNormalizedOffset(CGVector(dx: 0.99, dy: 0.4)))
+            collectionViewElement.coordinate(withNormalizedOffset: CGVector(dx: 0.99, dy: 0.9)).press(forDuration: 0.01, thenDragTo: collectionViewElement.coordinate(withNormalizedOffset: CGVector(dx: 0.99, dy: 0.4)))
         }
         
-        currentMidCell = collectionViewElement.cells.elementBoundByIndex(collectionViewElement.cells.count / 2)
+        currentMidCell = collectionViewElement.cells.element(boundBy: collectionViewElement.cells.count / 2)
     }
     
     
@@ -91,12 +91,12 @@ func scrollTo(cellIdentifier: String, collectionViewElement: XCUIElement, scroll
         let cell = collectionViewElement.cells[cellIdentifier]
         let scrollDistance = (cell.frame.height / 2) / collectionViewElement.frame.height
         
-        while (!CGRectContainsRect(collectionViewElement.frame, cell.frame)) {
+        while (!collectionViewElement.frame.contains(cell.frame)) {
             if (cell.frame.minY < collectionViewElement.frame.minY) {
-                collectionViewElement.coordinateWithNormalizedOffset(CGVector(dx: 0.99, dy: 0.5)).pressForDuration(0.01, thenDragToCoordinate: collectionViewElement.coordinateWithNormalizedOffset(CGVector(dx: 0.99, dy: 0.5 + scrollDistance)))
+                collectionViewElement.coordinate(withNormalizedOffset: CGVector(dx: 0.99, dy: 0.5)).press(forDuration: 0.01, thenDragTo: collectionViewElement.coordinate(withNormalizedOffset: CGVector(dx: 0.99, dy: 0.5 + scrollDistance)))
             }
             else {
-                collectionViewElement.coordinateWithNormalizedOffset(CGVector(dx: 0.99, dy: 0.5)).pressForDuration(0.01, thenDragToCoordinate: collectionViewElement.coordinateWithNormalizedOffset(CGVector(dx: 0.99, dy: 0.5 - scrollDistance)))
+                collectionViewElement.coordinate(withNormalizedOffset: CGVector(dx: 0.99, dy: 0.5)).press(forDuration: 0.01, thenDragTo: collectionViewElement.coordinate(withNormalizedOffset: CGVector(dx: 0.99, dy: 0.5 - scrollDistance)))
             }
         }
     }

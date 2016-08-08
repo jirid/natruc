@@ -17,13 +17,13 @@ final class AppDelegate: UIResponder {
 
         UITabBar.appearance().tintColor = Natruc.activeGray
         UITabBar.appearance().backgroundColor = Natruc.backgroundGray
-        UITabBar.appearance().opaque = true
+        UITabBar.appearance().isOpaque = true
     }
 }
 
 extension AppDelegate: UIApplicationDelegate {
 
-    func application(application: UIApplication,
+    func application(_ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
         Components.shared.resources.load()
@@ -32,7 +32,7 @@ extension AppDelegate: UIApplicationDelegate {
         return true
     }
     
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         
         Components.shared.resources.updateIfNeeded()
     }

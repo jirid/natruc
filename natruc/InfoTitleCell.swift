@@ -18,7 +18,7 @@ internal final class InfoTitleCell: InfoCell {
         label.textColor = Natruc.sectionHeader
     }
 
-    override func setContent(content: InfoItem) {
+    override func setContent(_ content: InfoItem) {
 
         label.text = content.content
         self.accessibilityIdentifier = content.content

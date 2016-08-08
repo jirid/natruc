@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 internal final class Model {
 
@@ -17,8 +16,8 @@ internal final class Model {
 
     internal var stages: [String]?
     internal var program: [[ProgramItem]]?
-    internal var start: NSDate?
-    internal var end: NSDate?
+    internal var start: Date?
+    internal var end: Date?
     internal var info: [InfoItem]?
 
     //MARK: Initializers
@@ -28,17 +27,17 @@ internal final class Model {
     }
     
     internal func load() {
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)) {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             
             [weak self] in
             
             self?.loadBands()
             self?.loadInfo()
             
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 
                 if let s = self {
-                    NSNotificationCenter.defaultCenter().postNotificationName(Model.dataLoadedNotification, object: s)
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: Model.dataLoadedNotification), object: s)
                 }
             }
         }
@@ -64,69 +63,73 @@ internal final class Model {
 
     //MARK: Data Parsers
 
-    internal func loadProgram(url: NSURL) -> ([String], [[ProgramItem]], NSDate, NSDate) {
+    internal func loadProgram(_ url: URL) -> ([String], [[ProgramItem]], Date, Date) {
 
         var items = [[ProgramItem]]()
         var stages = [String]()
-        var gstart = NSDate.distantFuture()
-        var gend = NSDate.distantPast()
-        let data = NSData(contentsOfURL: url)!
-        let json = JSON(data: data)
+        var gstart = Date.distantFuture
+        var gend = Date.distantPast
+        let data = try! Data(contentsOf: url)
+        let json = try! JSONSerialization.jsonObject(with: data, options: []) as! NSDictionary
+        let jsonStages = json["stages" as NSString] as! NSArray
+        let jsonBands = json["bands" as NSString] as! NSArray
 
-        for (_, j) in json["stages"] {
+        for j in jsonStages {
 
-            guard let name = j["name"].string else {
+            guard let name = j["name" as NSString] as? String else {
                 continue
             }
 
-            let locale = NSLocale(localeIdentifier: "cs-cz")
-            stages.append(name.uppercaseStringWithLocale(locale))
+            let locale = Locale(identifier: "cs-cz")
+            stages.append(name.uppercased(with: locale))
             items.append([ProgramItem]())
         }
 
-        for (_, j) in json["bands"] {
+        for k in jsonBands {
+            
+            let j = k as! NSDictionary
 
             guard let (i, idx) = parseProgramItem(j, stages: stages) else {
                 continue
             }
 
-            gstart = gstart.earlierDate(i.start)
-            gend = gend.laterDate(i.end)
+            gstart = (gstart as NSDate).earlierDate(i.start)
+            gend = (gend as NSDate).laterDate(i.end)
 
             var l = items[idx]
             l.append(i)
             items[idx] = l
         }
 
-        return (stages, items, gstart.dateByAddingTimeInterval(-3600), gend)
+        return (stages, items, gstart.addingTimeInterval(-3600), gend)
     }
 
-    private func parseProgramItem(json: JSON, stages: [String]) -> (ProgramItem, Int)? {
+    private func parseProgramItem(_ json: NSDictionary, stages: [String]) -> (ProgramItem, Int)? {
 
-        let l = json["links"]
-        guard let name = json["name"].string, let short = json["shortDesc"].string,
-            let dark = json["darkStatusBar"].bool, let description = json["desc"].string,
-            let imagePath = json["image"].string, let webPath = l["web"].string,
-            let facebookPath = l["facebook"].string, let youtubePath = l["youtube"].string,
-            let start = json["start"].string, let end = json["end"].string,
-            let stage = json["stageId"].string else {
+        let l = json["links" as NSString] as! NSDictionary
+        guard let name = json["name" as NSString] as? String, let short = json["shortDesc" as NSString] as? String,
+            let dark = json["darkStatusBar" as NSString] as? NSNumber, let description = json["desc" as NSString] as? String,
+            let imagePath = json["image" as NSString] as? String, let webPath = l["web" as NSString] as? String,
+            let facebookPath = l["facebook" as NSString] as? String, let youtubePath = l["youtube" as NSString] as? String,
+            let start = json["start" as NSString] as? String, let end = json["end" as NSString] as? String,
+            let stage = json["stageId" as NSString] as? String else {
 
-                return .None
+                return .none
         }
 
-        let image = NSURL(string: imagePath).flatMap {
+        let image = URL(string: imagePath).flatMap {
             Components.shared.resources.localUrlForRemoteUrl($0)
         }
-        let web = webPath == "" ? .None : NSURL(string: webPath)
-        let facebook = facebookPath == "" ? .None : NSURL(string: facebookPath)
-        let youtube = youtubePath == "" ? .None : NSURL(string: youtubePath)
+        let web = webPath == "" ? .none : URL(string: webPath)
+        let facebook = facebookPath == "" ? .none : URL(string: facebookPath)
+        let youtube = youtubePath == "" ? .none : URL(string: youtubePath)
         let idx = Int(stage)! - 1
 
         let formatter = Components.shared.dateParser()
-        let startDate = formatter.dateFromString(start)!
-        let endDate = formatter.dateFromString(end)!
+        let startDate = formatter.date(from: start)!
+        let endDate = formatter.date(from: end)!
 
-        let result = (ProgramItem(name: name, brief: short, dark: dark,
+        let result = (ProgramItem(name: name, brief: short, dark: dark.boolValue,
             description: description, image: image, web: web, facebook: facebook,
             youtube: youtube, start: startDate, end: endDate, color: Color(rawValue: idx)!,
             stage: stages[idx]), idx)
@@ -134,17 +137,20 @@ internal final class Model {
         return result
     }
 
-    internal func loadInfo(url: NSURL) -> [InfoItem] {
+    internal func loadInfo(_ url: URL) -> [InfoItem] {
 
         var items = [InfoItem]()
-        let data = NSData(contentsOfURL: url)!
-        let json = JSON(data: data)
+        let data = try! Data(contentsOf: url)
+        let json = try! JSONSerialization.jsonObject(with: data, options: []) as! NSDictionary
+        let jsonItems = json["items" as NSString] as! NSArray
 
-        for (_, j) in json["items"] {
+        for k in jsonItems {
+            
+            let j = k as! NSDictionary
 
-            guard let rawType = j[InfoItemKey.TypeKey.rawValue].string,
+            guard let rawType = j[InfoItemKey.TypeKey.rawValue as NSString] as? String,
                 let type = InfoItemType(rawValue: rawType),
-                let content = j[InfoItemKey.ContentKey.rawValue].string else {
+                let content = j[InfoItemKey.ContentKey.rawValue as NSString] as? String else {
 
                     continue
             }
@@ -152,14 +158,14 @@ internal final class Model {
             switch type {
 
             case .Image:
-                let url = Components.shared.resources.localUrlForRemoteUrl(NSURL(string: content)!)!
-                let i = InfoItem(type: type, content: url.path!)
+                let url = Components.shared.resources.localUrlForRemoteUrl(URL(string: content)!)!
+                let i = InfoItem(type: type, content: url.path)
                 items.append(i)
 
             case .Title:
-                let locale = NSLocale(localeIdentifier: "cs-cz")
+                let locale = Locale(identifier: "cs-cz")
                 let i = InfoItem(type: type,
-                    content: content.uppercaseStringWithLocale(locale))
+                    content: content.uppercased(with: locale))
                 items.append(i)
 
             default:

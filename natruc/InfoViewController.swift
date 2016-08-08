@@ -48,10 +48,10 @@ internal final class InfoViewController: UIViewController {
         webLabel.textColor = Natruc.white
         webContent.textColor = Natruc.white
 
-        if let version = NSBundle.mainBundle()
-            .objectForInfoDictionaryKey("CFBundleShortVersionString") as? String,
-            let build = NSBundle.mainBundle()
-                .objectForInfoDictionaryKey("CFBundleVersion") as? String {
+        if let version = Bundle.main
+            .object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String,
+            let build = Bundle.main
+                .object(forInfoDictionaryKey: "CFBundleVersion") as? String {
 
                 versionContent.text = "\(version) (\(build))"
 
@@ -68,13 +68,13 @@ internal final class InfoViewController: UIViewController {
 
     //MARK: Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
 
         if segue.identifier == imageSegue {
 
-            if let c = segue.destinationViewController as? ImageViewController {
+            if let c = segue.destination as? ImageViewController {
 
-                let item = viewModel.items[tableView.indexPathForSelectedRow!.row]
+                let item = viewModel.items[(tableView.indexPathForSelectedRow! as NSIndexPath).row]
                 c.image = UIImage(contentsOfFile: item.content)
 
             } else {
@@ -83,23 +83,23 @@ internal final class InfoViewController: UIViewController {
         }
     }
 
-    @IBAction func prepareForUnwindSegue(segue: UIStoryboardSegue) {
+    @IBAction func prepareForUnwindSegue(_ segue: UIStoryboardSegue) {
 
     }
 
     //MARK: Actions
 
-    @IBAction func facebookTapped(sender: UITapGestureRecognizer) {
+    @IBAction func facebookTapped(_ sender: UITapGestureRecognizer) {
 
-        if let url = NSURL(string: "https://www.facebook.com/112926885403019") {
+        if let url = URL(string: "https://www.facebook.com/112926885403019") {
 
-            UIApplication.sharedApplication().openURL(url)
+            UIApplication.shared.openURL(url)
         }
     }
 
-    @IBAction func webTapped(sender: UITapGestureRecognizer) {
+    @IBAction func webTapped(_ sender: UITapGestureRecognizer) {
 
-        UIApplication.sharedApplication().openURL(NSURL(string: "http://www.natruc.eu/")!)
+        UIApplication.shared.openURL(URL(string: "http://www.natruc.eu/")!)
     }
 
 }
@@ -108,16 +108,16 @@ extension InfoViewController: UITableViewDataSource {
 
     //MARK: Table View Data Source
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return viewModel.items.count
     }
 
-    func tableView(tableView: UITableView,
-        cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let item = viewModel.items[indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier(item.type.rawValue)!
+        let item = viewModel.items[(indexPath as NSIndexPath).row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: item.type.rawValue)!
         if let c = cell as? InfoCell {
 
             c.setContent(item)
@@ -133,19 +133,19 @@ extension InfoViewController: UITableViewDelegate {
 
     //MARK: Table View Delegate
 
-    func tableView(tableView: UITableView,
-        willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+    func tableView(_ tableView: UITableView,
+        willSelectRowAt indexPath: IndexPath) -> IndexPath? {
 
-        let item = viewModel.items[indexPath.row]
+        let item = viewModel.items[(indexPath as NSIndexPath).row]
         if item.type == .Image {
             return indexPath
         } else {
-            return .None
+            return .none
         }
     }
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        performSegueWithIdentifier(imageSegue, sender: .None)
+        performSegue(withIdentifier: imageSegue, sender: .none)
     }
 }

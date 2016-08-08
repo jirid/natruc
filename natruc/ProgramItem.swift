@@ -9,9 +9,9 @@
 import Foundation
 
 internal enum Color: Int {
-    case Blue = 1
-    case Red = 0
-    case Green = 2
+    case blue = 1
+    case red = 0
+    case green = 2
 }
 
 internal struct ProgramItem {
@@ -19,12 +19,12 @@ internal struct ProgramItem {
     let brief: String
     let dark: Bool
     let description: String
-    let image: NSURL?
-    let web: NSURL?
-    let facebook: NSURL?
-    let youtube: NSURL?
-    let start: NSDate
-    let end: NSDate
+    let image: URL?
+    let web: URL?
+    let facebook: URL?
+    let youtube: URL?
+    let start: Date
+    let end: Date
     let color: Color
     let stage: String
 
@@ -48,10 +48,10 @@ internal struct ProgramItem {
     }
 
     func time() -> String {
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "HH':'mm"
-        let s = formatter.stringFromDate(start)
-        let e = formatter.stringFromDate(end)
+        let s = formatter.string(from: start)
+        let e = formatter.string(from: end)
         return "\(s) - \(e)"
     }
 }

@@ -18,7 +18,7 @@ internal final class InfoTextCell: InfoCell {
         textView.textColor = Natruc.black
     }
 
-    override func setContent(content: InfoItem) {
+    override func setContent(_ content: InfoItem) {
 
         textView.text = content.content
     }

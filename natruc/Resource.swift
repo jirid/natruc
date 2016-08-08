@@ -36,58 +36,58 @@ internal enum Resource: String {
 
 internal final class ResourceLoader {
     
-    private let session = NSURLSession(configuration: NSURLSessionConfiguration.ephemeralSessionConfiguration())
+    private let session = URLSession(configuration: URLSessionConfiguration.ephemeral)
     
     // base URLs
-    private let remoteBaseURL = NSURL(string: "https://natruc.korejtko.cz/app/ios/")!
-    private let localBaseURL: NSURL
+    private let remoteBaseURL = URL(string: "https://natruc.korejtko.cz/app/ios/")!
+    private let localBaseURL: URL
     
     // hash
-    private func getHash(resource: Resource) -> String {
-        return NSUserDefaults.standardUserDefaults().stringForKey(resource.rawValue) ?? resource.hash
+    private func getHash(_ resource: Resource) -> String {
+        return UserDefaults.standard.string(forKey: resource.rawValue) ?? resource.hash
     }
     
-    private func setHash(resource: Resource, hash: String) {
-        NSUserDefaults.standardUserDefaults().setObject(hash, forKey: resource.rawValue)
-        NSUserDefaults.standardUserDefaults().synchronize()
+    private func setHash(_ resource: Resource, hash: String) {
+        UserDefaults.standard.set(hash, forKey: resource.rawValue)
+        UserDefaults.standard.synchronize()
     }
     
     // last check
     
-    private var lastUpdateCheck: NSTimeInterval {
+    private var lastUpdateCheck: TimeInterval {
         get {
-            return NSUserDefaults.standardUserDefaults().doubleForKey("lastUpdateCheck")
+            return UserDefaults.standard.double(forKey: "lastUpdateCheck")
         }
         set {
-            NSUserDefaults.standardUserDefaults().setDouble(newValue, forKey: "lastUpdateCheck")
-            NSUserDefaults.standardUserDefaults().synchronize()
+            UserDefaults.standard.set(newValue, forKey: "lastUpdateCheck")
+            UserDefaults.standard.synchronize()
         }
     }
     
     // URL constructors
-    private func url(resource: Resource, @noescape combinator: (String, String) -> NSURL?) -> NSURL? {
+    private func url(_ resource: Resource, combinator: @noescape (String, String) -> URL?) -> URL? {
         return combinator(resource.rawValue, resource.ext)
     }
     
-    internal func localUrl(resource: Resource) -> NSURL? {
-        return url(resource) { localBaseURL.URLByAppendingPathComponent($0).URLByAppendingPathExtension($1) }
+    internal func localUrl(_ resource: Resource) -> URL? {
+        return url(resource) { localBaseURL.appendingPathComponent($0).appendingPathExtension($1) }
     }
     
-    private func remoteUrl(resource: Resource) -> NSURL? {
-        return url(resource) { remoteBaseURL.URLByAppendingPathComponent($0).URLByAppendingPathExtension($1) }
+    private func remoteUrl(_ resource: Resource) -> URL? {
+        return url(resource) { remoteBaseURL.appendingPathComponent($0).appendingPathExtension($1) }
     }
     
-    private func bundleUrl(resource: Resource) -> NSURL? {
-        return url(resource) { NSBundle.mainBundle().URLForResource($0, withExtension: $1) }
+    private func bundleUrl(_ resource: Resource) -> URL? {
+        return url(resource) { Bundle.main.url(forResource: $0, withExtension: $1) }
     }
     
     // initializers
     internal init() {
         
         // init local storage
-        localBaseURL = NSFileManager.defaultManager().URLsForDirectory(.CachesDirectory, inDomains: .UserDomainMask).first!.URLByAppendingPathComponent("natruc")
-        if !NSFileManager.defaultManager().fileExistsAtPath(localBaseURL.path!) {
-            let _ = try? NSFileManager.defaultManager().createDirectoryAtURL(localBaseURL, withIntermediateDirectories: true, attributes: nil)
+        localBaseURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!.appendingPathComponent("natruc")
+        if !FileManager.default.fileExists(atPath: localBaseURL.path) {
+            let _ = try? FileManager.default.createDirectory(at: localBaseURL, withIntermediateDirectories: true, attributes: nil)
         }
     }
     
@@ -97,40 +97,40 @@ internal final class ResourceLoader {
         initResource(.Info)
     }
     
-    private func initResource(resource: Resource) {
+    private func initResource(_ resource: Resource) {
         guard let lBands = localUrl(resource), let bBands = bundleUrl(resource) else {
             fatalError("missing bundle data")
         }
-        if !NSFileManager.defaultManager().fileExistsAtPath(lBands.path!) {
-            try! NSFileManager.defaultManager().copyItemAtURL(bBands, toURL: lBands)
+        if !FileManager.default.fileExists(atPath: lBands.path) {
+            try! FileManager.default.copyItem(at: bBands, to: lBands)
         }
     }
     
     internal func updateIfNeeded() {
-        let now = NSDate().timeIntervalSince1970
+        let now = Date().timeIntervalSince1970
         if lastUpdateCheck <= now - Components.shared.updateInterval || now < lastUpdateCheck {
             lastUpdateCheck = now
-            dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)) {
+            DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
                 self.updateResourceIfNeeded(.Info) {
                     if $0 {
                         Components.shared.model.loadInfo()
-                        dispatch_async(dispatch_get_main_queue()) {
-                            NSNotificationCenter.defaultCenter().postNotificationName(Model.dataLoadedNotification, object: self)
+                        DispatchQueue.main.async {
+                            NotificationCenter.default.post(name: Notification.Name(rawValue: Model.dataLoadedNotification), object: self)
                         }
                     }
                 }
                 self.updateResourceIfNeeded(.Map) {
                     if $0 {
-                        dispatch_async(dispatch_get_main_queue()) {
-                            NSNotificationCenter.defaultCenter().postNotificationName(Model.dataLoadedNotification, object: self)
+                        DispatchQueue.main.async {
+                            NotificationCenter.default.post(name: Notification.Name(rawValue: Model.dataLoadedNotification), object: self)
                         }
                     }
                 }
                 self.updateResourceIfNeeded(.Bands) {
                     if $0 {
                         Components.shared.model.loadBands()
-                        dispatch_async(dispatch_get_main_queue()) {
-                            NSNotificationCenter.defaultCenter().postNotificationName(Model.dataLoadedNotification, object: self)
+                        DispatchQueue.main.async {
+                            NotificationCenter.default.post(name: Notification.Name(rawValue: Model.dataLoadedNotification), object: self)
                         }
                     }
                 }
@@ -138,9 +138,9 @@ internal final class ResourceLoader {
         }
     }
     
-    private func updateResourceIfNeeded(resource: Resource, completion: (Bool) -> ()) {
+    private func updateResourceIfNeeded(_ resource: Resource, completion: (Bool) -> ()) {
         let complete = {
-            dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)) {
+            DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
                 completion(false)
             }
         }
@@ -148,11 +148,11 @@ internal final class ResourceLoader {
             complete()
             return
         }
-        let request = NSMutableURLRequest(URL: remoteUrl)
-        request.HTTPMethod = "HEAD"
-        let task = session.dataTaskWithRequest(request) {
+        let request = NSMutableURLRequest(url: remoteUrl)
+        request.httpMethod = "HEAD"
+        let task = session.dataTask(with: request as URLRequest) {
             (data, response, error) in
-            if error == nil, let response = response as? NSHTTPURLResponse where response.statusCode == 200, let remoteHash = response.allHeaderFields["Content-Hash"] as? String {
+            if error == nil, let response = response as? HTTPURLResponse, response.statusCode == 200, let remoteHash = response.allHeaderFields["Content-Hash"] as? String {
                 let localHash = self.getHash(resource)
                 if remoteHash == localHash {
                     complete()
@@ -166,23 +166,23 @@ internal final class ResourceLoader {
         task.resume()
     }
     
-    private func updateResource(resource: Resource, completion: (Bool) -> ()) {
+    private func updateResource(_ resource: Resource, completion: (Bool) -> ()) {
         let complete: (Bool) -> () = {
             result in
-            dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)) {
+            DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
                 completion(result)
             }
         }
-        guard let remoteUrl = remoteUrl(resource), localUrl = localUrl(resource) else {
+        guard let remoteUrl = remoteUrl(resource), let localUrl = localUrl(resource) else {
             complete(false)
             return
         }
-        let request = NSMutableURLRequest(URL: remoteUrl)
-        request.HTTPMethod = "GET"
-        let task = session.dataTaskWithRequest(request) {
+        let request = NSMutableURLRequest(url: remoteUrl)
+        request.httpMethod = "GET"
+        let task = session.dataTask(with: request as URLRequest) {
             (data, response, error) in
-            if error == nil, let response = response as? NSHTTPURLResponse where response.statusCode == 200, let hash = response.allHeaderFields["Content-Hash"] as? String, let data = data {
-                data.writeToURL(localUrl, atomically: true)
+            if error == nil, let response = response as? HTTPURLResponse, response.statusCode == 200, let hash = response.allHeaderFields["Content-Hash"] as? String, let data = data {
+                try? data.write(to: localUrl, options: [.atomic])
                 self.setHash(resource, hash: hash)
                 complete(true)
             } else {
@@ -192,35 +192,29 @@ internal final class ResourceLoader {
         task.resume()
     }
     
-    private func parseURL(url: NSURL) -> (String, String)? {
-        if let ext = url.pathExtension, let tmp = url.URLByDeletingPathExtension, let name = tmp.lastPathComponent {
-            return (name, ext)
-        } else {
-            return nil
-        }
+    private func parseURL(_ url: URL) -> (String, String) {
+        return (url.deletingPathExtension().lastPathComponent, url.pathExtension)
     }
     
-    private func downloadResource(localUrl: NSURL, remoteUrl: NSURL) {
-        let request = NSMutableURLRequest(URL: remoteUrl)
-        request.HTTPMethod = "GET"
-        let task = session.dataTaskWithRequest(request) {
+    private func downloadResource(_ localUrl: URL, remoteUrl: URL) {
+        let request = NSMutableURLRequest(url: remoteUrl)
+        request.httpMethod = "GET"
+        let task = session.dataTask(with: request as URLRequest) {
             (data, response, error) in
-            if error == nil, let response = response as? NSHTTPURLResponse where response.statusCode == 200, let data = data {
-                data.writeToURL(localUrl, atomically: true)
+            if error == nil, let response = response as? HTTPURLResponse, response.statusCode == 200, let data = data {
+                try? data.write(to: localUrl, options: [.atomic])
             }
         }
         task.resume()
     }
     
-    internal func localUrlForRemoteUrl(url: NSURL) -> NSURL? {
-        guard let (name, ext) = parseURL(url) else {
-            return nil
-        }
-        if let bundleUrl = NSBundle.mainBundle().URLForResource(name, withExtension: ext) {
+    internal func localUrlForRemoteUrl(_ url: URL) -> URL? {
+        let (name, ext) = parseURL(url)
+        if let bundleUrl = Bundle.main.url(forResource: name, withExtension: ext) {
             return bundleUrl
         }
-        let localUrl = localBaseURL.URLByAppendingPathComponent(name).URLByAppendingPathExtension(ext)
-        if !NSFileManager.defaultManager().fileExistsAtPath(localUrl.path!) {
+        let localUrl = localBaseURL.appendingPathComponent(name).appendingPathExtension(ext)
+        if !FileManager.default.fileExists(atPath: localUrl.path) {
             downloadResource(localUrl, remoteUrl: url)
         }
         return localUrl
