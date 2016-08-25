@@ -12,11 +12,11 @@ internal final class ProgramViewController: UIViewController {
 
     //MARK: Properties
 
-    private let viewModel = Components.shared.programViewModel()
-    private let detailSegue = "ShowDetail"
-    private let stageCell = "stage"
-    private let bandCell = "band"
-    private let footerCell = "footer"
+    fileprivate let viewModel = Components.shared.programViewModel()
+    fileprivate let detailSegue = "ShowDetail"
+    fileprivate let stageCell = "stage"
+    fileprivate let bandCell = "band"
+    fileprivate let footerCell = "footer"
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -37,7 +37,7 @@ internal final class ProgramViewController: UIViewController {
 
     //MARK: Navigation
 
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if segue.identifier == detailSegue {
 

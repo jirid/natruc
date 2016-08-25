@@ -74,9 +74,9 @@ internal final class Model {
         let jsonStages = json["stages" as NSString] as! NSArray
         let jsonBands = json["bands" as NSString] as! NSArray
 
-        for j in jsonStages {
+        for l in jsonStages {
 
-            guard let name = j["name" as NSString] as? String else {
+            guard let j = l as? NSDictionary, let name = j["name" as NSString] as? String else {
                 continue
             }
 

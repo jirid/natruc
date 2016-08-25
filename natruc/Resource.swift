@@ -13,7 +13,7 @@ internal enum Resource: String {
     case Bands = "bands"
     case Map = "map"
     
-    private var ext: String {
+    fileprivate var ext: String {
         switch self {
         case .Info, .Bands:
             return "json"
@@ -22,7 +22,7 @@ internal enum Resource: String {
         }
     }
     
-    private var hash: String {
+    fileprivate var hash: String {
         switch self {
         case .Info:
             return "b9371ce9ec01318151d928714ab5378fae363f9f67a238e48c9ab49da3a3e9dd"
@@ -65,7 +65,7 @@ internal final class ResourceLoader {
     }
     
     // URL constructors
-    private func url(_ resource: Resource, combinator: @noescape (String, String) -> URL?) -> URL? {
+    private func url(_ resource: Resource, combinator: (String, String) -> URL?) -> URL? {
         return combinator(resource.rawValue, resource.ext)
     }
     
@@ -138,7 +138,7 @@ internal final class ResourceLoader {
         }
     }
     
-    private func updateResourceIfNeeded(_ resource: Resource, completion: (Bool) -> ()) {
+    private func updateResourceIfNeeded(_ resource: Resource, completion: @escaping (Bool) -> ()) {
         let complete = {
             DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
                 completion(false)
@@ -166,7 +166,7 @@ internal final class ResourceLoader {
         task.resume()
     }
     
-    private func updateResource(_ resource: Resource, completion: (Bool) -> ()) {
+    private func updateResource(_ resource: Resource, completion: @escaping (Bool) -> ()) {
         let complete: (Bool) -> () = {
             result in
             DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {

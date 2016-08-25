@@ -12,7 +12,7 @@ internal final class InfoViewController: UIViewController {
 
     //MARK: Properties
 
-    private let viewModel = Components.shared.infoViewModel()
+    fileprivate let viewModel = Components.shared.infoViewModel()
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var aboutView: UIView!
@@ -26,7 +26,7 @@ internal final class InfoViewController: UIViewController {
     @IBOutlet weak var webLabel: UILabel!
     @IBOutlet weak var webContent: UILabel!
 
-    private let imageSegue = "ShowImage"
+    fileprivate let imageSegue = "ShowImage"
 
     //MARK: View Lifecycle
 
@@ -68,7 +68,7 @@ internal final class InfoViewController: UIViewController {
 
     //MARK: Navigation
 
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if segue.identifier == imageSegue {
 

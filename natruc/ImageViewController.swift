@@ -32,7 +32,7 @@ internal class ImageViewController: UIViewController {
     }
 
     private var chromeVisible = true
-    private var initializing = true
+    fileprivate var initializing = true
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
@@ -115,7 +115,7 @@ internal class ImageViewController: UIViewController {
         return max(0.5, midScale())
     }
 
-    private func hideChrome() {
+    fileprivate func hideChrome() {
 
         if chromeVisible {
             chromeVisible = false

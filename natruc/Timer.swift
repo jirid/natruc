@@ -13,7 +13,7 @@ internal final class Timer {
     var timer: Foundation.Timer?
     let callback: () -> ()
 
-    internal init(interval: TimeInterval, callback: () -> ()) {
+    internal init(interval: TimeInterval, callback: @escaping () -> ()) {
 
         self.callback = callback
         timer = Foundation.Timer.scheduledTimer(timeInterval: interval, target: self,

@@ -88,7 +88,7 @@ internal final class NowViewController: UIViewController {
 
     //MARK: Navigation
 
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if segue.identifier == detailSegue {
 

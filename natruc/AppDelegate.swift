@@ -13,7 +13,7 @@ final class AppDelegate: UIResponder {
 
     var window: UIWindow?
 
-    private func customizeAppearance() {
+    fileprivate func customizeAppearance() {
 
         UITabBar.appearance().tintColor = Natruc.activeGray
         UITabBar.appearance().backgroundColor = Natruc.backgroundGray
@@ -24,7 +24,7 @@ final class AppDelegate: UIResponder {
 extension AppDelegate: UIApplicationDelegate {
 
     func application(_ application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         Components.shared.resources.load()
         Components.shared.model.load()
