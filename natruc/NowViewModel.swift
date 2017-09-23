@@ -22,7 +22,7 @@ internal final class NowViewModel {
     private var start: Date?
     private var end: Date?
 
-    internal var dataChanged: ((Void) -> Void)?
+    internal var dataChanged: (() -> Void)?
 
     internal init(model: Model) {
 

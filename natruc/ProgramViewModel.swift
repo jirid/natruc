@@ -13,7 +13,7 @@ internal final class ProgramViewModel {
 
     private let model: Model
 
-    internal var dataChanged: ((Void) -> Void)?
+    internal var dataChanged: (() -> ())?
 
     internal var stages: [String]
     private var items: [[ProgramItem]]

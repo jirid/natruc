@@ -12,7 +12,7 @@ internal final class InfoViewModel {
 
     private let model: Model
 
-    internal var dataChanged: ((Void) -> Void)?
+    internal var dataChanged: (() -> Void)?
 
     internal var items: [InfoItem]
 

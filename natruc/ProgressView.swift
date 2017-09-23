@@ -85,8 +85,8 @@ internal final class ProgressView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = color
         label.adjustsFontSizeToFitWidth = true
-        label.setContentCompressionResistancePriority(1000, for: .horizontal)
-        label.setContentCompressionResistancePriority(1000, for: .vertical)
+        label.setContentCompressionResistancePriority(.required, for: .horizontal)
+        label.setContentCompressionResistancePriority(.required, for: .vertical)
         addSubview(label)
 
         return label
