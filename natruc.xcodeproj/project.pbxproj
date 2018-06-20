@@ -44,7 +44,6 @@
 		4836AFEA1B47DFB70012914B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4836AFE91B47DFB70012914B /* Images.xcassets */; };
 		4836AFED1B47DFB70012914B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4836AFEB1B47DFB70012914B /* LaunchScreen.xib */; };
 		4836B0061B47E0AF0012914B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4836B0041B47E0AF0012914B /* Localizable.strings */; };
-		4836B0081B47E3FC0012914B /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 4836B0071B47E3FC0012914B /* iTunesArtwork@2x */; };
 		4836B03B1B47ED6E0012914B /* NowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836B03A1B47ED6E0012914B /* NowViewController.swift */; };
 		4836B03D1B47ED7F0012914B /* ProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836B03C1B47ED7F0012914B /* ProgramViewController.swift */; };
 		4836B03F1B47ED8E0012914B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836B03E1B47ED8E0012914B /* DetailViewController.swift */; };
@@ -152,7 +151,6 @@
 		4836B0021B47E00E0012914B /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Main.strings; sourceTree = "<group>"; };
 		4836B0031B47E00E0012914B /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4836B0051B47E0AF0012914B /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
-		4836B0071B47E3FC0012914B /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		4836B0391B47EC9B0012914B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4836B03A1B47ED6E0012914B /* NowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowViewController.swift; sourceTree = "<group>"; };
 		4836B03C1B47ED7F0012914B /* ProgramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramViewController.swift; sourceTree = "<group>"; };
@@ -264,7 +262,6 @@
 		4836AFE01B47DFB70012914B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4836B0071B47E3FC0012914B /* iTunesArtwork@2x */,
 				4836AFE11B47DFB70012914B /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -446,7 +443,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Jiri Dutkevic";
 				TargetAttributes = {
 					4836AFDC1B47DFB70012914B = {
@@ -503,7 +500,6 @@
 				48164B821D4343CC006134CB /* arakain.jpg in Resources */,
 				489458CF1B517B3100105A6B /* info-mapka-autem.png in Resources */,
 				48164B991D4343CC006134CB /* sekjsibombonky.jpg in Resources */,
-				4836B0081B47E3FC0012914B /* iTunesArtwork@2x in Resources */,
 				48164B9B1D4343CC006134CB /* stripesofglory.jpg in Resources */,
 				48164B971D4343CC006134CB /* psh.jpg in Resources */,
 				48164B871D4343CC006134CB /* chinashopbull.jpg in Resources */,
@@ -663,12 +659,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -717,12 +715,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
