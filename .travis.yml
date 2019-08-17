@@ -1,5 +1,5 @@
-language: objective-c
+language: swift
 xcode_workspace: natruc.xcworkspace
 xcode_scheme: natruc
-osx_image: xcode9.0
-xcode_sdk: iphonesimulator11.0
+osx_image: xcode10.3
+xcode_sdk: iphonesimulator12.4
