@@ -54,19 +54,19 @@ internal final class NowViewController: UIViewController {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self,
             selector: #selector(NowViewController.activate),
-            name: NSNotification.Name.UIApplicationDidBecomeActive, object: .none)
+            name: UIApplication.didBecomeActiveNotification, object: .none)
         NotificationCenter.default.addObserver(self,
             selector: #selector(NowViewController.deactivate),
-            name: NSNotification.Name.UIApplicationWillResignActive, object: .none)
+            name: UIApplication.willResignActiveNotification, object: .none)
         activate()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         NotificationCenter.default.removeObserver(self,
-            name: NSNotification.Name.UIApplicationDidBecomeActive, object: .none)
+            name: UIApplication.didBecomeActiveNotification, object: .none)
         NotificationCenter.default.removeObserver(self,
-            name: NSNotification.Name.UIApplicationWillResignActive, object: .none)
+            name: UIApplication.willResignActiveNotification, object: .none)
         deactivate()
     }
 

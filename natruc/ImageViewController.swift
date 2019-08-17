@@ -79,10 +79,10 @@ internal class ImageViewController: UIViewController {
 
     private func setUpImage(_ image: UIImage) {
         imageView.image = image
-        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .width,
+        imageView.addConstraint(NSLayoutConstraint(item: imageView!, attribute: .width,
             relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1.0,
             constant: image.size.width))
-        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .height,
+        imageView.addConstraint(NSLayoutConstraint(item: imageView!, attribute: .height,
             relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1.0,
             constant: image.size.height))
     }

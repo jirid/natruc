@@ -28,7 +28,7 @@ internal final class InfoImageCell: InfoCell {
 
     override func updateConstraints() {
         if let i = imgView.image {
-            let c = NSLayoutConstraint(item: imgView, attribute: .width, relatedBy: .equal,
+            let c = NSLayoutConstraint(item: imgView!, attribute: .width, relatedBy: .equal,
                 toItem: imgView, attribute: .height, multiplier: i.size.width / i.size.height,
                 constant: 0)
             imgView.addConstraint(c)

@@ -26,7 +26,7 @@ internal final class ProgramViewController: UIViewController {
         super.viewDidLoad()
 
         tableView.backgroundColor = Natruc.backgroundBlue
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44.0
 
         viewModel.dataChanged = {

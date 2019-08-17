@@ -34,7 +34,7 @@ internal final class InfoViewController: UIViewController {
         super.viewDidLoad()
 
         tableView.backgroundColor = Natruc.backgroundBlue
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44.0
 
         aboutView.backgroundColor = Natruc.backgroundBlue
@@ -93,13 +93,13 @@ internal final class InfoViewController: UIViewController {
 
         if let url = URL(string: "https://www.facebook.com/112926885403019") {
 
-            UIApplication.shared.openURL(url)
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
 
     @IBAction func webTapped(_ sender: UITapGestureRecognizer) {
 
-        UIApplication.shared.openURL(URL(string: "http://www.natruc.eu/")!)
+        UIApplication.shared.open(URL(string: "http://www.natruc.eu/")!, options: [:], completionHandler: nil)
     }
 
 }

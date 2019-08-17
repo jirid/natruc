@@ -55,19 +55,19 @@ internal final class DetailViewController: UIViewController {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self,
             selector: #selector(DetailViewController.activate),
-            name: NSNotification.Name.UIApplicationDidBecomeActive, object: .none)
+            name: UIApplication.didBecomeActiveNotification, object: .none)
         NotificationCenter.default.addObserver(self,
             selector: #selector(DetailViewController.deactivate),
-            name: NSNotification.Name.UIApplicationWillResignActive, object: .none)
+            name: UIApplication.willResignActiveNotification, object: .none)
         activate()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         NotificationCenter.default.removeObserver(self,
-            name: NSNotification.Name.UIApplicationDidBecomeActive, object: .none)
+            name: UIApplication.didBecomeActiveNotification, object: .none)
         NotificationCenter.default.removeObserver(self,
-            name: NSNotification.Name.UIApplicationWillResignActive, object: .none)
+            name: UIApplication.willResignActiveNotification, object: .none)
         deactivate()
     }
 
@@ -107,19 +107,19 @@ internal final class DetailViewController: UIViewController {
 
     @IBAction func webButtonTapped(_ sender: UIButton) {
         if let url = item.web {
-            UIApplication.shared.openURL(url as URL)
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
     }
 
     @IBAction func facebookButtonTapped(_ sender: UIButton) {
         if let url = item.facebook {
-            UIApplication.shared.openURL(url as URL)
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
     }
 
     @IBAction func youtubeButtonTapped(_ sender: UIButton) {
         if let url = item.youtube {
-            UIApplication.shared.openURL(url as URL)
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
     }
 
@@ -150,12 +150,12 @@ internal final class DetailViewController: UIViewController {
         if dark {
 
             let image = UIImage(named: "backdark")
-            backButton.setImage(image, for: UIControlState())
+            backButton.setImage(image, for: UIControl.State())
 
         } else {
 
             let image = UIImage(named: "backlight")
-            backButton.setImage(image, for: UIControlState())
+            backButton.setImage(image, for: UIControl.State())
         }
 
         let tmp = (item.image?.path).flatMap {
@@ -164,7 +164,7 @@ internal final class DetailViewController: UIViewController {
         if let img = tmp {
 
             imageView.image = img
-            imageView.addConstraint(NSLayoutConstraint(item: imageView,
+            imageView.addConstraint(NSLayoutConstraint(item: imageView!,
                 attribute: .width, relatedBy: .equal, toItem: imageView,
                 attribute: .height,
                 multiplier: img.size.width / img.size.height, constant: 0))
@@ -189,7 +189,7 @@ internal final class DetailViewController: UIViewController {
 
     private func configureLinkButton(_ button: UIButton, enabled: Bool) {
 
-        button.setTitleColor(Natruc.white, for: UIControlState())
+        button.setTitleColor(Natruc.white, for: .normal)
         button.setTitleColor(Natruc.yellow, for: .highlighted)
         button.isEnabled = enabled
         button.setTitleColor(Natruc.foregroundGray, for: .disabled)

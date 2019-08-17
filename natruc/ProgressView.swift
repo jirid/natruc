@@ -72,7 +72,7 @@ internal final class ProgressView: UIView {
         if let c = progressConstraint {
             removeConstraint(c)
         }
-        let c = NSLayoutConstraint(item: darkView, attribute: .width, relatedBy: .equal,
+        let c = NSLayoutConstraint(item: darkView!, attribute: .width, relatedBy: .equal,
             toItem: self, attribute: .width, multiplier: CGFloat(progress), constant: 0)
         addConstraint(c)
         progressConstraint = c
@@ -102,7 +102,7 @@ internal final class ProgressView: UIView {
             options: [], metrics: .none, views: views))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-15-[stage]-[time]-15-|",
             options: [], metrics: .none, views: views))
-        addConstraint(NSLayoutConstraint(item: timeLabel, attribute: .lastBaseline, relatedBy: .equal,
+        addConstraint(NSLayoutConstraint(item: timeLabel!, attribute: .lastBaseline, relatedBy: .equal,
             toItem: nameLabel, attribute: .lastBaseline, multiplier: 1, constant: 0))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[dark]|", options: [],
             metrics: .none, views: views))
