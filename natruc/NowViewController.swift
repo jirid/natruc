@@ -41,8 +41,8 @@ internal final class NowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Natruc.backgroundBlue
-        titleLabel.textColor = Natruc.white
-        subtitleLabel.textColor = Natruc.foregroundBlue
+        titleLabel.textColor = Natruc.red
+        subtitleLabel.textColor = Natruc.red
 
         viewModel.dataChanged = {
             [weak self] in

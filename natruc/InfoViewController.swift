@@ -37,16 +37,16 @@ internal final class InfoViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44.0
 
-        aboutView.backgroundColor = Natruc.backgroundBlue
-        aboutLabel.textColor = Natruc.yellow
+        aboutView.backgroundColor = Natruc.infoFooterBackground
+        aboutLabel.textColor = Natruc.backgroundBlue
         versionLabel.textColor = Natruc.white
         versionContent.textColor = Natruc.white
         authorsLabel.textColor = Natruc.white
         authorsContent.textColor = Natruc.white
         facebookLabel.textColor = Natruc.white
-        facebookContent.textColor = Natruc.white
+        facebookContent.textColor = Natruc.backgroundBlue
         webLabel.textColor = Natruc.white
-        webContent.textColor = Natruc.white
+        webContent.textColor = Natruc.backgroundBlue
 
         if let version = Bundle.main
             .object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String,

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11185.3" systemVersion="16A270f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11151.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,23 +16,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header2" translatesAutoresizingMaskIntoConstraints="NO" id="uJj-G0-BMg">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="204"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="204" id="1rK-CM-9Jd"/>
                     </constraints>
                 </imageView>
-                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NOO-pq-IkA">
-                    <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <items/>
-                </tabBar>
             </subviews>
-            <color key="backgroundColor" red="0.56470588235294117" green="0.76470588235294112" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.7241290807723999" green="0.86409670114517212" blue="0.96472173929214478" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="uJj-G0-BMg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2Vd-21-YWm"/>
-                <constraint firstItem="NOO-pq-IkA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5jc-aw-jRL"/>
                 <constraint firstAttribute="trailing" secondItem="uJj-G0-BMg" secondAttribute="trailing" id="CBI-pD-AzZ"/>
                 <constraint firstItem="uJj-G0-BMg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="DIY-01-ark"/>
-                <constraint firstAttribute="bottom" secondItem="NOO-pq-IkA" secondAttribute="bottom" id="RcH-YR-IaD"/>
-                <constraint firstAttribute="trailing" secondItem="NOO-pq-IkA" secondAttribute="trailing" id="awK-Ix-RdQ"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
