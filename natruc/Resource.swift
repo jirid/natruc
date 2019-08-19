@@ -25,11 +25,11 @@ internal enum Resource: String {
     fileprivate var hash: String {
         switch self {
         case .Info:
-            return "b9371ce9ec01318151d928714ab5378fae363f9f67a238e48c9ab49da3a3e9dd"
+            return "d957097e12425763718ea408b478e091347661ec73e81817be868cfa3cb49d93"
         case .Bands:
-            return "fe479c66ea5babb13cd97b0d62f075ceaee54e28027075fec6c86580ef29102c"
+            return "49e0e258890055769f758b999ccd8039ed027c3ac51c4ca9b97b83c650c0af23"
         case .Map:
-            return "b44c2ecc8907122dac284f7ae9eae84573a79230138ff624b98b58776d37acd9"
+            return "1161391ad97fba7014314281bebaac15787e2a12afe4ec6d033e3e5d2c072df4"
         }
     }
 }
