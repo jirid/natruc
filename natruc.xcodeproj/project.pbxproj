@@ -8,36 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		480801481B5C217500760566 /* NowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480801471B5C217500760566 /* NowViewModel.swift */; };
-		48164B821D4343CC006134CB /* arakain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B641D4343CC006134CB /* arakain.jpg */; };
-		48164B831D4343CC006134CB /* atmomusic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B651D4343CC006134CB /* atmomusic.jpg */; };
-		48164B841D4343CC006134CB /* basoxcrew.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B661D4343CC006134CB /* basoxcrew.jpg */; };
-		48164B851D4343CC006134CB /* blankout.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B671D4343CC006134CB /* blankout.jpg */; };
-		48164B861D4343CC006134CB /* brutalnijahoda.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B681D4343CC006134CB /* brutalnijahoda.jpg */; };
-		48164B871D4343CC006134CB /* chinashopbull.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B691D4343CC006134CB /* chinashopbull.jpg */; };
-		48164B881D4343CC006134CB /* danbarta.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B6A1D4343CC006134CB /* danbarta.jpg */; };
-		48164B891D4343CC006134CB /* fastfoodorchestra.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B6B1D4343CC006134CB /* fastfoodorchestra.jpg */; };
-		48164B8A1D4343CC006134CB /* hardtoframe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B6C1D4343CC006134CB /* hardtoframe.jpg */; };
-		48164B8B1D4343CC006134CB /* hentaicorporation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B6D1D4343CC006134CB /* hentaicorporation.jpg */; };
-		48164B8C1D4343CC006134CB /* insania.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B6E1D4343CC006134CB /* insania.jpg */; };
-		48164B8D1D4343CC006134CB /* k25a.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B6F1D4343CC006134CB /* k25a.jpg */; };
-		48164B8E1D4343CC006134CB /* killaflaw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B701D4343CC006134CB /* killaflaw.jpg */; };
-		48164B8F1D4343CC006134CB /* kozicky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B711D4343CC006134CB /* kozicky.jpg */; };
-		48164B901D4343CC006134CB /* krasnenovestroje.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B721D4343CC006134CB /* krasnenovestroje.jpg */; };
-		48164B911D4343CC006134CB /* mandrage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B731D4343CC006134CB /* mandrage.jpg */; };
-		48164B921D4343CC006134CB /* mangabej.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B741D4343CC006134CB /* mangabej.jpg */; };
-		48164B931D4343CC006134CB /* michalmalatny.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B751D4343CC006134CB /* michalmalatny.jpg */; };
-		48164B941D4343CC006134CB /* nanosfera.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B761D4343CC006134CB /* nanosfera.jpg */; };
-		48164B951D4343CC006134CB /* pekar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B771D4343CC006134CB /* pekar.jpg */; };
-		48164B961D4343CC006134CB /* pipesandpints.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B781D4343CC006134CB /* pipesandpints.jpg */; };
-		48164B971D4343CC006134CB /* psh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B791D4343CC006134CB /* psh.jpg */; };
-		48164B981D4343CC006134CB /* rybicky48.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B7A1D4343CC006134CB /* rybicky48.jpg */; };
-		48164B991D4343CC006134CB /* sekjsibombonky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B7B1D4343CC006134CB /* sekjsibombonky.jpg */; };
-		48164B9A1D4343CC006134CB /* silentscream.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B7C1D4343CC006134CB /* silentscream.jpg */; };
-		48164B9B1D4343CC006134CB /* stripesofglory.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B7D1D4343CC006134CB /* stripesofglory.jpg */; };
-		48164B9C1D4343CC006134CB /* tatabojs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B7E1D4343CC006134CB /* tatabojs.jpg */; };
-		48164B9D1D4343CC006134CB /* theagony.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B7F1D4343CC006134CB /* theagony.jpg */; };
-		48164B9E1D4343CC006134CB /* vautour.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B801D4343CC006134CB /* vautour.jpg */; };
-		48164B9F1D4343CC006134CB /* vladimirmisik.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48164B811D4343CC006134CB /* vladimirmisik.jpg */; };
 		4835FA211B4955DA003FCE7F /* Natruc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4835FA201B4955DA003FCE7F /* Natruc.swift */; };
 		4836AFE31B47DFB70012914B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836AFE21B47DFB70012914B /* AppDelegate.swift */; };
 		4836AFE81B47DFB70012914B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4836AFE61B47DFB70012914B /* Main.storyboard */; };
@@ -74,7 +44,6 @@
 		48DE497B1B52E3E3006D958A /* InfoTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DE49771B52E3E3006D958A /* InfoTitleCell.swift */; };
 		48DE497D1B52E4FB006D958A /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DE497C1B52E4FB006D958A /* InfoCell.swift */; };
 		48F0AC401B5A33800001424B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F0AC3F1B5A33800001424B /* NavigationController.swift */; };
-		C9431F051D4E936B00180E55 /* toadinthestone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9431F041D4E936A00180E55 /* toadinthestone.jpg */; };
 		C9C79C5E1D4E665C0014B11B /* NatrucUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C79C5D1D4E665C0014B11B /* NatrucUITests.swift */; };
 		C9C79C661D4E67720014B11B /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C79C651D4E67720014B11B /* SnapshotHelper.swift */; };
 /* End PBXBuildFile section */
@@ -111,36 +80,6 @@
 
 /* Begin PBXFileReference section */
 		480801471B5C217500760566 /* NowViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowViewModel.swift; sourceTree = "<group>"; };
-		48164B641D4343CC006134CB /* arakain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = arakain.jpg; sourceTree = "<group>"; };
-		48164B651D4343CC006134CB /* atmomusic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = atmomusic.jpg; sourceTree = "<group>"; };
-		48164B661D4343CC006134CB /* basoxcrew.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = basoxcrew.jpg; sourceTree = "<group>"; };
-		48164B671D4343CC006134CB /* blankout.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blankout.jpg; sourceTree = "<group>"; };
-		48164B681D4343CC006134CB /* brutalnijahoda.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = brutalnijahoda.jpg; sourceTree = "<group>"; };
-		48164B691D4343CC006134CB /* chinashopbull.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chinashopbull.jpg; sourceTree = "<group>"; };
-		48164B6A1D4343CC006134CB /* danbarta.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = danbarta.jpg; sourceTree = "<group>"; };
-		48164B6B1D4343CC006134CB /* fastfoodorchestra.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fastfoodorchestra.jpg; sourceTree = "<group>"; };
-		48164B6C1D4343CC006134CB /* hardtoframe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hardtoframe.jpg; sourceTree = "<group>"; };
-		48164B6D1D4343CC006134CB /* hentaicorporation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hentaicorporation.jpg; sourceTree = "<group>"; };
-		48164B6E1D4343CC006134CB /* insania.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = insania.jpg; sourceTree = "<group>"; };
-		48164B6F1D4343CC006134CB /* k25a.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = k25a.jpg; sourceTree = "<group>"; };
-		48164B701D4343CC006134CB /* killaflaw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = killaflaw.jpg; sourceTree = "<group>"; };
-		48164B711D4343CC006134CB /* kozicky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kozicky.jpg; sourceTree = "<group>"; };
-		48164B721D4343CC006134CB /* krasnenovestroje.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = krasnenovestroje.jpg; sourceTree = "<group>"; };
-		48164B731D4343CC006134CB /* mandrage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mandrage.jpg; sourceTree = "<group>"; };
-		48164B741D4343CC006134CB /* mangabej.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mangabej.jpg; sourceTree = "<group>"; };
-		48164B751D4343CC006134CB /* michalmalatny.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = michalmalatny.jpg; sourceTree = "<group>"; };
-		48164B761D4343CC006134CB /* nanosfera.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nanosfera.jpg; sourceTree = "<group>"; };
-		48164B771D4343CC006134CB /* pekar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pekar.jpg; sourceTree = "<group>"; };
-		48164B781D4343CC006134CB /* pipesandpints.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pipesandpints.jpg; sourceTree = "<group>"; };
-		48164B791D4343CC006134CB /* psh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = psh.jpg; sourceTree = "<group>"; };
-		48164B7A1D4343CC006134CB /* rybicky48.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rybicky48.jpg; sourceTree = "<group>"; };
-		48164B7B1D4343CC006134CB /* sekjsibombonky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sekjsibombonky.jpg; sourceTree = "<group>"; };
-		48164B7C1D4343CC006134CB /* silentscream.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = silentscream.jpg; sourceTree = "<group>"; };
-		48164B7D1D4343CC006134CB /* stripesofglory.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stripesofglory.jpg; sourceTree = "<group>"; };
-		48164B7E1D4343CC006134CB /* tatabojs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tatabojs.jpg; sourceTree = "<group>"; };
-		48164B7F1D4343CC006134CB /* theagony.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = theagony.jpg; sourceTree = "<group>"; };
-		48164B801D4343CC006134CB /* vautour.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vautour.jpg; sourceTree = "<group>"; };
-		48164B811D4343CC006134CB /* vladimirmisik.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vladimirmisik.jpg; sourceTree = "<group>"; };
 		4835FA201B4955DA003FCE7F /* Natruc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Natruc.swift; path = ../resources/Natruc.swift; sourceTree = "<group>"; };
 		4836AFDD1B47DFB70012914B /* natruc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = natruc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4836AFE11B47DFB70012914B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -184,7 +123,6 @@
 		48DE49771B52E3E3006D958A /* InfoTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTitleCell.swift; sourceTree = "<group>"; };
 		48DE497C1B52E4FB006D958A /* InfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		48F0AC3F1B5A33800001424B /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
-		C9431F041D4E936A00180E55 /* toadinthestone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = toadinthestone.jpg; sourceTree = "<group>"; };
 		C9C79C5B1D4E665C0014B11B /* NatrucUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NatrucUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C79C5D1D4E665C0014B11B /* NatrucUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NatrucUITests.swift; sourceTree = "<group>"; };
 		C9C79C5F1D4E665C0014B11B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -290,37 +228,6 @@
 		489458C61B517B3100105A6B /* images */ = {
 			isa = PBXGroup;
 			children = (
-				C9431F041D4E936A00180E55 /* toadinthestone.jpg */,
-				48164B641D4343CC006134CB /* arakain.jpg */,
-				48164B651D4343CC006134CB /* atmomusic.jpg */,
-				48164B661D4343CC006134CB /* basoxcrew.jpg */,
-				48164B671D4343CC006134CB /* blankout.jpg */,
-				48164B681D4343CC006134CB /* brutalnijahoda.jpg */,
-				48164B691D4343CC006134CB /* chinashopbull.jpg */,
-				48164B6A1D4343CC006134CB /* danbarta.jpg */,
-				48164B6B1D4343CC006134CB /* fastfoodorchestra.jpg */,
-				48164B6C1D4343CC006134CB /* hardtoframe.jpg */,
-				48164B6D1D4343CC006134CB /* hentaicorporation.jpg */,
-				48164B6E1D4343CC006134CB /* insania.jpg */,
-				48164B6F1D4343CC006134CB /* k25a.jpg */,
-				48164B701D4343CC006134CB /* killaflaw.jpg */,
-				48164B711D4343CC006134CB /* kozicky.jpg */,
-				48164B721D4343CC006134CB /* krasnenovestroje.jpg */,
-				48164B731D4343CC006134CB /* mandrage.jpg */,
-				48164B741D4343CC006134CB /* mangabej.jpg */,
-				48164B751D4343CC006134CB /* michalmalatny.jpg */,
-				48164B761D4343CC006134CB /* nanosfera.jpg */,
-				48164B771D4343CC006134CB /* pekar.jpg */,
-				48164B781D4343CC006134CB /* pipesandpints.jpg */,
-				48164B791D4343CC006134CB /* psh.jpg */,
-				48164B7A1D4343CC006134CB /* rybicky48.jpg */,
-				48164B7B1D4343CC006134CB /* sekjsibombonky.jpg */,
-				48164B7C1D4343CC006134CB /* silentscream.jpg */,
-				48164B7D1D4343CC006134CB /* stripesofglory.jpg */,
-				48164B7E1D4343CC006134CB /* tatabojs.jpg */,
-				48164B7F1D4343CC006134CB /* theagony.jpg */,
-				48164B801D4343CC006134CB /* vautour.jpg */,
-				48164B811D4343CC006134CB /* vladimirmisik.jpg */,
 				489458C71B517B3100105A6B /* info-mapka-autem.png */,
 				489458C81B517B3100105A6B /* info-mapka-pesi.png */,
 			);
@@ -489,44 +396,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48164B901D4343CC006134CB /* krasnenovestroje.jpg in Resources */,
-				48164B9C1D4343CC006134CB /* tatabojs.jpg in Resources */,
-				48164B951D4343CC006134CB /* pekar.jpg in Resources */,
-				48164B961D4343CC006134CB /* pipesandpints.jpg in Resources */,
-				48164B831D4343CC006134CB /* atmomusic.jpg in Resources */,
-				48164B8C1D4343CC006134CB /* insania.jpg in Resources */,
-				C9431F051D4E936B00180E55 /* toadinthestone.jpg in Resources */,
 				489458D41B517B3100105A6B /* map.jpg in Resources */,
-				48164B821D4343CC006134CB /* arakain.jpg in Resources */,
 				489458CF1B517B3100105A6B /* info-mapka-autem.png in Resources */,
-				48164B991D4343CC006134CB /* sekjsibombonky.jpg in Resources */,
-				48164B9B1D4343CC006134CB /* stripesofglory.jpg in Resources */,
-				48164B971D4343CC006134CB /* psh.jpg in Resources */,
-				48164B871D4343CC006134CB /* chinashopbull.jpg in Resources */,
 				489458D31B517B3100105A6B /* info.json in Resources */,
-				48164B851D4343CC006134CB /* blankout.jpg in Resources */,
-				48164B931D4343CC006134CB /* michalmalatny.jpg in Resources */,
 				4836AFE81B47DFB70012914B /* Main.storyboard in Resources */,
-				48164B891D4343CC006134CB /* fastfoodorchestra.jpg in Resources */,
-				48164B8F1D4343CC006134CB /* kozicky.jpg in Resources */,
 				4836B0061B47E0AF0012914B /* Localizable.strings in Resources */,
-				48164B8D1D4343CC006134CB /* k25a.jpg in Resources */,
-				48164B881D4343CC006134CB /* danbarta.jpg in Resources */,
-				48164B941D4343CC006134CB /* nanosfera.jpg in Resources */,
-				48164B9E1D4343CC006134CB /* vautour.jpg in Resources */,
-				48164B921D4343CC006134CB /* mangabej.jpg in Resources */,
-				48164B861D4343CC006134CB /* brutalnijahoda.jpg in Resources */,
 				4836AFED1B47DFB70012914B /* LaunchScreen.xib in Resources */,
-				48164B8A1D4343CC006134CB /* hardtoframe.jpg in Resources */,
-				48164B841D4343CC006134CB /* basoxcrew.jpg in Resources */,
-				48164B911D4343CC006134CB /* mandrage.jpg in Resources */,
-				48164B9F1D4343CC006134CB /* vladimirmisik.jpg in Resources */,
-				48164B9A1D4343CC006134CB /* silentscream.jpg in Resources */,
-				48164B8E1D4343CC006134CB /* killaflaw.jpg in Resources */,
-				48164B8B1D4343CC006134CB /* hentaicorporation.jpg in Resources */,
 				489458CE1B517B3100105A6B /* bands.json in Resources */,
-				48164B9D1D4343CC006134CB /* theagony.jpg in Resources */,
-				48164B981D4343CC006134CB /* rybicky48.jpg in Resources */,
 				4836AFEA1B47DFB70012914B /* Images.xcassets in Resources */,
 				489458D01B517B3100105A6B /* info-mapka-pesi.png in Resources */,
 			);
