@@ -1,0 +1,1 @@
+The application does not collect any data. To review, download the source code at https://github.com/jirid/natruc.
